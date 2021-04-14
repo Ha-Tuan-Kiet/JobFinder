@@ -22,13 +22,13 @@
                                         <li><a href="http://127.0.0.1:8000/about">About</a></li>
                                         <li><a href="#">Page</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                                <li><a href="job_details.html">job Details</a></li>
+                                                <li><a href="http://127.0.0.1:8000/blog">Blog</a></li>
+                                                <li><a href="http://127.0.0.1:8000/blogdetails">Blog Details</a></li>
+                                                <li><a href="http://127.0.0.1:8000/elements">Elements</a></li>
+                                                <li><a href="http://127.0.0.1:8000/jobdetails">job Details</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>          
