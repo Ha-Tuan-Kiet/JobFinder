@@ -29,6 +29,24 @@ Route::get('/findajob', function () {
 Route::get('/about', function () {
     return view('home.about');
 });
+Route::get('/blog', function () {
+    return view('home.blog');
+});
+Route::get('/blogdetails', function () {
+    return view('home.blogdetails');
+});
+Route::get('/elements', function () {
+    return view('home.elements');
+});
+Route::get('/jobdetails', function () {
+    return view('home.jobdetails');
+});
+Route::get('/contact', function () {
+    return view('home.contact');
+});
+Route::get('/userprofile', function () {
+    return view('user.userprofile');
+});
 
 
 Route::get('/users', function (){
