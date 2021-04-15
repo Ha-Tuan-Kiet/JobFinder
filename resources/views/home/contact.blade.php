@@ -9,11 +9,11 @@
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
                     <img src="{{ asset('bootstrap/img/logo/logo.png')}}" alt="">
+
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Hero Area Start-->
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{ asset('bootstrap/img/hero/about.jpg')}}">
@@ -170,5 +170,5 @@
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
         
     </body>
-    
+
 @endsection
