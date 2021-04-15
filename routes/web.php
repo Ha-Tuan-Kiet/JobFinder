@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\JobController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,14 +20,33 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home.mainpage');
-});
+Route::get('/',[JobController::class,'index']) ;
+// Route::get('/', function () {
+//     return view('home.mainpage');
+// });
 Route::get('/findajob', function () {
     return view('home.findajob');
 });
 Route::get('/about', function () {
     return view('home.about');
+});
+Route::get('/blog', function () {
+    return view('home.blog');
+});
+Route::get('/blogdetails', function () {
+    return view('home.blogdetails');
+});
+Route::get('/elements', function () {
+    return view('home.elements');
+});
+Route::get('/jobdetails', function () {
+    return view('home.jobdetails');
+});
+Route::get('/contact', function () {
+    return view('home.contact');
+});
+Route::get('/userprofile', function () {
+    return view('user.userprofile');
 });
 
 
