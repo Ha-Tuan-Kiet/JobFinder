@@ -22,6 +22,7 @@
             <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
+            
    </head>
 
    <body>
