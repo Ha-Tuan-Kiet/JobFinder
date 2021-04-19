@@ -1,6 +1,7 @@
 @extends('layouts.home')
 @section('content')
 
+
 <body>
     <!-- Preloader Start -->
     <div id="preloader-active">

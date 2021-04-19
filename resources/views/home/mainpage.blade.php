@@ -259,6 +259,7 @@
                                 </div>
                                 <div class="job-tittle">
                                     <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+
                                     <ul>
                                         <li>{{$job->name}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
