@@ -38,23 +38,25 @@
                     <!-- Left Content -->
                     <div class="col-xl-7 col-lg-8">
                         <!-- job single -->
+                        @foreach($jobsdata as $job)
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img src="{{ asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
+                                    <a href="#"><img src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
-                                        <h4>Digital Marketer</h4>
+                                        <h4>{{$job->position}}</h4>
                                     </a>
                                     <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
+                                        <li>{{$job->name}}</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
+                                        <li>{{$job->salary_min}} - {{$job->salary_max}} {{$job->salary_unit}}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                       
                           <!-- job single End -->
                        
                         <div class="job-post-details">
@@ -63,7 +65,7 @@
                                 <div class="small-section-tittle">
                                     <h4>Job Description</h4>
                                 </div>
-                                <p>It is a long established fact that a reader will beff distracted by vbthe creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters, as opposed to using, Content here content here making it look like readable.</p>
+                                <p>{{$job->details}}</p>
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
@@ -92,7 +94,7 @@
                                </ul>
                             </div>
                         </div>
-
+                        @endforeach
                     </div>
                     <!-- Right Content -->
                     <div class="col-xl-4 col-lg-4">

@@ -21,6 +21,8 @@ class UserCompanyFactory extends Factory
      */
     public function definition()
     {
+        static $order=1;
+        static $order2=1;
         return [
             'name' =>'Fpt Shop',
             'detail'=>$this->faker->realText(100),
@@ -28,11 +30,13 @@ class UserCompanyFactory extends Factory
             'image_cover'=>'',
             'address'=>'125 Phan Đăng Lưu',
             'website'=>'',
+            'email_company'=>$this->faker->unique()->safeEmail,
             'size'=>10,
-            'province_id'=>$this->faker->randomFloat(1,100),
+            'province_id'=>$order++,
             'contact_name'=>'Bao Duy',
             'is_active'=>true,
-            'user_id'=>$this->faker->randomFloat(1,100),
+            'user_id'=>$order2++,
+
             //
         ];
     }
