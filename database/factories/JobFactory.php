@@ -26,6 +26,8 @@ class JobFactory extends Factory
     {
 
         static $order = 1; 
+        static $order2 = 1; 
+        static $order3 = 1; 
         return [
             'position'=>$this->faker->text(),
             'application_email'=>$this->faker->words(3, true),
@@ -45,7 +47,8 @@ class JobFactory extends Factory
             'job_type'=>'Full-time',
             'requirement'=>'English ...',
             'education'=>'12/12',
-            'created_by'=>$order++,
+            'created_by'=>$order2++,
+            'career_id'=>$order3++,
             'is_active'=>true
             //
         ];
