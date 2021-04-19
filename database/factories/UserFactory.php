@@ -25,7 +25,7 @@ class UserFactory extends Factory
         return [
             
             'email' => $this->faker->unique()->safeEmail,
-            'password' => 'ABC123', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'user_type'=>$this->faker->randomFloat(1,5),
             'phone' => '0977881898',
             'first_name' => 'Duy',
