@@ -26,8 +26,7 @@ class Jobs extends Migration
             $table->char('salary_unit',50);
             $table->double('work_time',10,2);
             $table->char('address');
-            $table->dateTime('deadline_for_submission');
-            
+            $table->dateTime('deadline_for_submission');        
             $table->dateTime('created_on');
             $table->dateTime('update_on');
             $table->char('job_type');
@@ -36,6 +35,7 @@ class Jobs extends Migration
             $table->char('province_id',5)->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('career_id')->nullable();
+
             $table->boolean('is_active');
             $table->timestamps();
         });

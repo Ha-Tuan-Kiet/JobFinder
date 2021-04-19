@@ -26,7 +26,9 @@ class JobController extends Controller
         ->join('users','jobs.created_by','=','users.id')
         ->join('user_companies','user_companies.user_id','=','users.id')
         ->orderBy('jobs.update_on','desc')
+
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+
         ->take(10)
         ->get();
         // $result = (array) json_decode($jobsdata);
@@ -43,7 +45,6 @@ class JobController extends Controller
     public function create()
     {
         //
-        
     }
 
     /**
@@ -63,6 +64,7 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function showDetail($id)
     {
         $jobsdata = DB::table('jobs')
@@ -75,7 +77,6 @@ class JobController extends Controller
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
         ->get();
         return view('home.jobdetails',compact('jobsdata'));
-
     }
 
     /**

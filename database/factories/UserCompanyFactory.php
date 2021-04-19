@@ -36,6 +36,7 @@ class UserCompanyFactory extends Factory
             'contact_name'=>'Bao Duy',
             'is_active'=>true,
             'user_id'=>$order2++,
+
             //
         ];
     }
