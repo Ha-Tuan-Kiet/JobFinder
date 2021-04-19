@@ -17,7 +17,7 @@ class Users extends Migration
             $table->id();
             $table->char('email')->unique();
             $table->char('password');
-            $table->char('user_name')->nullable();
+            $table->char('name')->nullable();
             $table->integer('role_id')->nullable();   
             $table->timestamps();
         });
