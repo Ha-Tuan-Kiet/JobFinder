@@ -15,18 +15,10 @@ class Users extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->char('email');
+            $table->char('email')->unique();
             $table->char('password');
-            $table->integer('user_type');
-            $table->char('phone');
-            $table->char('first_name');
-            $table->char('last_name');
-            $table->char('full_name');
-            $table->dateTime('date_of_birth');
-            $table->boolean('gender');
-            $table->char('address');
-            $table->char('url_avatar');
-            $table->boolean('is_active');
+            $table->char('user_name')->nullable();
+            $table->integer('role_id')->nullable();   
             $table->timestamps();
         });
     }

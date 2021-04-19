@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Userrole extends Migration
+class UserRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Userrole extends Migration
      */
     public function up()
     {
-        Schema::create('userrole', function (Blueprint $table) {
+        Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->integer('role_id');

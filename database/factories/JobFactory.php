@@ -5,8 +5,11 @@ namespace Database\Factories;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+
+
 class JobFactory extends Factory
 {
+    
     /**
      * The name of the factory's corresponding model.
      *
@@ -21,6 +24,8 @@ class JobFactory extends Factory
      */
     public function definition()
     {
+
+        static $order = 1; 
         return [
             'position'=>$this->faker->text(),
             'application_email'=>$this->faker->words(3, true),
@@ -34,10 +39,13 @@ class JobFactory extends Factory
             'work_time'=>8.00,
             'address'=>$this->faker->words(3,true),
             'deadline_for_submission'=>now(),
-            'province_id'=>'48',
+            'province_id'=>$order++,
             'update_on' =>now(),
             'created_on'=>now(),
-            'created_by'=>$this->faker->randomFloat(27,28,30),
+            'job_type'=>'Full-time',
+            'requirement'=>'English ...',
+            'education'=>'12/12',
+            'created_by'=>$order++,
             'is_active'=>true
             //
         ];
