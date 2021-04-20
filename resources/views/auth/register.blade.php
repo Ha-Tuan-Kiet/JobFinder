@@ -46,7 +46,7 @@
                                 <span toggle="#password-confirm" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
+                                <button type="submit" class="form-control btn btn-primary submit px-3" style="border-radius: 50px">Register</button>
                             </div>
                         </form>
                     </div>
