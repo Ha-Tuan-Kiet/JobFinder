@@ -47,11 +47,8 @@ class JobFactory extends Factory
             'education'=>'12/12',
             'created_by'=>$order2++,
             'career_id'=>$order3++,
-            'province_id'=>'48',
             'update_on' =>now(),
             'created_on'=>now(),
-            'created_by'=>$this->faker->randomFloat(27,28,30),
-
             'is_active'=>true
             //
         ];

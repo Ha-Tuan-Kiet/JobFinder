@@ -59,6 +59,6 @@ Route::get('/users', function (){
 
 Auth::routes();
 
-Route::get('/signin', [HomeController::class, 'index'])->name('home');
+Route::get('/signin', [HomeController::class, 'index']);
 
 Route::resource('users', UserController::class);

@@ -26,13 +26,16 @@ class JobController extends Controller
         ->join('users','jobs.created_by','=','users.id')
         ->join('user_companies','user_companies.user_id','=','users.id')
         ->orderBy('jobs.update_on','desc')
-
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+        ->get();
 
-        ->take(10)
+        $careerdata=DB::table('careers')
+        ->join('jobs','jobs.career_id','=','careers.id')
+        ->select('careers.name', DB::raw('count(*) as count_name'))
+        ->groupBy('careers.name')
         ->get();
         // $result = (array) json_decode($jobsdata);
-        return view('home.mainpage',compact('jobsdata'));
+        return view('home.mainpage',compact('jobsdata'),compact('careerdata'));
         // $data=Job::all();
         // return view('home.mainpage',['jobs'=>$data]);
     }
@@ -68,7 +71,6 @@ class JobController extends Controller
     public function showDetail($id)
     {
         $jobsdata = DB::table('jobs')
-        
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
         ->join('user_companies','user_companies.user_id','=','users.id')

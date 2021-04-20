@@ -120,18 +120,20 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-contnet-center">
+                    @foreach($careerdata as $career)
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Creative</a></h5>
-                                <span>(653)</span>
+                               <h5><a href="job_listing.html">{{$career->name}}</a></h5>
+                                <span>({{$career->count_name}})</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    @endforeach
+                    {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flaticon-cms"></span>
@@ -207,7 +209,7 @@
                                 <span>(658)</span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- More Btn -->
                 <!-- Section Button -->
