@@ -21,12 +21,12 @@ class UserCompanies extends Migration
             $table->char('image_cover');
             $table->char('address');
             $table->char('website');
+            $table->char('email_company');
             $table->integer('size');
             $table->integer('province_id');
             $table->char('contact_name');
             $table->boolean('is_active');
             $table->integer('user_id');
-
             $table->timestamps();
         });
     }

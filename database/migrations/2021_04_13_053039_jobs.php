@@ -17,7 +17,7 @@ class Jobs extends Migration
             $table->id();
             $table->text('position');
             $table->char('application_email');
-            $table->char('image',255);
+            $table->char('image',255)->nullable();
             $table->text('details');
             $table->integer('amount');
             $table->integer('experience');
@@ -26,11 +26,16 @@ class Jobs extends Migration
             $table->char('salary_unit',50);
             $table->double('work_time',10,2);
             $table->char('address');
-            $table->dateTime('deadline_for_submission');
-            $table->char('province_id',5);
+            $table->dateTime('deadline_for_submission');        
             $table->dateTime('created_on');
             $table->dateTime('update_on');
-            $table->integer('created_by');
+            $table->char('job_type');
+            $table->char('requirement');
+            $table->char('education');
+            $table->char('province_id',5)->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('career_id')->nullable();
+
             $table->boolean('is_active');
             $table->timestamps();
         });

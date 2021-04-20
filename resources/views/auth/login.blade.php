@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body>
+<body   class="img js-fullheight" style="background-image: url(./loginform/images/bg.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">

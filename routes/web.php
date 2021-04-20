@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,9 +41,8 @@ Route::get('/blogdetails', function () {
 Route::get('/elements', function () {
     return view('home.elements');
 });
-Route::get('/jobdetails', function () {
-    return view('home.jobdetails');
-});
+Route::get('/jobdetails/{id}', [JobController::class,'showDetail']);
+
 Route::get('/contact', function () {
     return view('home.contact');
 });
@@ -58,6 +59,6 @@ Route::get('/users', function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/signin', [HomeController::class, 'index'])->name('home');
 
 Route::resource('users', UserController::class);

@@ -15,8 +15,8 @@ class UserExperiences extends Migration
     {
         Schema::create('user_experiences', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('experience_id');
+            $table->integer("user_id");
+            $table->integer("experience_id");
             $table->timestamps();
         });
     }
