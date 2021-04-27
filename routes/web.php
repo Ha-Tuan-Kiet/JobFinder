@@ -22,43 +22,26 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });
 
-Route::get('/',[JobController::class,'index']) ;
-// Route::get('/', function () {
-//     return view('home.mainpage');
-// });
-Route::get('/findajob', function () {
-    return view('home.findajob');
-});
-Route::get('/about', function () {
-    return view('home.about');
-});
-Route::get('/blog', function () {
-    return view('home.blog');
-});
-Route::get('/blogdetails', function () {
-    return view('home.blogdetails');
-});
-Route::get('/elements', function () {
-    return view('home.elements');
-});
+Route::get('/',[JobController::class,'index']);
 Route::get('/jobdetails/{id}', [JobController::class,'showDetail']);
 
-Route::get('/contact', function () {
-    return view('home.contact');
-});
-Route::get('/userprofile', function () {
-    return view('user.userprofile');
-});
+Route::get('/findajob', function () {return view('home.findajob');});
+Route::get('/about', function () {return view('home.about');});
+Route::get('/blog', function () {return view('home.blog');});
+Route::get('/blogdetails', function () {return view('home.blogdetails');});
+Route::get('/elements', function () {return view('home.elements');});
+
+Route::get('/contact', function () {return view('home.contact');});
+Route::get('/userprofile', function () {return view('user.userprofile');})->middleware(['auth','role:user']);
 
 
-Route::get('/users', function (){
-
-    $users = DB::table('users')->get();
-    return view('user.userlist',  ['users' => $users]);
-});
+// Route::get('/users', function (){
+//     $users = DB::table('users')->get();
+//     return view('user.userlist',  ['users' => $users]);
+// });
 
 Auth::routes();
 
-Route::get('/signin', [HomeController::class, 'index'])->name('home');
+Route::get('/signin', [HomeController::class, 'index']);
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->middleware(['auth','role:user']);
