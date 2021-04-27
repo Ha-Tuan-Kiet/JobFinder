@@ -441,44 +441,7 @@
    </section>
    <!--================ Blog Area end =================-->
    
-    <!-- JS here -->
-	
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.js')}}"></script>
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="{{ asset('bootstrap/js/vendor/jquery-1.12.4.min.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/popper.min.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="{{ asset('bootstrap/js/jquery.slicknav.min.js')}}"></script>
-
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="{{ asset('bootstrap/js/owl.carousel.min.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/slick.min.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/price_rangs.js')}}"></script>
-
-		<!-- One Page, Animated-HeadLin -->
-        <script src="{{ asset('bootstrap/js/wow.min.js')}}"></script>
-		<script src="{{ asset('bootstrap/js/animated.headline.js')}}"></script>
-		
-		<!-- Scrollup, nice-select, sticky -->
-        <script src="{{ asset('bootstrap/js/jquery.scrollUp.min.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
-		<script src="{{ asset('bootstrap/js/jquery.sticky.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/jquery.magnific-popup.js')}}"></script>
-
-        <!-- contact js -->
-        <script src="{{ asset('bootstrap/js/contact.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/jquery.form.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/mail-script.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
-        <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
-        <script src="{{ asset('bootstrap/js/main.js')}}"></script>
-
-        
+ 
 </body>
 
 @endsection
