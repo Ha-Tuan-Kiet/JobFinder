@@ -34,6 +34,7 @@ class Jobs extends Migration
             $table->char('education');
             $table->char('province_id',5)->nullable();
             $table->integer('created_by')->nullable();
+            $table->integer('company_id')->nullable();
             $table->integer('career_id')->nullable();
 
             $table->boolean('is_active');
