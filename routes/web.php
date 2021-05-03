@@ -21,7 +21,6 @@ use App\Http\Controllers\SearchController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Route::get('/',[JobController::class,'index']) ;
 // Route::get('/', function () {
 //     return view('home.mainpage');
@@ -49,19 +48,20 @@ Route::get('/jobdetails/{id}', [JobController::class,'showDetail'])->name('jobde
 Route::get('/contact', function () {
     return view('home.contact');
 });
-Route::get('/userprofile', function () {
-    return view('user.userprofile');
-});
+
 Route::get('/search',[SearchController::class,'search'])->name('search');
 
-Route::get('/users', function (){
+Route::get('/userprofile', function () {return view('user.userprofile');})->middleware(['auth','role:user']);
 
-    $users = DB::table('users')->get();
-    return view('user.userlist',  ['users' => $users]);
-});
+
+
+// Route::get('/users', function (){
+//     $users = DB::table('users')->get();
+//     return view('user.userlist',  ['users' => $users]);
+// });
 
 Auth::routes();
 
 Route::get('/signin', [HomeController::class, 'index']);
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->middleware(['auth','role:user']);
