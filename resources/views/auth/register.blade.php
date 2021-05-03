@@ -46,7 +46,7 @@
                                 <span toggle="#password-confirm" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group row">
-                                <input id="role_id" type="hidden" class="form-control @error('role_id') is-invalid @enderror" name="role_id" value="3" autocomplete="role_id" autofocus placeholder="Role Id">
+                                <input id="role_id" type="hidden" class="form-control @error('role_id') is-invalid @enderror" name="role_id" value="2" autocomplete="role_id" autofocus placeholder="Role Id">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="form-control btn btn-primary submit px-3" style="border-radius: 50px">Register</button>

@@ -45,10 +45,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function job(){
-        return $this->hasOne(Job::Class);
+        return $this->hasOne(Job::class);
     }
     public function user_companies(){
-        return $this->hasMany(UserCompany::Class,'id','user_id');
+        return $this->hasMany(UserCompany::class,'id','user_id');
     }
 
     public function role() {

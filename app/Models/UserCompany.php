@@ -9,6 +9,6 @@ class UserCompany extends Model
 {
     use HasFactory;
     public function jobs(){
-        return $this->hasOne(Job::Class);
+        return $this->hasOne(Job::class);
     }
 }
