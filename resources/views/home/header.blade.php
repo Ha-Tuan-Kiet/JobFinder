@@ -39,8 +39,7 @@
                              @endif
                              
                              @if (Route::has('login'))
-                                <a class="btn head-btn1" href="{{ route('login') }}">{{ __('Login') }}</a>
-
+                                <a class="btn head-btn1 " href="{{ route('login') }}">{{ __('Login') }}</a>
                              @endif
                          @else
                              <li class="nav-item dropdown">
