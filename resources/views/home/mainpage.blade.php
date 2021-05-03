@@ -82,22 +82,22 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="#" class="search-box">
+                                <form class="search-box" type="get" action="{{route('search')}}">
                                     <div class="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword">
+                                        <input name="company" type="search" placeholder="Job Tittle or keyword">
                                     </div>
                                     <div class="select-form">
                                         <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Location BD</option>
-                                                <option value="">Location PK</option>
-                                                <option value="">Location US</option>
-                                                <option value="">Location UK</option>
+                                            <select name="provinces" id="provinces">
+                                                <option value="">Location</option>
+                                                @foreach ($provinces as $province) 
+                                                <option value="{{$province}}">{{$province}}</option>
+                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="search-form">
-                                        <a href="#">Find job</a>
+                                        <button class="btn btn-outline-light" type="submit" style="height:100%">Find Jobs</button>
                                     </div>	
                                 </form>	
                             </div>
@@ -120,18 +120,20 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-contnet-center">
+                    @foreach($careerdata as $career)
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Creative</a></h5>
-                                <span>(653)</span>
+                               <h5><a href="/findajob/{{$career->id}}">{{$career->name}}</a></h5>
+                                <span>({{$career->count_name}})</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    @endforeach
+                    {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flaticon-cms"></span>
@@ -207,14 +209,14 @@
                                 <span>(658)</span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- More Btn -->
                 <!-- Section Button -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="browse-btn2 text-center mt-50">
-                            <a href="job_listing.html" class="border-btn2">Browse All Sectors</a>
+                            <a href="/careersjob" class="border-btn2">Browse All Sectors</a>
                         </div>
                     </div>
                 </div>

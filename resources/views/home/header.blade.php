@@ -1,3 +1,4 @@
+
 <div class="header-area header-transparrent">
     <div class="headder-top header-sticky">
          <div class="container">
@@ -15,7 +16,7 @@
                              <nav class="d-none d-lg-block">
                                  <ul id="navigation">
                                      <li><a href="/">Home</a></li>
-                                     <li><a href="http://127.0.0.1:8000/findajob">Find a Jobs </a></li>
+                                     <li><a href="http://127.0.0.1:8000/careersjob">Find a Jobs </a></li>
                                      <li><a href="http://127.0.0.1:8000/about">About</a></li>
                                      <li><a href="#">Page</a>
                                          <ul class="submenu">
