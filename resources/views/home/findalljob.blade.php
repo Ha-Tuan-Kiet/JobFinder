@@ -15,21 +15,19 @@
 <!-- Preloader Start -->
 <main>
     <!-- Hero Area Start-->
-    @foreach ($careerintro as $career )
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{asset('bootstrap/img/hero/about.jpg')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>{{$career->name}}</h2>
+                            <h2>GetJob</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endforeach
     <!-- Hero Area End -->
     <!-- Job List Area Start -->
     <div class="job-listing-area pt-120 pb-120">
@@ -229,12 +227,12 @@
                                         <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
                                     </div>
                                     <div class="job-tittle job-tittle2">
-                                        <a href="{{route('jobdetails', ['id' => $careerdetails->job_id])}}">
+                                        <a href="{{route('jobdetails', ['id' => $careerdetails->id])}}">
                                             <h4>{{$careerdetails->position}}</h4>
                                         </a>
                                         <ul>
-                                            <li>{{$careerdetails->name}}</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>{{$careerdetails->location}}</li>
+                                            <li>{{$careerdetails->usercompany->name}}</li> 
+                                            <li><i class="fas fa-map-marker-alt"></i>{{$careerdetails->province->name}}</li>
                                             <li>{{$careerdetails->salary_max}} - {{$careerdetails->salary_min}} {{$careerdetails->salary_unit}}</li>
                                         </ul>
                                     </div>

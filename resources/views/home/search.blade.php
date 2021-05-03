@@ -15,28 +15,26 @@
 <!-- Preloader Start -->
 <main>
     <!-- Hero Area Start-->
-    @foreach ($careerintro as $career )
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{asset('bootstrap/img/hero/about.jpg')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>{{$career->name}}</h2>
+                            <h2>Search Results</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endforeach
     <!-- Hero Area End -->
     <!-- Job List Area Start -->
     <div class="job-listing-area pt-120 pb-120">
         <div class="container">
             <div class="row">
                 <!-- Left content -->
-                <div class="col-xl-3 col-lg-3 col-md-4">
+                {{-- <div class="col-xl-3 col-lg-3 col-md-4">
                     <div class="row">
                         <div class="col-12">
                                 <div class="small-section-tittle2 mb-45">
@@ -195,7 +193,7 @@
                         </div>
                     </div>
                     <!-- Job Category Listing End -->
-                </div>
+                </div> --}}
                 <!-- Right content -->
                 <div class="col-xl-9 col-lg-9 col-md-8">
                     <!-- Featured_job_start -->
@@ -205,7 +203,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="count-job mb-35">
-                                        <span>39, 782 Jobs found</span>
+                                        <span>{{$jobs->count()}} Jobs found</span>
                                         <!-- Select job items start -->
                                         <div class="select-job-items">
                                             <span>Sort by</span>
@@ -222,29 +220,30 @@
                             </div>
                             <!-- Count of Job list End -->
                             <!-- single-job-content -->
-                            @foreach ($careerdata as $careerdetails )
+                            @foreach ($jobs as $job )
                             <div class="single-job-items mb-30">
                                 <div class="job-items">
                                     <div class="company-img">
                                         <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
                                     </div>
                                     <div class="job-tittle job-tittle2">
-                                        <a href="{{route('jobdetails', ['id' => $careerdetails->job_id])}}">
-                                            <h4>{{$careerdetails->position}}</h4>
+                                        <a href="{{route('jobdetails', ['id' => $job->id])}}">
+                                            <h4>{{$job->position}}</h4>
                                         </a>
                                         <ul>
-                                            <li>{{$careerdetails->name}}</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>{{$careerdetails->location}}</li>
-                                            <li>{{$careerdetails->salary_max}} - {{$careerdetails->salary_min}} {{$careerdetails->salary_unit}}</li>
+                                            <li>{{$job->name}}</li> 
+                                            <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
+                                            <li>{{$job->salary_max}} - {{$job->salary_min}} {{$job->salary_unit}}</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="items-link items-link2 f-right">
                                     <a href="job_details.html">Full Time</a>
-                                    <span>{{$careerdetails->work_time}} hours ago</span>
+                                    <span>{{$job->work_time}} hours ago</span>
                                 </div>
                             </div>
                             @endforeach
+                    
                        
                             <!-- single-job-content -->
                             {{-- <div class="single-job-items mb-30">

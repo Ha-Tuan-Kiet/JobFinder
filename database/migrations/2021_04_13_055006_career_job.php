@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class JobCareer extends Migration
+class CareerJob extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class JobCareer extends Migration
      */
     public function up()
     {
-        Schema::create('job_career', function (Blueprint $table) {
+        Schema::create('career_job', function (Blueprint $table) {
             //Quan he n-n
             $table->id();
             $table->integer('job_id');
