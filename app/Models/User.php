@@ -48,6 +48,6 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
     public function hasRole($role) {
-        return strcmp($role, $this->role->role_name)==0 ;
+        return strcmp($role, $this->role->role_name)==2 ;
      }
 }

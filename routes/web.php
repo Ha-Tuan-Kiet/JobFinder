@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +45,6 @@ Auth::routes();
 Route::get('/signin', [HomeController::class, 'index']);
 
 Route::resource('users', UserController::class)->middleware(['auth','role:user']);
+Route::get('/admin',[AdminController::class, 'index'])->name('admin')->middleware('admin');
+//Route::get('/loginadmin',[Admincontroller::class, 'login'])->name('admin')->middleware('admin');
+Route::get('/user',[UserController::class, 'index'])->name('user')->middleware('user');
