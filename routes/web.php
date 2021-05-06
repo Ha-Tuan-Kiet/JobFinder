@@ -52,7 +52,7 @@ Route::get('/contact', function () {
 
 Route::get('/search',[SearchController::class,'search'])->name('search');
 
-Route::get('/userprofile', function () {return view('user.userprofile');})->middleware(['auth','role:user']);
+// Route::get('/userprofile', function () {return view('user.userprofile');})->middleware(['auth','role:user']);
 
 
 
@@ -64,6 +64,7 @@ Route::get('/userprofile', function () {return view('user.userprofile');})->midd
 Auth::routes();
 
 Route::get('/signin', [HomeController::class, 'index']);
+
 
 Route::resource('users', UserController::class)->middleware(['auth','role:user']);
 Route::get('/admin',[AdminController::class, 'index'])->name('admin')->middleware('admin');
