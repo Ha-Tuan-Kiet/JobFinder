@@ -44,10 +44,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function job(){
+        return $this->hasOne(Job::class);
+    }
+    public function user_companies(){
+        return $this->hasMany(UserCompany::class,'id','user_id');
+    }
+
     public function role() {
         return $this->belongsTo('App\Models\Role');
     }
     public function hasRole($role) {
         return strcmp($role, $this->role->role_name)==2 ;
      }
+
 }

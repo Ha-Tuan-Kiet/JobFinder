@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class JobCareer extends Migration
+class RoleUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class JobCareer extends Migration
      */
     public function up()
     {
-        Schema::create('job_career', function (Blueprint $table) {
-            //Quan he n-n
+        Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('job_id');
-            $table->integer('career_id');
+            $table->integer('user_id');
+            $table->integer('role_id')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class JobCareer extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_career');
+        Schema::dropIfExists('userrole');
     }
 }

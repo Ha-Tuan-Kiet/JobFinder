@@ -15,21 +15,19 @@
 <!-- Preloader Start -->
 <main>
     <!-- Hero Area Start-->
-    @foreach ($careerintro as $career )
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{asset('bootstrap/img/hero/about.jpg')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>{{$career->name}}</h2>
+                            <h2>GetJob</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endforeach
     <!-- Hero Area End -->
     <!-- Job List Area Start -->
     <div class="job-listing-area pt-120 pb-120">
@@ -229,12 +227,12 @@
                                         <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
                                     </div>
                                     <div class="job-tittle job-tittle2">
-                                        <a href="{{route('jobdetails', ['id' => $careerdetails->job_id])}}">
+                                        <a href="{{route('jobdetails', ['id' => $careerdetails->id])}}">
                                             <h4>{{$careerdetails->position}}</h4>
                                         </a>
                                         <ul>
-                                            <li>{{$careerdetails->name}}</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>{{$careerdetails->location}}</li>
+                                            <li>{{$careerdetails->usercompany->name}}</li> 
+                                            <li><i class="fas fa-map-marker-alt"></i>{{$careerdetails->province->name}}</li>
                                             <li>{{$careerdetails->salary_max}} - {{$careerdetails->salary_min}} {{$careerdetails->salary_unit}}</li>
                                         </ul>
                                     </div>
@@ -409,6 +407,41 @@
     
 </main>
 
+<!-- JS here -->
 
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./{{asset('bootstrap/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{{asset('bootstrap/js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{{asset('bootstrap/js/jquery.slicknav.min.js')}}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Range -->
+    <script src="{{asset('bootstrap/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/slick.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/price_rangs.js')}}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{{asset('bootstrap/js/wow.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/animated.headline.js')}}"></script>
+    <script src="{{asset('bootstrap/js/jquery.magnific-popup.js')}}"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="{{asset('bootstrap/js/jquery.scrollUp.min.js')}}')}}"></script>
+    <script src="{{asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/jquery.sticky.js')}}"></script>
+    
+    <!-- contact js -->
+    <script src="{{asset('bootstrap/js/contact.js')}}"></script>
+    <script src="{{asset('bootstrap/js/jquery.form.js')}}"></script>
+    <script src="{{asset('bootstrap/js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/mail-script.js')}}"></script>
+    <script src="{{asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="{{asset('bootstrap/js/plugins.js')}}"></script>
+    <script src="{{asset('bootstrap/js/main.js')}}"></script>
+    
 </body>
 @endsection

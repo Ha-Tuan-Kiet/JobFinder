@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,18 +22,38 @@ use App\Http\Controllers\AdminController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/',[JobController::class,'index']) ;
+// Route::get('/', function () {
+//     return view('home.mainpage');
+// });
+Route::get('/careersjob',[JobController::class,'showAllCareers']);
+Route::get('/findajob/{id}', [JobController::class,'showDetailCareers']);
 
-Route::get('/',[JobController::class,'index']);
-Route::get('/jobdetails/{id}', [JobController::class,'showDetail']);
+// Route::get('/findajob', function () {
+//     return view('home.findajob');
+// });
+Route::get('/about', function () {
+    return view('home.about');
+});
+Route::get('/blog', function () {
+    return view('home.blog');
+});
+Route::get('/blogdetails', function () {
+    return view('home.blogdetails');
+});
+Route::get('/elements', function () {
+    return view('home.elements');
+});
+Route::get('/jobdetails/{id}', [JobController::class,'showDetail'])->name('jobdetails');
 
-Route::get('/findajob', function () {return view('home.findajob');});
-Route::get('/about', function () {return view('home.about');});
-Route::get('/blog', function () {return view('home.blog');});
-Route::get('/blogdetails', function () {return view('home.blogdetails');});
-Route::get('/elements', function () {return view('home.elements');});
+Route::get('/contact', function () {
+    return view('home.contact');
+});
 
-Route::get('/contact', function () {return view('home.contact');});
+Route::get('/search',[SearchController::class,'search'])->name('search');
+
 Route::get('/userprofile', function () {return view('user.userprofile');})->middleware(['auth','role:user']);
+
 
 
 // Route::get('/users', function (){
