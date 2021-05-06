@@ -31,18 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RoleFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RoleFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_13_061906_roles.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_13_061906_roles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_13_063006_user_roles.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_13_063006_user_roles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_091807_user_profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +196,7 @@
       <workItem from="1619490634800" duration="5114000" />
       <workItem from="1619510199110" duration="20000" />
       <workItem from="1619510220930" duration="721000" />
+      <workItem from="1620273681092" duration="610000" />
     </task>
     <servers />
   </component>
@@ -228,6 +220,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="578" y="297" key="#Composer/0.0.1536.834@0.0.1536.834" timestamp="1618909283104" />
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620205968784">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1620205968784" />
     <state x="147" y="66" key="DiffContextDialog" timestamp="1619501502509">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -241,10 +237,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1620200155449" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1620197312097">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1620202872079">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1620197312097" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1620202872079" />
     <state x="557" y="130" key="git4idea.branch.GitSmartOperationDialog" timestamp="1619501532095">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
