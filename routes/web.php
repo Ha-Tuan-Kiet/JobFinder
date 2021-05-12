@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
+
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
 /*
@@ -67,6 +69,15 @@ Route::get('/signin', [HomeController::class, 'index']);
 
 
 Route::resource('users', UserController::class)->middleware(['auth','role:user']);
-Route::get('/admin',[AdminController::class, 'index'])->name('admin')->middleware('admin');
+Route::resource('profiles', ProfileController::class)->middleware(['auth', 'role:user']);
+
 //Route::get('/loginadmin',[Admincontroller::class, 'login'])->name('admin')->middleware('admin');
-Route::get('/user',[UserController::class, 'index'])->name('user')->middleware('user');
+// Route::get('/user',[UserController::class, 'index'])->name('user')->middleware('user');
+
+// Route::get('/form', function () {
+//     return view('admin.form');
+// });
+
+Route::get('/admin',[AdminController::class, 'login']);
+Route::get('/dashboard',[AdminController::class, 'dashboard']);
+Route::get('/postjob',[AdminController::class, 'postjob']);

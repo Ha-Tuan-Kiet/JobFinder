@@ -6,8 +6,16 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function login()
     {
-        return view('admin.index');
+        return view('admin.login');
+    }
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
+    public function postjob()
+    {
+        return view('admin.postjob');
     }
 }
