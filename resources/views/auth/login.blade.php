@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body   class="img js-fullheight" style="background-image: url(./loginform/images/bg.jpg);">
+<body   class="img js-fullheight" style="background-image: url(public/loginform/images/bg.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -29,7 +29,7 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror       
+                                @enderror
                                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
@@ -47,21 +47,21 @@
                                 </div>
                             </div>
                         </form>
-                        <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
-                        <div class="social d-flex text-center">
-                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
-                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
-                        </div>
+{{--                        <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>--}}
+{{--                        <div class="social d-flex text-center">--}}
+{{--                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>--}}
+{{--                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>--}}
+{{--                        </div>--}}
 		            </div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-  <script src="{{asset('loginform/js/jquery.min.js')}}"></script>
-  <script src="{{asset('loginform/js/popper.js')}}"></script>
-  <script src="{{asset('loginform/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('loginform/js/main.js')}}"></script>
+  <script src="{{asset('./loginform/js/jquery.min.js')}}"></script>
+  <script src="{{asset('./loginform/js/popper.js')}}"></script>
+  <script src="{{asset('./loginform/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('./loginform/js/main.js')}}"></script>
 
 	</body>
 

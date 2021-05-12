@@ -2,7 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,6 +23,20 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
+{{--    New--}}
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+
+
+    {{--    New--}}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<!-- CSS here -->
@@ -39,7 +54,7 @@
         <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
 
 </head>
-<body class="img js-fullheight" style="background-image: url(./loginform/images/bg.jpg);">
+<body class="img js-fullheight" style="background-image: url(loginform/images/bg.jpg);background-attachment: fixed;">
 
 
     @include('home.header')
@@ -52,7 +67,7 @@
                             <!-- Logo -->
                             <div class="logo">
                                 <a href="index.html"><img src="{{asset('bootstrap/img/logo/logo.png')}}" alt=""></a>
-                            </div>  
+                            </div>
                         </div>
                         <div class="col-lg-9 col-md-9">
                             <div class="menu-wrapper">
@@ -74,14 +89,14 @@
                                             <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
                                         </ul>
                                     </nav>
-                                </div>          
+                                </div>
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
                                     @guest
                                     @if (Route::has('login'))
                                             <a class="btn head-btn1" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     @endif
-                                    
+
                                     @if (Route::has('register'))
                                             <a class="btn head-btn1" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     @endif
@@ -90,7 +105,7 @@
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->full_name }}
                                         </a>
-        
+
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="http://127.0.0.1:8000/userprofile">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -98,7 +113,7 @@
                                                              document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
-        
+
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
@@ -141,7 +156,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -194,7 +209,7 @@
         <script src="{{ asset('bootstrap/js/owl.carousel.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/slick.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/price_rangs.js')}}"></script>
-        
+
 		<!-- One Page, Animated-HeadLin -->
         <script src="{{ asset('bootstrap/js/wow.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/animated.headline.js')}}"></script>
@@ -204,20 +219,34 @@
         <script src="{{ asset('bootstrap/js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/jquery.sticky.js')}}"></script>
-        
+
         <!-- contact js -->
         <script src="{{ asset('bootstrap/js/contact.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.form.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/mail-script.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
+
+		<!-- Jquery Plugins, main Jquery -->
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
-        
 
+{{--//NEW--}}
+    <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>
+    <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
+    <script src="{{ asset('black') }}/js/core/bootstrap.min.js"></script>
+    <script src="{{ asset('black') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
+    <!-- Chart JS -->
+    {{-- <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script> --}}
+    <!--  Notifications Plugin    -->
+    <script src="{{ asset('black') }}/js/plugins/bootstrap-notify.js"></script>
 
+    <script src="{{ asset('black') }}/js/black-dashboard.min.js?v=1.0.0"></script>
+    <script src="{{ asset('black') }}/js/theme.js"></script>
+    {{--//NEW--}}
 
 </body>
 </html>

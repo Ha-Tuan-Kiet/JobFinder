@@ -23,7 +23,7 @@
                             <!-- Logo -->
                             <div class="logo">
                                 <a href="/"><img src="{{ asset('bootstrap/img/logo/logo.png')}}" alt=""></a>
-                            </div>  
+                            </div>
                         </div>
                         <div class="col-lg-9 col-md-9">
                             <div class="menu-wrapper">
@@ -45,7 +45,7 @@
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
-                                </div>          
+                                </div>
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <a href="http://127.0.0.1:8000/register" class="btn head-btn1">Register</a>
@@ -90,7 +90,7 @@
                                         <div class="select-itms">
                                             <select name="provinces" id="provinces">
                                                 <option value="">Location</option>
-                                                @foreach ($provinces as $province) 
+                                                @foreach ($provinces as $province)
                                                 <option value="{{$province}}">{{$province}}</option>
                                                  @endforeach
                                             </select>
@@ -98,8 +98,8 @@
                                     </div>
                                     <div class="search-form">
                                         <button class="btn btn-outline-light" type="submit" style="height:100%">Find Jobs</button>
-                                    </div>	
-                                </form>	
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -273,7 +273,7 @@
                                 <a href="job_details.html">Full Time</a>
                                 <span>{{$job->work_time}} hours ago</span>
                             </div>
-                        </div>                          
+                        </div>
                  </div>
                 </div>
              @endforeach
