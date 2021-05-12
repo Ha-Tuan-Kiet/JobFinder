@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('content')
-
 <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -64,7 +63,6 @@
         <!-- Header End -->
     </header> --}}
     <main>
-
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
@@ -250,33 +248,15 @@
                         </div>
                     </div>
                 </div>
-                @foreach($jobsdata as $job)
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
-
-                                    <ul>
-                                        <li>{{$job->name}}</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
-                                        <li>{{$job->salary_min}} - {{$job->salary_max}} {{$job->salary_unit}} </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>{{$job->work_time}} hours ago</span>
-                            </div>
-                        </div>                          
-                 </div>
-                </div>
-             @endforeach
+                <div id="table_data">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            @include('home.jobs')
+                        </div>               
+                    </div>
+                </div>  
+              
+              
         </section>
         <!-- Featured_job_end -->
         <!-- How  Apply Process Start-->
@@ -480,7 +460,28 @@
             </div>
         </div>
         <!-- Blog Area End -->
-
-    </main>
-
-@endsection
+       
+  </main>
+ 
+@endsection  
+@push('scripts')
+<script>
+    $(document).ready(function() {
+       $(document).on('click','.pagination a',function(event){
+           event.preventDefault();
+           var page = $(this).attr('href').split('page=')[1];
+           index(page);
+       })
+    })
+    function index(page){
+        $.ajax({
+            type: "GET",
+            url:"pagination?page="+page,
+            success: function(data){
+                console.log(data);
+                $('#table_data').html(data)
+            }
+        })
+    }
+</script>
+@endpush

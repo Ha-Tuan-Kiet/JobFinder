@@ -2,13 +2,15 @@
 <html class="no-js" lang="zxx">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
          <title>Job Finder</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="{{ asset('bootstrap/site.webmanifest')}}">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('bootstrap/img/favicon.ico')}}">
-
+      
 		<!-- CSS here -->
             <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/owl.carousel.min.css')}}">
@@ -22,7 +24,10 @@
             <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
-            
+            <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
    </head>
 
    <body>
@@ -198,6 +203,13 @@
 		<!-- Jquery Plugins, main Jquery -->	
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
-        
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        @stack('scripts')
     </body>
 </html>

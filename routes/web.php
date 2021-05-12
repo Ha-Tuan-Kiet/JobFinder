@@ -22,6 +22,9 @@ use App\Http\Controllers\SearchController;
 //     return view('welcome');
 // });
 Route::get('/',[JobController::class,'index']) ;
+Route::get('/pagination',[JobController::class,'paginate_data']);
+Route::get('pagination/fetch_data',[JobController::class,'fetch_data']);
+Route::post('pagination/fetch_data',[JobController::class,'filter_jobs']);
 // Route::get('/', function () {
 //     return view('home.mainpage');
 // });
