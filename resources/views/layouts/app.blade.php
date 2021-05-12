@@ -216,8 +216,7 @@
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
         
-
-
+    <!-- Warning Section Starts -->
 
 </body>
 </html>

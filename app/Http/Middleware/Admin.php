@@ -30,7 +30,7 @@ class Admin
             //role 2 = user
             if(Auth::user()->role_id == 2)
             {
-                return redirect()->route('/');
+                return redirect()->route('users');
             }
         }
     }

@@ -22,7 +22,18 @@
             <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
-            
+
+{{-- 
+            	<!--     Fonts and icons     -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
+	<link href="{{ asset('bootstrap/css/gsdk-bootstrap-wizard.css')}}" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="{{ asset('bootstrap/css/demo.css')}}" rel="stylesheet" />
+             --}}
    </head>
 
    <body>
@@ -198,6 +209,19 @@
 		<!-- Jquery Plugins, main Jquery -->	
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
-        
+
+
+        {{-- ----------------- --}}
+        	<!--   Core JS Files   -->
+	<script src="{{ asset('bootstrap/js/jquery-2.2.4.min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('bootstrap/js/jquery.bootstrap.wizard.js')}}" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="assets/js/gsdk-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
+
     </body>
 </html>

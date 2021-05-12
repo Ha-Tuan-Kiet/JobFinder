@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    //     \App\Models\Role::factory(3)->create();
-        \App\Models\Profile::factory(10)->create();
-    //     $this->call(UserSeeder::class);
-    //    $this->call(JobSeeder::class);
-    //    $this->call(ProvinceSeeder::class);
-    //   $this->call(UserCompanySeeder::class);
-    //     $this->call(CareerSeeder::class);
+        \App\Models\Role::factory(3)->create();
+        // \App\Models\Profile::factory(10)->create();
+        $this->call(UserSeeder::class);
+       $this->call(JobSeeder::class);
+       $this->call(ProvinceSeeder::class);
+      $this->call(UserCompanySeeder::class);
+        $this->call(CareerSeeder::class);
     }
 }
