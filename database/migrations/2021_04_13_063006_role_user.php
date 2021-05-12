@@ -16,7 +16,7 @@ class RoleUser extends Migration
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('role_id');
+            $table->integer('role_id')->nullable();
             $table->timestamps();
         });
     }

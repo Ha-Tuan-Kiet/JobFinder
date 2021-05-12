@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Role;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Role::factory(3)->create();
+        // \App\Models\Profile::factory(10)->create();
         $this->call(UserSeeder::class);
        $this->call(JobSeeder::class);
        $this->call(ProvinceSeeder::class);
