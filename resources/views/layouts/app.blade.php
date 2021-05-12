@@ -37,7 +37,7 @@
         <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
         <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
         <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
-
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body class="img js-fullheight" style="background-image: url(./loginform/images/bg.jpg);">
 
@@ -216,7 +216,5 @@
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
         
-    <!-- Warning Section Starts -->
-
 </body>
 </html>

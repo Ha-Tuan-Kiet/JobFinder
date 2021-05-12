@@ -32,10 +32,13 @@ class SearchController extends Controller
         ->join('careers','careers.id','=','jobs.career_id')
         ->join('users','users.id','=','jobs.created_by')
         ->join('user_companies','user_companies.id','=','jobs.id')
-        ->where('position','LIKE','%'.$search_company.'%')
+        ->where('jobs.position','LIKE','%'.$search_company.'%')
         ->where('provinces.name','LIKE','%'.$search_province.'%')
         ->select('jobs.*','provinces.name as location','user_companies.name')
         ->get();
+
+        // $companies=UserCompany::where('name','LIKE','%'.$search_province.'%');
+        // $job=$companies->Job::where('position','LIKE','%'.$search_company.'%')->with(['careers','province','user','usercompany'])->get()->dd();
 
         // $job=Job::query();
         // if($request->filled('position')){

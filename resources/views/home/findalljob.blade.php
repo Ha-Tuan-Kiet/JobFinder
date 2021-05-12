@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-    
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -47,6 +47,9 @@
                                 </svg>
                                 </div>
                                 <h4>Filter Jobs</h4>
+                                <div class="search-form">
+                                    <button id="filters" name="filters" type="button" class="btn btn-outline-light"  style="height:100%" >Filter</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -54,41 +57,31 @@
                     <div class="job-category-listing mb-50">
                         <!-- single one -->
                         <div class="single-listing">
-                           <div class="small-section-tittle2">
+                           {{-- <div class="small-section-tittle2">
                                  <h4>Job Category</h4>
-                           </div>
+                           </div> --}}
                             <!-- Select job items start -->
-                            <div class="select-job-items2">
+                            {{-- <div class="select-job-items2">
                                 <select name="select">
-                                    <option value="">All Category</option>
-                                    <option value="">Category 1</option>
-                                    <option value="">Category 2</option>
-                                    <option value="">Category 3</option>
-                                    <option value="">Category 4</option>
+                                    <option value="">Job Type</option>
+                                    @foreach ($jobtypes as $jobtype)
+                                    <option value="{{$jobtype}}">{{$jobtype}}</option>
+                                    @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <!--  Select job items End-->
                             <!-- select-Categories start -->
-                            <div class="select-Categories pt-80 pb-50">
+                            <div class="select-Categories pb-50">
                                 <div class="small-section-tittle2">
                                     <h4>Job Type</h4>
                                 </div>
-                                <label class="container">Full Time
-                                    <input type="checkbox" >
+                                @foreach ($jobtypes as $jobtype)
+                                <label class="container">
+                                    <input type="hidden" name="_token" value="<?php Session::token() ?>">
+                                    <input type="checkbox" class="brand" value="{{$jobtype}}">{{$jobtype}}
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container">Part Time
-                                    <input type="checkbox" checked="checked active">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Remote
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Freelance
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
+                                @endforeach
                             </div>
                             <!-- select-Categories End -->
                         </div>
@@ -99,17 +92,16 @@
                            </div>
                             <!-- Select job items start -->
                             <div class="select-job-items2">
-                                <select name="select">
+                                <select name="select" id="selectlocation">
                                     <option value="">Anywhere</option>
-                                    <option value="">Category 1</option>
-                                    <option value="">Category 2</option>
-                                    <option value="">Category 3</option>
-                                    <option value="">Category 4</option>
+                                    @foreach ($joblocation as $location)
+                                    <option value="{{$location}}">{{$location}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <!--  Select job items End-->
                             <!-- select-Categories start -->
-                            <div class="select-Categories pt-80 pb-50">
+                            {{-- <div class="select-Categories pt-80 pb-50">
                                 <div class="small-section-tittle2">
                                     <h4>Experience</h4>
                                 </div>
@@ -129,11 +121,51 @@
                                     <input type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                            </div>
+                            </div> --}}
                             <!-- select-Categories End -->
                         </div>
+                        <div class="single-listing pb-50 mt-55">
+                            <!-- Range Slider Start -->
+                            <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow pt-50  ">
+                                <div class="small-section-tittle2">
+                                    <h4>Salary Filter</h4>
+                                </div>
+                                <div class="widgets_inner">
+                                    <div class="range_item">
+                                        <!-- <div id="slider-range"></div> -->
+                                        {{-- <input type="range" class="js-range-slider" value="500" min="500" max="5000" step="500"/> --}}
+                                        <div class="d-flex align-items-center">
+                                            {{-- <div class="price_text">
+                                                <p>Salary :</p>
+                                            </div> --}}
+                                            <div class="price_value d-flex justify-content-center ">
+                                                <select class="salary" >
+                                                    <option value="0">0</option>
+                                                    @foreach ($job_salary_min as $salary_min )
+                                                    <option value="{{$salary_min}}">{{$salary_min}}</option>
+                                                    @endforeach     
+                                                </select>
+                                                <select class="salary" >
+                                                    <option value="10000">....</option>
+                                                    @foreach ($job_salary_max as $salary_max )
+                                                    <option value="{{$salary_max }}">{{$salary_max }}</option>
+                                                    @endforeach
+                                                    
+                                                </select>
+                                                {{-- <input type="hidden" id="hidden_maximum_price" value="500"/>
+                                                <input type="hidden" id="hidden_maximum_price" value="3500"/>
+                                                <p id="price_show"> 5000 - 3500$</p><br> --}}
+                                                {{-- <div id="price_range"></div> --}}
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                          <!-- Range Slider End -->
+                        </div>
                         <!-- single three -->
-                        <div class="single-listing">
+                        {{-- <div class="single-listing">
                             <!-- select-Categories start -->
                             <div class="select-Categories pb-50">
                                 <div class="small-section-tittle2">
@@ -165,32 +197,8 @@
                                 </label>
                             </div>
                             <!-- select-Categories End -->
-                        </div>
-                        <div class="single-listing">
-                            <!-- Range Slider Start -->
-                            <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
-                                <div class="small-section-tittle2">
-                                    <h4>Filter Jobs</h4>
-                                </div>
-                                <div class="widgets_inner">
-                                    <div class="range_item">
-                                        <!-- <div id="slider-range"></div> -->
-                                        <input type="text" class="js-range-slider" value="" />
-                                        <div class="d-flex align-items-center">
-                                            <div class="price_text">
-                                                <p>Price :</p>
-                                            </div>
-                                            <div class="price_value d-flex justify-content-center">
-                                                <input type="text" class="js-input-from" id="amount" readonly />
-                                                <span>to</span>
-                                                <input type="text" class="js-input-to" id="amount" readonly />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </aside>
-                          <!-- Range Slider End -->
-                        </div>
+                        </div> --}}
+                   
                     </div>
                     <!-- Job Category Listing End -->
                 </div>
@@ -199,96 +207,13 @@
                     <!-- Featured_job_start -->
                     <section class="featured-job-area">
                         <div class="container">
-                            <!-- Count of Job list Start -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="count-job mb-35">
-                                        <span>39, 782 Jobs found</span>
-                                        <!-- Select job items start -->
-                                        <div class="select-job-items">
-                                            <span>Sort by</span>
-                                            <select name="select">
-                                                <option value="">None</option>
-                                                <option value="">job list</option>
-                                                <option value="">job list</option>
-                                                <option value="">job list</option>
-                                            </select>
-                                        </div>
-                                        <!--  Select job items End-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Count of Job list End -->
+               
                             <!-- single-job-content -->
-                            @foreach ($careerdata as $careerdetails )
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="{{route('jobdetails', ['id' => $careerdetails->id])}}">
-                                            <h4>{{$careerdetails->position}}</h4>
-                                        </a>
-                                        <ul>
-                                            <li>{{$careerdetails->usercompany->name}}</li> 
-                                            <li><i class="fas fa-map-marker-alt"></i>{{$careerdetails->province->name}}</li>
-                                            <li>{{$careerdetails->salary_max}} - {{$careerdetails->salary_min}} {{$careerdetails->salary_unit}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>{{$careerdetails->work_time}} hours ago</span>
-                                </div>
+                            <div id="table_data">
+                                @include('home.jobs')
                             </div>
-                            @endforeach
-                       
-                            <!-- single-job-content -->
-                            {{-- <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list2.png')}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>7 hours ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list3.png')}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>7 hours ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
+                           
+                            {{-- <!-- single-job-content -->
                             <div class="single-job-items mb-30">
                                 <div class="job-items">
                                     <div class="company-img">
@@ -309,73 +234,7 @@
                                     <a href="job_details.html">Full Time</a>
                                     <span>7 hours ago</span>
                                 </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>7 hours ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list3.png')}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>7 hours ago</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list4.png')}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>7 hours ago</span>
-                                </div>
-                            </div> --}}
+                            </div> --}} 
                         </div>
                     </section>
                     <!-- Featured_job_end -->
@@ -384,7 +243,7 @@
         </div>
     </div>
     <!-- Job List Area End -->
-    <!--Pagination Start  -->
+    {{-- <!--Pagination Start  -->
     <div class="pagination-area pb-115 text-center">
         <div class="container">
             <div class="row">
@@ -403,45 +262,99 @@
             </div>
         </div>
     </div>
-    <!--Pagination End  -->
+    <!--Pagination End  --> --}}
     
 </main>
-
-<!-- JS here -->
-
-    <!-- All JS Custom Plugins Link Here here -->
-    <script src="./{{asset('bootstrap/js/vendor/modernizr-3.5.0.min.js')}}"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="{{asset('bootstrap/js/vendor/jquery-1.12.4.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    <!-- Jquery Mobile Menu -->
-    <script src="{{asset('bootstrap/js/jquery.slicknav.min.js')}}"></script>
-
-    <!-- Jquery Slick , Owl-Carousel Range -->
-    <script src="{{asset('bootstrap/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/slick.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/price_rangs.js')}}"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script src="{{asset('bootstrap/js/wow.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/animated.headline.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.magnific-popup.js')}}"></script>
-
-    <!-- Scrollup, nice-select, sticky -->
-    <script src="{{asset('bootstrap/js/jquery.scrollUp.min.js')}}')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.sticky.js')}}"></script>
-    
-    <!-- contact js -->
-    <script src="{{asset('bootstrap/js/contact.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.form.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/mail-script.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
-    <script src="{{asset('bootstrap/js/plugins.js')}}"></script>
-    <script src="{{asset('bootstrap/js/main.js')}}"></script>
-    
 </body>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+       $(document).on('click','.pagination a',function(event){
+           event.preventDefault();
+           var page = $(this).attr('href').split('page=')[1];
+
+           var location =$('#selectlocation option:selected').val();
+            console.log(location);
+            var brand = get_filter('brand');
+            var salary= get_salary();
+           index(page,brand,location,salary);
+       })
+       
+    })
+    function index(page,brand='',location='',salary=''){
+       
+        $.ajax({
+            type: "GET",
+            url:"pagination/fetch_data?page="+page+"&brand="+brand+"&location="+location+"&salary="+salary,
+            success: function(data){
+                console.log(data);
+                $('#table_data').html(data)
+            }
+        })
+    }
+   //FILTER 
+    $(document).ready(function() {
+       $('#filters').click(function() {
+            // var minimum_price =$('#hidden_minimum_price option:selected').val();
+            // var maximum_price =$('#hidden_maximum_price option:selected').val();
+            var location =$('#selectlocation option:selected').val();
+            console.log(location);
+        
+            var brand = get_filter('brand');
+            var salary= get_salary();
+           
+            fetch_data(brand,location,salary);
+       })
+    }) 
+    function get_filter(class_name){
+            var filters=[];
+            $('.'+class_name+':checked').each(function(){
+                filters.push($(this).val());
+            });
+            console.log(filters);
+            return filters;
+        }
+    function get_salary(){
+        var salary=[];
+        $.each($(".salary option:selected"), function(){            
+            salary.push($(this).val());
+        });
+        console.log(salary);
+        return salary;
+    }
+    function fetch_data(brand='',location='',salary=''){
+                $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url:"pagination/fetch_data?brand="+brand+"&location="+location+"&salary="+salary,
+            type:"POST",
+            data:{brand:brand,location:location,salary:salary,_token: '{!! csrf_token() !!}'},
+            dataType: "html",
+            contentType: false,
+            processData: false,
+            success:function(data){
+                //  console.log(data);
+                 $('#table_data').html(data)
+            },error:function(){ 
+            alert("error!!!!");
+        }
+        })
+    }
+//    $('#price_range').slider({
+//        range:true,
+//        min:500,
+//        max:3500,
+//        values:[500,3500],
+//        step:500,
+//        stop:function(event,ui){
+//            $('#price_show').html(ui.values[0]+' - '+ ui.values[1])
+//            $('#hidden_minimum_price').val(ui.values[0]);
+//            $('#hidden_maximum_price').val(ui.values[1]);
+//        }
+//    })
+</script>
+@endpush
