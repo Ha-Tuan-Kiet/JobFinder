@@ -12,7 +12,7 @@
 @section('content')
     @if (count($errors) > 0)
         <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->
-            <li>{{ $message }}  </li>
+{{--            <li>{{ $message }}  </li>--}}
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -26,7 +26,7 @@
 {{--                <input type="hidden" name="user_id" value="{{$id}}" id="user_id"  >--}}
         <div class="form-group" >
 {{--            <input type="hidden" name="user_id" value="{{$id}}" id="user_id"  >--}}
-            <input type="text" name="user_id" class="form-control form-control-user" id="user_id" placeholder="User ID" >
+            <input type="text" name="user_id" class="form-control form-control-user" id="id" placeholder="User ID" >
         </div>
         <div class="form-group" >
             <input type="text" name="full_name" class="form-control form-control-user" id="full_name" placeholder="Full Name" >
@@ -40,19 +40,30 @@
             </div>
         </div>
         <div class="form-group">
-            {{--            <label for="exampleInputPassword1">Avatar</label><br>--}}
 
-            {{--            <div class="card col-sm-4">--}}
-            {{--                <img class="card-img-top" src="{{URL::to($profile->avatar)}}"/>--}}
-            {{--            </div>--}}
             <div class="col-sm-6 mb-3 mb-sm-0">
                 <div class="custom-file" >
                     <input type="file" class="custom-file-input " id="avatar" name="avatar" >
-                    <label for="avatar" class="custom-file-label"></label>
+                    <label for="avatar" style="background-color:skyblue;color" class="custom-file-label">Avatar</label>
                 </div>
             </div>
-
         </div>
+
+{{--        <div class="form-group">--}}
+{{--            <label for="exampleInputPassword1">Avatar</label><br>--}}
+
+{{--            <div class="card col-sm-4">--}}
+{{--                <img class="card-img-top" src="{{URL::to($profile->avatar)}}"/>--}}
+{{--            </div>--}}
+{{--            <div class="col-sm-6 mb-3 mb-sm-0">--}}
+{{--                <div class="custom-file" >--}}
+{{--                    <input type="file" class="custom-file-input " id="avatar" name="avatar" >--}}
+{{--                    <label for="avatar" class="custom-file-label">{{$profile->avatar}}</label>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <button type="submit"  class="btn btn-primary"> Cập nhật user</button>--}}
+{{--            <a href="{{route('users')}}" class="btn btn-primary">Back</a>--}}
+{{--        </div>--}}
         <input type="submit" class="btn btn-primary" value="Create">
         <a href="{{url()->previous('/')}}" class="btn btn-primary">Back</a>
     </form>

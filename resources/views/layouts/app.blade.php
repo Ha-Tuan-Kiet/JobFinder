@@ -58,7 +58,10 @@
 
 
     @include('home.header')
-    @yield('content')
+{{--    @yield('content')--}}
+    <main class="py-4 container" >
+        @yield('content')
+    </main>
        {{-- <div class="header-area header-transparrent">
            <div class="headder-top header-sticky">
                 <div class="container">

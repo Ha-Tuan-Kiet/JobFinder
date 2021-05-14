@@ -56,10 +56,10 @@ Route::get('/search',[SearchController::class,'search'])->name('search');
 
 
 Route::resource('users', UserController::class)->middleware(['auth','role:admin']);
-Route::get('/users', function (){
-    $user = DB::table('users')->get();
-    return view('users.index',  ['users' => $user]);
-})->name('users');
+//Route::get('/users', function (){
+//    $user = DB::table('users')->get();
+//    return view('users.index',  ['users' => $user]);
+//})->name('users');
 
 Route::get('/create', function () {
     return view('users.create')->middleware(['auth','role:admin']);
@@ -83,4 +83,12 @@ Route::get('/signin', [HomeController::class, 'index']);
 Route::get('/admin',[AdminController::class, 'index'])->name('admin')->middleware('admin');
 //Route::get('/loginadmin',[Admincontroller::class, 'login'])->name('admin')->middleware('admin');
 //Route::get('/users',[UserController::class, 'index'])->name('users')->middleware('users');
+
+//Route::get('user_detail/create',[UserDetailController::class,'create'])->middleware('auth')->name('user_detail.create');
+//Route::post('user_detail',[UserDetailController::class,'store'])->middleware('auth');
+//
+//Route::get('education/create',[EducationController::class,'create'])->middleware('auth')->name('education.create');
+
+
+
 
