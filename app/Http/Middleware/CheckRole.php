@@ -29,7 +29,7 @@ class CheckRole
                 // cot role trong bang User trong DB;
                 //neu $role khong giong gia tri cot role thi se chuyen sang trang route home
 
-                return redirect("/users");
+                return redirect("/");
             }
         }
         return $next($request);//truong hop dung quyen

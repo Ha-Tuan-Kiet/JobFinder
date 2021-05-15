@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\CvController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,6 +89,6 @@ Route::get('/admin',[AdminController::class, 'index'])->name('admin')->middlewar
 //
 //Route::get('education/create',[EducationController::class,'create'])->middleware('auth')->name('education.create');
 
-
-
+Route::get('/Cv',[CvController::class,'index'])->middleware('auth');
+Route::post('/Cv/create',[CvController::class,'create'])->middleware('auth')->name('/Cv/create');
 

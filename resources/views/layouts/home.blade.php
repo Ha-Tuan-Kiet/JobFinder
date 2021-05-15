@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="{{ asset('bootstrap/site.webmanifest')}}">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('bootstrap/img/favicon.ico')}}">
-
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
 		<!-- CSS here -->
             <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/owl.carousel.min.css')}}">
@@ -22,11 +23,10 @@
             <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
-            
    </head>
 
    <body>
-    
+
     @include('home.header')
     @yield('content');
 
@@ -163,7 +163,8 @@
     </footer>
 
   <!-- JS here -->
-	
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.j')}}"></script>
 		<!-- Jquery, Popper, Bootstrap -->
@@ -177,7 +178,7 @@
         <script src="{{ asset('bootstrap/js/owl.carousel.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/slick.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/price_rangs.js')}}"></script>
-        
+
 		<!-- One Page, Animated-HeadLin -->
         <script src="{{ asset('bootstrap/js/wow.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/animated.headline.js')}}"></script>
@@ -187,17 +188,19 @@
         <script src="{{ asset('bootstrap/js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/jquery.sticky.js')}}"></script>
-        
+
         <!-- contact js -->
         <script src="{{ asset('bootstrap/js/contact.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.form.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/mail-script.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
+
+		<!-- Jquery Plugins, main Jquery -->
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
-        
+
+        @stack('scripts')
+
     </body>
 </html>
