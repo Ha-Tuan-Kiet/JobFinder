@@ -29,6 +29,7 @@ class Admin
             else{
                 return redirect()->route('login');
             }
+
         }
     }
 }

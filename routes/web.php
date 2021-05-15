@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CvController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +22,8 @@ use App\Http\Controllers\SearchController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::get('/home', function () {
+//     return view('home.mainpage');
 // });
 Route::get('/',[JobController::class,'index']) ;
 Route::get('/pagination',[JobController::class,'paginate_data']);
@@ -57,33 +58,40 @@ Route::get('/contact', function () {
 
 Route::get('/search',[SearchController::class,'search'])->name('search');
 
-// Route::get('/userprofile', function () {return view('user.userprofile');})->middleware(['auth','role:user']);
 
+Route::resource('users', UserController::class)->middleware(['auth','role:admin']);
+//Route::get('/users', function (){
+//    $user = DB::table('users')->get();
+//    return view('users.index',  ['users' => $user]);
+//})->name('users');
 
+Route::get('/create', function () {
+    return view('users.create');
+})->middleware(['auth','role:admin']);
+//Route::delete('/users/id}',[UserController::class, 'destroy'])->name('delete');
 
-// Route::get('/users', function (){
-//     $users = DB::table('users')->get();
-//     return view('user.userlist',  ['users' => $users]);
-// });
+Route::resource('profiles', ProfileController::class);
+
+Route::get('/profiles', function (){
+    return view('profiles.create');
+})->middleware(['auth','role:admin']);
+
+Route::get('/profiles/{id}',[ProfileController::class])->middleware((['auth','role:admin']))->name('profiles');
+Route::get('/create', function () {
+    return view('profiles.create');
+})->middleware(['auth','role:admin']);
 
 Auth::routes();
 
 Route::get('/signin', [HomeController::class, 'index']);
 
 
-Route::resource('users', UserController::class)->middleware(['auth','role:user']);
-Route::resource('profiles', ProfileController::class)->middleware(['auth', 'role:user']);
-
-//Route::get('/loginadmin',[Admincontroller::class, 'login'])->name('admin')->middleware('admin');
-// Route::get('/user',[UserController::class, 'index'])->name('user')->middleware('user');
-
-// Route::get('/form', function () {
-//     return view('admin.form');
-// });
-
- 
-
 Route::group(['middleware'=>'admin'],function(){
     Route::get('/admin',[AdminController::class, 'dashboard']);
     Route::match(['get', 'post'],'/postjob',[AdminController::class, 'postjob'])->name('postjob');
 });
+
+Route::get('/Cv',[CvController::class,'CvCreate'])->middleware('auth');
+Route::post('/Cv/create',[CvController::class,'create'])->middleware('auth')->name('/Cv/create');
+Route::get('/Cv/Resume/{id}',[CvController::class,'showResume'])->middleware('auth')->name('/Cv/Resume/');
+Route::get('/Cv/ShowAllCv',[CvController::class,'ShowAllCvCreated'])->middleware('auth')->name('/Cv/ShowAllCv');

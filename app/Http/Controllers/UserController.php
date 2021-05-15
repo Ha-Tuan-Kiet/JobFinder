@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,7 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-
+//            $users = DB::table('users')->get();
+////        return View('user.userlist',['users'=>$users]);
+//        return view('user.index');
+        $users = DB::table('users')->get();
+        return View('users.index',['users'=>$users]);
     }
 
     /**
@@ -24,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return View('users.create');
     }
 
     /**
@@ -35,7 +41,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = DB::table('users');
+//        $user->id = ($user->count()-1);
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->name = $request->input('name');
+
+
+        $affected = DB::table('users')->insert(
+            [
+//                "id" => ($user->count()+1),
+                "email" => $user->email,
+                "password" => $user->password,
+                "name" => $user->name,
+
+            ]
+        );
+        return redirect('/users');
     }
 
     /**
@@ -46,7 +68,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
+        $users =  DB::table('users')->find($id);
+        return View('users.show',['users'=>$users]);
     }
 
     /**
@@ -57,7 +80,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return redirect('/users')->with('messages',"Cap nhanh cong");
     }
 
     /**
@@ -80,6 +103,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+//        $users =  DB::table('users')->where('id','=',$id)->delete();
+////        if(!$product)
+////        {
+////
+////        }
+//        return redirect()->route('users.index');
+
+         User::where('id','=',$id)->delete();
     }
 }

@@ -58,4 +58,7 @@ class User extends Authenticatable
         return strcmp($role, $this->role->role_name)==0 ;
      }
 
+    public function education(){
+        return $this->hasMany(Education::class);
+    }
 }

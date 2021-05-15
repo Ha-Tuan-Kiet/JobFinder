@@ -22,7 +22,7 @@
                             <!-- Logo -->
                             <div class="logo">
                                 <a href="/"><img src="{{ asset('bootstrap/img/logo/logo.png')}}" alt=""></a>
-                            </div>  
+                            </div>
                         </div>
                         <div class="col-lg-9 col-md-9">
                             <div class="menu-wrapper">
@@ -44,7 +44,7 @@
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
-                                </div>          
+                                </div>
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <a href="http://127.0.0.1:8000/register" class="btn head-btn1">Register</a>
@@ -88,7 +88,7 @@
                                         <div class="select-itms">
                                             <select name="provinces" id="provinces">
                                                 <option value="">Location</option>
-                                                @foreach ($provinces as $province) 
+                                                @foreach ($provinces as $province)
                                                 <option value="{{$province}}">{{$province}}</option>
                                                  @endforeach
                                             </select>
@@ -96,8 +96,8 @@
                                     </div>
                                     <div class="search-form">
                                         <button class="btn btn-outline-light" type="submit" style="height:100%">Find Jobs</button>
-                                    </div>	
-                                </form>	
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -248,15 +248,33 @@
                         </div>
                     </div>
                 </div>
-                <div id="table_data">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-10">
-                            @include('home.jobs')
-                        </div>               
-                    </div>
-                </div>  
-              
-              
+                @foreach($jobsdata as $job)
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <!-- single-job-content -->
+                        <div class="single-job-items mb-30">
+                            <div class="job-items">
+                                <div class="company-img">
+                                    <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
+                                </div>
+                                <div class="job-tittle">
+                                    <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+
+                                    <ul>
+                                        <li>{{$job->name}}</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
+                                        <li>{{$job->salary_min}} - {{$job->salary_max}} {{$job->salary_unit}} </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="items-link f-right">
+                                <a href="job_details.html">Full Time</a>
+                                <span>{{$job->work_time}} hours ago</span>
+                            </div>
+                        </div>
+                 </div>
+                </div>
+             @endforeach
         </section>
         <!-- Featured_job_end -->
         <!-- How  Apply Process Start-->
@@ -460,10 +478,10 @@
             </div>
         </div>
         <!-- Blog Area End -->
-       
+
   </main>
- 
-@endsection  
+
+@endsection
 @push('scripts')
 <script>
     $(document).ready(function() {
