@@ -23,8 +23,8 @@ class JobController extends Controller
         $jobsdata = DB::table('jobs')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
-        ->orderBy('jobs.update_on','desc')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
+        ->orderBy('jobs.updated_at','desc')
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
         ->paginate(5);
         // $jobsdata=Job::with('careers','province','user','usercompany')->paginate(5);      
@@ -49,7 +49,7 @@ class JobController extends Controller
            ->join('careers','jobs.career_id','=','careers.id')
            ->join('provinces','jobs.province_id','=','provinces.id')
            ->join('users','jobs.created_by','=','users.id')
-           ->join('user_companies','user_companies.user_id','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
            ->paginate(5);
             return view('home.jobs',compact('jobsdata'))->render();
@@ -68,7 +68,7 @@ class JobController extends Controller
            ->join('careers','jobs.career_id','=','careers.id')
            ->join('provinces','jobs.province_id','=','provinces.id')
            ->join('users','jobs.created_by','=','users.id')
-           ->join('user_companies','user_companies.user_id','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
            ->whereIn('jobs.job_type',explode(',',$brand))
            ->where('jobs.salary_min','>=',$min_salary)
@@ -82,7 +82,7 @@ class JobController extends Controller
            ->join('careers','jobs.career_id','=','careers.id')
            ->join('provinces','jobs.province_id','=','provinces.id')
            ->join('users','jobs.created_by','=','users.id')
-           ->join('user_companies','user_companies.user_id','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
            ->where('provinces.name','=',$location)
            ->where('jobs.salary_min','>=',$min_salary)
@@ -95,7 +95,7 @@ class JobController extends Controller
            ->join('careers','jobs.career_id','=','careers.id')
            ->join('provinces','jobs.province_id','=','provinces.id')
            ->join('users','jobs.created_by','=','users.id')
-           ->join('user_companies','user_companies.user_id','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
            ->where('jobs.salary_min','>=',$min_salary)
            ->where('jobs.salary_max','<=',$max_salary)
@@ -108,7 +108,7 @@ class JobController extends Controller
            ->join('careers','jobs.career_id','=','careers.id')
            ->join('provinces','jobs.province_id','=','provinces.id')
            ->join('users','jobs.created_by','=','users.id')
-           ->join('user_companies','user_companies.user_id','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
            ->whereIn('jobs.job_type',explode(',',$brand))
            ->where('provinces.name','=',$location)
@@ -123,7 +123,7 @@ class JobController extends Controller
            ->join('careers','jobs.career_id','=','careers.id')
            ->join('provinces','jobs.province_id','=','provinces.id')
            ->join('users','jobs.created_by','=','users.id')
-           ->join('user_companies','user_companies.user_id','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
            ->paginate(5);
            return view('home.jobs', compact('jobsdata'))->render();
@@ -144,7 +144,7 @@ class JobController extends Controller
             ->join('careers','jobs.career_id','=','careers.id')
             ->join('provinces','jobs.province_id','=','provinces.id')
             ->join('users','jobs.created_by','=','users.id')
-            ->join('user_companies','user_companies.user_id','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
             ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
             ->whereIn('jobs.job_type',explode(',',$request->brand))
             ->where('jobs.salary_min','>=',$min_salary)
@@ -158,7 +158,7 @@ class JobController extends Controller
             ->join('careers','jobs.career_id','=','careers.id')
             ->join('provinces','jobs.province_id','=','provinces.id')
             ->join('users','jobs.created_by','=','users.id')
-            ->join('user_companies','user_companies.user_id','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
             ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
             ->where('provinces.name','=',$location)
             ->where('jobs.salary_min','>=',$min_salary)
@@ -171,7 +171,7 @@ class JobController extends Controller
             ->join('careers','jobs.career_id','=','careers.id')
             ->join('provinces','jobs.province_id','=','provinces.id')
             ->join('users','jobs.created_by','=','users.id')
-            ->join('user_companies','user_companies.user_id','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
             ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
             ->where('jobs.salary_min','>=',$min_salary)
             ->where('jobs.salary_max','<=',$max_salary)
@@ -184,7 +184,7 @@ class JobController extends Controller
             ->join('careers','jobs.career_id','=','careers.id')
             ->join('provinces','jobs.province_id','=','provinces.id')
             ->join('users','jobs.created_by','=','users.id')
-            ->join('user_companies','user_companies.user_id','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
             ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
             ->whereIn('jobs.job_type',explode(',',$request->brand))
             ->where('provinces.name','=',$location)
@@ -199,7 +199,7 @@ class JobController extends Controller
             ->join('careers','jobs.career_id','=','careers.id')
             ->join('provinces','jobs.province_id','=','provinces.id')
             ->join('users','jobs.created_by','=','users.id')
-            ->join('user_companies','user_companies.user_id','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
             ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
             ->paginate(5);
             return view('home.jobs', compact('jobsdata'))->render();
@@ -239,9 +239,9 @@ class JobController extends Controller
         $jobsdata = DB::table('jobs')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->where('jobs.id',$id)
-        ->orderBy('jobs.update_on','desc')
+        ->orderBy('jobs.updated_at','desc')
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
         ->get();
         return view('home.jobdetails',compact('jobsdata'));
@@ -260,7 +260,7 @@ class JobController extends Controller
         ->join('careers','jobs.career_id','=','careers.id')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
         ->paginate(5);
         $jobtypes=Job::select('job_type')->distinct()->get()->pluck('job_type')->sort();
@@ -274,7 +274,7 @@ class JobController extends Controller
         ->join('jobs','jobs.career_id','=','careers.id')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->where('careers.id',$id)
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','jobs.id as job_id')
         ->get();

@@ -14,8 +14,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $users = DB::table('profiles')->get();
-        return View('profile.show',['profiles'=>$users]);
+
     }
 
     /**
@@ -47,7 +46,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
