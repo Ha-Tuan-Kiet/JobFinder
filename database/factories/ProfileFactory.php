@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Model;
-// use Profiles as GlobalProfiles;
 
 class ProfileFactory extends Factory
 {
@@ -24,15 +23,11 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            // 'profile_id' => Profile::all()->random()->id,
-            'phone'=>$this->faker->phoneNumber,
-            'first_name'=>$this->faker->name,
-            'last_name'=>$this->faker->name,
-            'full_name' => $this->faker->name,
-            'day_of_birth' => now(),
-            'gender'=>$this->faker->sentence,
-            'address' => $this->faker->sentence,
-            'avatar' => $this->faker->name,
+            'user_id'=> User::all()->random()->id,
+            'full_name' => $this->faker->name->nullable(),
+            'address' => $this->faker->unique()->safeEmail->nullable(),
+            'birthday' => now(),
+            'avatar' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
         ];
     }
 }

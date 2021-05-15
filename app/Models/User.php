@@ -55,7 +55,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
     public function hasRole($role) {
-        return strcmp($role, $this->role->role_name)==2 ;
+        return strcmp($role, $this->role->role_name)==0 ;
      }
 
+    public function education(){
+        return $this->hasMany(Education::class);
+    }
 }

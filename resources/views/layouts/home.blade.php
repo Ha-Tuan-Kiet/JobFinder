@@ -10,7 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="{{ asset('bootstrap/site.webmanifest')}}">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('bootstrap/img/favicon.ico')}}">
-      
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
 		<!-- CSS here -->
             <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/owl.carousel.min.css')}}">
@@ -28,7 +29,7 @@
             <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
             <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-{{-- 
+{{--
             	<!--     Fonts and icons     -->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 
@@ -43,7 +44,7 @@
    </head>
 
    <body>
-    
+
     @include('home.header')
     @yield('content');
 
@@ -180,7 +181,8 @@
     </footer>
 
   <!-- JS here -->
-	
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.j')}}"></script>
 		<!-- Jquery, Popper, Bootstrap -->
@@ -194,7 +196,7 @@
         <script src="{{ asset('bootstrap/js/owl.carousel.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/slick.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/price_rangs.js')}}"></script>
-        
+
 		<!-- One Page, Animated-HeadLin -->
         <script src="{{ asset('bootstrap/js/wow.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/animated.headline.js')}}"></script>
@@ -204,15 +206,15 @@
         <script src="{{ asset('bootstrap/js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/jquery.sticky.js')}}"></script>
-        
+
         <!-- contact js -->
         <script src="{{ asset('bootstrap/js/contact.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.form.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/mail-script.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
+
+		<!-- Jquery Plugins, main Jquery -->
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -232,10 +234,13 @@
 
 	<!--  Plugin for the Wizard -->
 	<script src="assets/js/gsdk-bootstrap-wizard.js"></script>
-  
+
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
 
+
+
+        @stack('scripts')
 
     </body>
 </html>

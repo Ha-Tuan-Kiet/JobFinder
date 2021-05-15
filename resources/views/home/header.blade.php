@@ -7,7 +7,7 @@
                      <!-- Logo -->
                      <div class="logo">
                          <a href="/"><img src="{{asset('bootstrap/img/logo/logo.png')}}" alt=""></a>
-                     </div>  
+                     </div>
                  </div>
                  <div class="col-lg-9 col-md-12">
                      <div class="menu-wrapper">
@@ -29,7 +29,7 @@
                                      <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
                                  </ul>
                              </nav>
-                         </div>          
+                         </div>
                          <!-- Login-Button -->
                          <div class=" d-none f-right d-lg-block">
                              {{-- <a href="http://127.0.0.1:8000/register" class="btn head-btn1">Register</a>
@@ -38,7 +38,7 @@
                              @if (Route::has('register'))
                                      <a class="btn head-btn1" href="{{ route('register') }}">{{ __('Register') }}</a>
                              @endif
-                             
+
                              @if (Route::has('login'))
                                 <a class="btn head-btn1 " href="{{ route('login') }}">{{ __('Login') }}</a>
                              @endif
@@ -47,15 +47,16 @@
                                  <a id="navbarDropdown" class="btn head-btn1 nav-link dropdown-toggle" style="border-radius: 5px" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                      {{ Auth::user()->name }}
                                  </a>
- 
+
                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                     <a class="dropdown-item" href="http://127.0.0.1:8000/userprofile"> User Profile </a>
+                                     <a class="dropdown-item" href="/profiles/{{Auth::user()->id}}"> User Profile </a>
+                                     <a class="dropdown-item" href="/Cv"> Create your CV </a>
                                      <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">
                                          {{ __('Logout') }}
                                      </a>
- 
+
                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                          @csrf
                                      </form>
