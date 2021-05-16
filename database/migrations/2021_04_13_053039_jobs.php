@@ -27,8 +27,6 @@ class Jobs extends Migration
             $table->double('work_time',10,2);
             $table->char('address');
             $table->dateTime('deadline_for_submission');        
-            $table->dateTime('created_on');
-            $table->dateTime('update_on');
             $table->char('job_type');
             $table->char('requirement');
             $table->char('education');
@@ -36,8 +34,7 @@ class Jobs extends Migration
             $table->integer('created_by')->nullable();
             $table->integer('company_id')->nullable();
             $table->integer('career_id')->nullable();
-
-            $table->boolean('is_active');
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }

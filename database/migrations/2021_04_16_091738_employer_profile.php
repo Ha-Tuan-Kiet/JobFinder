@@ -24,7 +24,7 @@ class EmployerProfile extends Migration
             $table->char('address');
             $table->char('url_avatar');
             $table->boolean('is_active');
-            $table->integer('user_companies_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

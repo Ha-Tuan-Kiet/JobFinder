@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('content')
-
 <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -64,7 +63,6 @@
         <!-- Header End -->
     </header> --}}
     <main>
-
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
@@ -481,6 +479,27 @@
         </div>
         <!-- Blog Area End -->
 
-    </main>
+  </main>
 
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+       $(document).on('click','.pagination a',function(event){
+           event.preventDefault();
+           var page = $(this).attr('href').split('page=')[1];
+           index(page);
+       })
+    })
+    function index(page){
+        $.ajax({
+            type: "GET",
+            url:"pagination?page="+page,
+            success: function(data){
+                console.log(data);
+                $('#table_data').html(data)
+            }
+        })
+    }
+</script>
+@endpush

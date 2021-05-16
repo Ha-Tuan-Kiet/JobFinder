@@ -41,16 +41,12 @@ class JobFactory extends Factory
             'address'=>$this->faker->words(3,true),
             'deadline_for_submission'=>now(),
             'province_id'=>$order++,
-            'update_on' =>now(),
-            'created_on'=>now(),
             'job_type'=>'Full-time',
             'requirement'=>'English ...',
             'education'=>'12/12',
             'created_by'=>$order2++,
             'career_id'=>$order3++,
             'company_id'=>$order4++,
-            'update_on' =>now(),
-            'created_on'=>now(),
             'is_active'=>true
             //
         ];

@@ -16,26 +16,18 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $query= "SELECT jobs.*, provinces.name, user_companies.name FROM jobs, provinces, user_companies, users
-        // WHERE jobs.province_id = provinces.id 
-        // AND jobs.created_by = users.id
-        // AND user_companies.user_id = users.id
-        // AND jobs.is_active = 1
-        // ORDER BY jobs.update_on DESC
-        // LIMIT 6";
-
         // $jobsdata=Job::with('careers')->get();
         // dd($jobsdata);
         $jobsdata = DB::table('jobs')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
-        ->orderBy('jobs.update_on','desc')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
+        ->orderBy('jobs.updated_at','desc')
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
-        ->get();
-
+        ->paginate(5);
+        // $jobsdata=Job::with('careers','province','user','usercompany')->paginate(5);      
         $careerdata=DB::table('careers')
         ->join('jobs','jobs.career_id','=','careers.id')
         ->select('careers.id','careers.name', DB::raw('count(*) as count_name'))
@@ -44,12 +36,176 @@ class JobController extends Controller
 
         //Search
         $provinces =Province::select('name')->distinct()->get()->pluck('name')->sort();
+
             // $careerdata=Job::with('careers')->get()->groupBy('careers.id','careers.name')->get()->dd();
         return view('home.mainpage',compact('jobsdata','provinces','careerdata'));
         // $data=Job::all();
         // return view('home.mainpage',['jobs'=>$data]);
     }
+    //Paginate
+    public function paginate_data(Request $request){
+        if($request->ajax()){
+            $jobsdata=DB::table('jobs')
+           ->join('careers','jobs.career_id','=','careers.id')
+           ->join('provinces','jobs.province_id','=','provinces.id')
+           ->join('users','jobs.created_by','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
+           ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+           ->paginate(5);
+            return view('home.jobs',compact('jobsdata'))->render();
+        }
+    }
+    //Paginate+Filter
+   public function fetch_data(Request $request){
+       $brand=$request->get('brand');
+       $location=$request->get('location');
+       $salary=explode(',',$request->get('salary'));
+       $min_salary=$salary[0];
+       $max_salary=$salary[1];
+       if($request->ajax()){
+        if($request->brand!=''&&$request->location =='' ||$request->salary =='' ){
+           $jobsdata=DB::table('jobs')
+           ->join('careers','jobs.career_id','=','careers.id')
+           ->join('provinces','jobs.province_id','=','provinces.id')
+           ->join('users','jobs.created_by','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
+           ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+           ->whereIn('jobs.job_type',explode(',',$brand))
+           ->where('jobs.salary_min','>=',$min_salary)
+           ->where('jobs.salary_max','<=',$max_salary)
+           ->paginate(5);
+            return view('home.jobs',compact('jobsdata'))->render();
+        }
+        if($request->location!='' &&$request->brand =='' ||$request->salary ==''){
 
+           $jobsdata= DB::table('jobs')
+           ->join('careers','jobs.career_id','=','careers.id')
+           ->join('provinces','jobs.province_id','=','provinces.id')
+           ->join('users','jobs.created_by','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
+           ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+           ->where('provinces.name','=',$location)
+           ->where('jobs.salary_min','>=',$min_salary)
+           ->where('jobs.salary_max','<=',$max_salary)
+           ->paginate(5);
+           return view('home.jobs',compact('jobsdata'))->render();
+        }
+        if($request->salary!='' &&$request->brand =='' &&$request->location ==''){
+           $jobsdata= DB::table('jobs')
+           ->join('careers','jobs.career_id','=','careers.id')
+           ->join('provinces','jobs.province_id','=','provinces.id')
+           ->join('users','jobs.created_by','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
+           ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+           ->where('jobs.salary_min','>=',$min_salary)
+           ->where('jobs.salary_max','<=',$max_salary)
+           ->paginate(5);
+           return view('home.jobs',compact('jobsdata'))->render();
+        }
+        if($request->brand != '' && $request->location != '' &&$request->salary != ''){
+            
+           $jobsdata=DB::table('jobs')
+           ->join('careers','jobs.career_id','=','careers.id')
+           ->join('provinces','jobs.province_id','=','provinces.id')
+           ->join('users','jobs.created_by','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
+           ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+           ->whereIn('jobs.job_type',explode(',',$brand))
+           ->where('provinces.name','=',$location)
+           ->where('jobs.salary_min','>=',$min_salary)
+           ->where('jobs.salary_max','<=',$max_salary)
+           ->paginate(5);
+         
+           return view('home.jobs',compact('jobsdata'))->render();
+        }
+        else{
+           $jobsdata=DB::table('jobs')
+           ->join('careers','jobs.career_id','=','careers.id')
+           ->join('provinces','jobs.province_id','=','provinces.id')
+           ->join('users','jobs.created_by','=','users.id')
+           ->join('user_companies','jobs.province_id','=','user_companies.id')
+           ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+           ->paginate(5);
+           return view('home.jobs', compact('jobsdata'))->render();
+        }
+    }
+  
+   }
+   //Filter
+   public function filter_jobs(Request $request){
+       $location=$request->location;
+       $salary=explode(',',$request->salary);
+       $min_salary=$salary[0];
+       $max_salary=$salary[1];
+     if($request->ajax()){
+         if($request->brand!=''&&$request->location =='' ||$request->salary =='' ){
+
+            $jobsdata=DB::table('jobs')
+            ->join('careers','jobs.career_id','=','careers.id')
+            ->join('provinces','jobs.province_id','=','provinces.id')
+            ->join('users','jobs.created_by','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
+            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+            ->whereIn('jobs.job_type',explode(',',$request->brand))
+            ->where('jobs.salary_min','>=',$min_salary)
+            ->where('jobs.salary_max','<=',$max_salary)
+            ->paginate(5);
+             return view('home.jobs',compact('jobsdata'))->render();
+         }
+         if($request->location!='' &&$request->brand =='' ||$request->salary ==''){
+
+            $jobsdata= DB::table('jobs')
+            ->join('careers','jobs.career_id','=','careers.id')
+            ->join('provinces','jobs.province_id','=','provinces.id')
+            ->join('users','jobs.created_by','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
+            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+            ->where('provinces.name','=',$location)
+            ->where('jobs.salary_min','>=',$min_salary)
+            ->where('jobs.salary_max','<=',$max_salary)
+            ->paginate(5);
+            return view('home.jobs',compact('jobsdata'))->render();
+         }
+         if($request->salary!='' &&$request->brand =='' &&$request->location ==''){
+            $jobsdata= DB::table('jobs')
+            ->join('careers','jobs.career_id','=','careers.id')
+            ->join('provinces','jobs.province_id','=','provinces.id')
+            ->join('users','jobs.created_by','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
+            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+            ->where('jobs.salary_min','>=',$min_salary)
+            ->where('jobs.salary_max','<=',$max_salary)
+            ->paginate(5);
+            return view('home.jobs',compact('jobsdata'))->render();
+         }
+         if($request->brand != '' && $request->location != '' &&$request->salary != ''){
+             
+            $jobsdata=DB::table('jobs')
+            ->join('careers','jobs.career_id','=','careers.id')
+            ->join('provinces','jobs.province_id','=','provinces.id')
+            ->join('users','jobs.created_by','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
+            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+            ->whereIn('jobs.job_type',explode(',',$request->brand))
+            ->where('provinces.name','=',$location)
+            ->where('jobs.salary_min','>=',$min_salary)
+            ->where('jobs.salary_max','<=',$max_salary)
+            ->paginate(5);
+          
+            return view('home.jobs',compact('jobsdata'))->render();
+         }
+         else{
+            $jobsdata=DB::table('jobs')
+            ->join('careers','jobs.career_id','=','careers.id')
+            ->join('provinces','jobs.province_id','=','provinces.id')
+            ->join('users','jobs.created_by','=','users.id')
+            ->join('user_companies','jobs.province_id','=','user_companies.id')
+            ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+            ->paginate(5);
+            return view('home.jobs', compact('jobsdata'))->render();
+         }
+    }
+   }
     /**
      * Show the form for creating a new resource.
      *
@@ -83,9 +239,9 @@ class JobController extends Controller
         $jobsdata = DB::table('jobs')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->where('jobs.id',$id)
-        ->orderBy('jobs.update_on','desc')
+        ->orderBy('jobs.updated_at','desc')
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
         ->get();
         return view('home.jobdetails',compact('jobsdata'));
@@ -100,16 +256,25 @@ class JobController extends Controller
         // ->join('user_companies','user_companies.user_id','=','users.id')
         // ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','jobs.id as job_id')
         // ->get();
-        $careerdata=Job::with('careers','province','user','usercompany')->get();
-                   
-        return view('home.findalljob',compact('careerdata'));
+        $jobsdata=DB::table('jobs')
+        ->join('careers','jobs.career_id','=','careers.id')
+        ->join('provinces','jobs.province_id','=','provinces.id')
+        ->join('users','jobs.created_by','=','users.id')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
+        ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+        ->paginate(5);
+        $jobtypes=Job::select('job_type')->distinct()->get()->pluck('job_type')->sort();
+        $job_salary_min=Job::select('salary_min')->distinct()->get()->pluck('salary_min')->sort();
+        $job_salary_max=Job::select('salary_max')->distinct()->get()->pluck('salary_max')->sort();
+        $joblocation=Province::select('name')->distinct()->get()->pluck('name')->sort();
+        return view('home.findalljob',compact('jobsdata','jobtypes','joblocation','job_salary_min','job_salary_max'));
     }
     public function showDetailCareers($id){
         $careerdata= DB::table('careers')
         ->join('jobs','jobs.career_id','=','careers.id')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
-        ->join('user_companies','user_companies.user_id','=','users.id')
+        ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->where('careers.id',$id)
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','jobs.id as job_id')
         ->get();

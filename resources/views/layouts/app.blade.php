@@ -52,7 +52,7 @@
         <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
         <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
         <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
-
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body class="img js-fullheight" style="background-image: url(loginform/images/bg.jpg);background-attachment: fixed;">
 
@@ -234,23 +234,5 @@
 		<!-- Jquery Plugins, main Jquery -->
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
-
-{{--//NEW--}}
-    <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>
-    <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
-    <script src="{{ asset('black') }}/js/core/bootstrap.min.js"></script>
-    <script src="{{ asset('black') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Place this tag in your head or just before your close body tag. -->
-    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
-    <!-- Chart JS -->
-    {{-- <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script> --}}
-    <!--  Notifications Plugin    -->
-    <script src="{{ asset('black') }}/js/plugins/bootstrap-notify.js"></script>
-
-    <script src="{{ asset('black') }}/js/black-dashboard.min.js?v=1.0.0"></script>
-    <script src="{{ asset('black') }}/js/theme.js"></script>
-    {{--//NEW--}}
-
 </body>
 </html>

@@ -238,6 +238,11 @@
             width: 100%;
             object-fit: cover
         }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
     </style>
     <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
@@ -259,30 +264,10 @@
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Personal Information</h2>
-                                        <input type="text" name="full_name" placeholder="Full Name" required/>
+                                        <h2 class="fs-title">Contact Information</h2>
+                                        <input type="text" name="position_apply" placeholder="Position Apply"/>
+                                        <input type="number" name="phone" placeholder="Phone" maxlength="10"/>
                                         <input type="email" name="email" placeholder="Email" required/>
-                                        <input type="date" name="Day_of_birth" placeholder="Day of birth" />
-                                        <input type="number" name="phone" placeholder="Phone" />
-                                        <input type="file" name="avatar" placeholder="Avatar" />
-
-
-
-                                    </div> <input type="button" name="next" class="next action-button" value="Next Step" />
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Knowledges</h2>
-
-                                        <input type="text" name="address" placeholder="Address" />
-                                        <input type="text" name="career_goals" placeholder="Career goals" />
-                                        <input type="text" name="education" placeholder="Education" required/>
-                                        <input type="text" name="experience" placeholder="Experience" />
-                                        <div class="form-group">
-                                            <label >Activity</label>
-                                            <textarea style="resize: none" class="form-control" rows="8" id="ckeditor_activity" name="activity"  placeholder="Activity" ></textarea>
-                                        </div>
-
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div class="col-lg-6 col-md-6">
@@ -297,18 +282,29 @@
                                                 </select>
                                             </div>
                                         </div>
-
+                                    </div> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Knowledges</h2>
+                                        <textarea name="introduction"  rows="3" placeholder="Introduction yourself"></textarea>
+                                        <textarea name="education" rows="3" placeholder="Education"></textarea>
+                                        <textarea name="experience"  rows="3" placeholder="Experience"></textarea>
+                                        <textarea name="activity"  rows="3" placeholder="Activity"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Qualified</h2>
-                                         <textarea name="skill" id="ckeditor_skill" placeholder="Skill"></textarea>
-                                        <textarea name="certificate" id="ckeditor_certificate" placeholder="Certificate"></textarea>
-                                        <textarea name="prize" id="ckeditor_prize" placeholder="Prize"></textarea>
-
-
-
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 ">
+                                                <textarea name="skill" placeholder="Skill" rows="3"></textarea>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 ">
+                                                <textarea name="certificate" placeholder="Certificate" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <textarea name="hobby" placeholder="Your Hobby" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button" >Submit</button>
                                 </fieldset>
