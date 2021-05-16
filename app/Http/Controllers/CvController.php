@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cv;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Dompdf\Dompdf;
+use PDF;
 class CvController extends Controller
 {
     /**
@@ -53,5 +55,23 @@ class CvController extends Controller
         ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
         ->first();
         return view('Cv.Resume',compact('cv'));
+    }
+    public function downloadResume($id){
+        $cv=DB::table('cvs')
+        ->join('profiles','cvs.user_id','=','profiles.user_id')
+        ->where('cvs.id',$id)
+        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
+        ->first();
+        $html=view('Cv.Resume',compact('cv'));
+        $pdf=new Dompdf();
+        $pdf->loadHtml($html);
+        // (Optional) Setup the paper size and orientation
+        $pdf->setPaper('A4', 'Landscape');
+
+        // Render the HTML as PDF
+        $pdf->render();
+
+        // Output the generated PDF to Browser
+        $pdf->stream('result.pdf');
     }
 }
