@@ -65,7 +65,6 @@ class ProfileController extends Controller
                     'avatar' => $profile->avatar
                 ]);
 //        Session::put('message', 'Thêm profile thành công');
-//            // dd($profile->avatar);
             return redirect('/users');
         }
 //        Session::put('message', 'Thêm profile thành công');

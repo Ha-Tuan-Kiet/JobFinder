@@ -26,15 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/JobFinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JobFinder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_11_38_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_11_38_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_11_38_AM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_14_131059_cv.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -163,6 +164,10 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sK9Lypf0WDei8KtFnn47RKoI5r" />
@@ -200,6 +205,8 @@
       <workItem from="1620896740097" duration="15242000" />
       <workItem from="1620974853850" duration="2891000" />
       <workItem from="1620995103938" duration="3785000" />
+      <workItem from="1621056607637" duration="343000" />
+      <workItem from="1621151556351" duration="8620000" />
     </task>
     <servers />
   </component>
@@ -243,6 +250,10 @@
       <screen x="-1920" y="2" width="1536" height="834" />
     </state>
     <state x="-1559" y="152" key="Vcs.Push.Dialog.v2/0.0.1536.834/-1920.2.1536.834@-1920.2.1536.834" timestamp="1620808511928" />
+    <state x="550" y="130" key="git4idea.branch.GitSmartOperationDialog" timestamp="1621151572633">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="550" y="130" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.834@0.0.1536.834" timestamp="1621151572633" />
     <state x="47" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1621005358064">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -165,6 +165,13 @@
   <!-- JS here -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('ckeditor_activity');
+            CKEDITOR.replace('ckeditor_skill');
+            CKEDITOR.replace('ckeditor_certificate');
+            CKEDITOR.replace('ckeditor_prize');
+        </script>
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.j')}}"></script>
 		<!-- Jquery, Popper, Bootstrap -->

@@ -8,7 +8,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ProfileController;
+//use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CvController;
 /*
 |--------------------------------------------------------------------------

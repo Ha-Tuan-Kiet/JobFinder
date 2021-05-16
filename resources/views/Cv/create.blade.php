@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('content')
-
     <style>
 
         * {
@@ -245,7 +244,7 @@
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2><strong>Sign Up Your User Account</strong></h2>
+                    <h2><strong>Create Your CV</strong></h2>
                     <p>Fill all form field to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
@@ -253,8 +252,8 @@
                                 @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="account"><strong>1</strong></li>
-                                    <li id="personal"><strong>2</strong></li>
+                                    <li class="active" id="account" ><strong>1</strong></li>
+                                    <li id="personal" class="icon-image-02" ><strong>2</strong></li>
                                     <li id="payment"><strong>3</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul> <!-- fieldsets -->
@@ -279,7 +278,11 @@
                                         <input type="text" name="career_goals" placeholder="Career goals" />
                                         <input type="text" name="education" placeholder="Education" required/>
                                         <input type="text" name="experience" placeholder="Experience" />
-                                        <textarea name="activity" placeholder="Activity"></textarea>
+                                        <div class="form-group">
+                                            <label >Activity</label>
+                                            <textarea style="resize: none" class="form-control" rows="8" id="ckeditor_activity" name="activity"  placeholder="Activity" ></textarea>
+                                        </div>
+
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div class="col-lg-6 col-md-6">
@@ -300,9 +303,9 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Qualified</h2>
-                                         <textarea name="skill" placeholder="Skill"></textarea>
-                                        <textarea name="certificate" placeholder="Certificate"></textarea>
-                                        <textarea name="prize" placeholder="Prize"></textarea>
+                                         <textarea name="skill" id="ckeditor_skill" placeholder="Skill"></textarea>
+                                        <textarea name="certificate" id="ckeditor_certificate" placeholder="Certificate"></textarea>
+                                        <textarea name="prize" id="ckeditor_prize" placeholder="Prize"></textarea>
 
 
 
@@ -317,7 +320,7 @@
                                         </div> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-7 text-center">
-                                                <h5>You Have Successfully Signed Up</h5>
+                                                <h5>You Have Successfully Create CV</h5>
                                             </div>
                                         </div>
                                     </div>

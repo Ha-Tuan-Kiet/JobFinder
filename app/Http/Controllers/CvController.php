@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cv;
 use Illuminate\Http\Request;
-
+use Dompdf\Dompdf;
 class CvController extends Controller
 {
     /**
