@@ -24,8 +24,8 @@ class ProfileFactory extends Factory
     {
         return [
             'user_id'=> User::all()->random()->id,
-            'full_name' => $this->faker->name->nullable(),
-            'address' => $this->faker->unique()->safeEmail->nullable(),
+            'full_name' =>$this->faker->words(3, true),
+            'address' => $this->faker->words(3, true),
             'birthday' => now(),
             'avatar' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
         ];

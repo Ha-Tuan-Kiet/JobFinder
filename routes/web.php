@@ -10,7 +10,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CvController;
 /*
 |--------------------------------------------------------------------------
@@ -67,14 +66,16 @@ Route::resource('users', UserController::class)->middleware(['auth','role:admin'
 //})->name('users');
 
 Route::get('/create', function () {
-    return view('users.create')->middleware(['auth','role:admin']);
-});
+    return view('users.create');
+})->middleware(['auth','role:admin']);
 //Route::delete('/users/id}',[UserController::class, 'destroy'])->name('delete');
 
 Route::resource('profiles', ProfileController::class);
+
 Route::get('/profiles', function (){
-    return view('profiles.create')->middleware(['auth','role:admin']);
-});
+    return view('profiles.create');
+})->middleware(['auth','role:admin']);
+
 Route::get('/profiles/{id}',[ProfileController::class])->middleware((['auth','role:admin']))->name('profiles');
 Route::get('/create', function () {
     return view('profiles.create');
@@ -85,11 +86,12 @@ Auth::routes();
 Route::get('/signin', [HomeController::class, 'index']);
 
 
-Route::get('/admin',[AdminController::class, 'index'])->name('admin')->middleware('admin');
-//Route::get('/loginadmin',[Admincontroller::class, 'login'])->name('admin')->middleware('admin');
-//Route::get('/users',[UserController::class, 'index'])->name('users')->middleware('users');
+Route::group(['middleware'=>'admin'],function(){
+    Route::get('/admin',[AdminController::class, 'dashboard']);
+    Route::match(['get', 'post'],'/postjob',[AdminController::class, 'postjob'])->name('postjob');
+});
 
-
-Route::get('/Cv',[CvController::class,'index'])->middleware('auth');
+Route::get('/Cv',[CvController::class,'CvCreate'])->middleware('auth');
 Route::post('/Cv/create',[CvController::class,'create'])->middleware('auth')->name('/Cv/create');
-
+Route::get('/Cv/Resume/{id}',[CvController::class,'showResume'])->middleware('auth')->name('/Cv/Resume/');
+Route::get('/Cv/ShowAllCv',[CvController::class,'ShowAllCvCreated'])->middleware('auth')->name('/Cv/ShowAllCv');

@@ -17,7 +17,6 @@ class Profile extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('full_name',100);
-
             $table->text('address');
             $table->string('avatar')->nullable();
             $table->date('birthday');

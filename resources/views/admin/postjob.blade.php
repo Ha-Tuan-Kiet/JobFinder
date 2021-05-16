@@ -147,168 +147,226 @@ Post Jobs
 
 
 <section id="post_job">
-<div class="vertical-space-100"></div>
-<div class="vertical-space-101"></div>
-<div class="container">
-<div class="list-box">
-<a href="#" class="font-color-black margin-right">Job </a> > <a href="#" class="font-color-orange margin-left"> Post job</a>
-</div>
-<a href="#" class="Save">Save</a>
-<div class="vertical-space-60"></div>
+    <div class="vertical-space-100"></div>
+    <div class="vertical-space-101"></div>
+        <div class="container">
+            <div class="list-box">
+                <a href="#" class="font-color-black margin-right">Job </a> > <a href="#" class="font-color-orange margin-left"> Post job</a>
+        </div>
+        <a href="#" class="Save">Save</a>
+        <div class="vertical-space-60">
+            
+        </div>
 <div class="job-post-box">
-<form>
-<div class="form-group">
-<label for="exampleInputJobtitle">Job title</label>
-<input type="text" class="form-control" id="exampleInputJobtitle" placeholder="Enter your job title" required />
-</div>
-<div class="row">
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label for="exampleInputCompany">Company</label>
-<input type="text" class="form-control" id="exampleInputCompany" placeholder="Full name of company" required />
-</div>
-</div>
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label for="exampleInputLoction">Loction</label>
-<input type="text" class="form-control" id="exampleInputLoction" placeholder="Company Address" required />
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-6 col-md-6">
-<div class="form-group ">
-<label>Company Logo</label>
-<div class="box text-center">
-<input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
-<label for="file-5">
-<i>
-<img src="imags/job-post.png" class="imtges" alt="">
-</i>
-<span>Drop your file here, or <i class="font-color-orange">Browse</i></span>
-</label>
-</div>
-</div>
-</div>
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Document</label>
-<div class="box text-center">
-<input type="file" name="file-7[]" id="file-7" class="inputfile1 inputfile-4" data-multiple-caption="{count} files selected" multiple />
-<label for="file-7">
-<i>
-<img src="imags/job-post.png" class="imtges" alt="">
-</i>
-<span>Drop your file here, or <i class="font-color-orange">Browse</i></span>
-</label>
-</div>
-</div>
-</div>
-</div>
-<div class="form-group">
-<label for="exampleInputShortDescription">Short Description</label>
-<textarea class="form-control small" id="exampleInputShortDescription" placeholder="Write short description" rows="3" required></textarea>
-</div>
-<div class="form-group">
-<label for="exampleInputLongDescription">Write full description</label>
-<textarea class="form-control large" id="exampleInputLongDescription" placeholder="Write short description" rows="3" required></textarea>
- </div>
-<div class="row">
-<div class="col-lg-6 col-md-12">
-<div class="form-group mybtn" id="Job-Nature">
-<label>Job Nature</label>
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<a class="Job-Nature active1">Full Time</a>
-</div>
-<div class="col-lg-4 col-md-4">
-<a class="Job-Nature">Part Time</a>
-</div>
-<div class="col-lg-4 col-md-4">
-<a class="Job-Nature">Freelancer</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-6 col-md-12">
-<div class="form-group">
-<label for="sel1">Salary Range:</label>
-<select class="form-control" id="sel1" name="sellist1">
-<option>5,000 - 10,000</option>
-<option>3,000 - 5,000</option>
-<option>2,000 - 1,000</option>
-<option>7,000 - 10,000</option>
-</select>
-</div>
-</div>
-</div>
-<div class="form-group">
-<label>Agree with term and conditions</label>
-<div class="form-check">
-<input type="checkbox" class="form-check-input " id="exampleCheck1" required />
-<label class="form-check-label text-left" for="exampleCheck1">Lorem ipsum tempus amet conubia adipiscing fermentum viverra gravida, mollis suspendisse pretium dictumst inceptos mattis euismod lorem nulla magna duis nostra sodales luctus nulla</label>
-</div>
-</div>
-<button type="submit" class="btn Post-Job-Offer">Post Job Offer</button>
-</form>
-</div>
-</div>
-</section>
+            <form method="post" action="{{route('postjob')}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <label for="exampleInputJobtitle">Job Position</label>
+                        <input type="text" name="position" class="form-control" placeholder="Enter your job position" required />
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <label for="exampleInputJobtitle">Address</label>
+                    <input type="text" name="address" class="form-control" placeholder="Address" required />
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputCompany">Application Email</label>
+                            <input type="email" name="application_email" class="form-control" id="exampleInputCompany" placeholder="Email" required />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group ">
+                            <label for="sel1">Country</label>
+                            <select  class="form-control" name="province">
+                            @foreach ($province as $location )
+                            <option value="{{$location->id}}">{{$location->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>                  
+                 </div>
+                    
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                        <label for="sel1">Company:</label>
+                        <select class="form-control" name="company">
+                            @foreach ($companies as $company )
+                            <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endforeach      
+                        </select>
+                    </div>                  
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                        <label for="sel1">Career:</label>
+                        <select class="form-control" name="career">
+                            @foreach ($careers as $career )
+                            <option value="{{$career->id}}">{{$career->name}}</option>
+                            @endforeach                   
+                        </select>
+                    </div>                  
+    </div>
+            </div>
+            <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                                <div class="form-group ">
+                                    <label>Company Logo</label>
+                                    <div class="box text-center">
+                                        <label for="img">Select image:</label>
+                                        <input type="file" id="img" name="image" accept="image/*">
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputLoction">Details</label>
+                            <textarea name="details" class="form-control small" id="exampleInputShortDescription" placeholder="Write short description" rows="3" required></textarea>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputShortDescription">Amount</label>
+                <input type="number" name="amount" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputLongDescription">Experiences</label>
+                 <input type="number" name="experience" />
+            </div>
+            <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <label for="sel1">Job Type:</label>
+                                        <select class="form-control" name="jobtype_list">
+                                        <option value="FullTime">FullTime</option>
+                                        <option value="PartTime">PartTime</option>
+                                        <option value="Remote">Remote</option>
+                                        <option value="FreeLancer">FreeLancer</option>
+                                        </select>
+                                    </div>                  
+                    </div>
+                    <div class="col-lg-3 col-md-12">
+                        <input class="form-control" name="work_time" type="number" value="" placeholder="Time to Work" id="example-number-input">
+                    </div>
+                    <div class="col-lg-3 col-md-12">
+                        <input class="form-control" name="due_to_apply" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                     </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-12">
+                    <div class="form-group">
+                    <label for="sel1">Salary Min:</label>
+                    <select class="form-control" name="salary_min">
+                    <option value="0">0</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="2500">2500</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <div class="form-group">
+                    <label for="sel1">Salary Max:</label>
+                    <select class="form-control" name="salary_max">
+                    <option value="1000">1000</option>
+                    <option value="3000">3000</option>
+                    <option value="3500">3500</option>
+                    <option value="4000">4000</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    <div class="form-group">
+                    <label for="sel1">Salary Unit:</label>
+                    <select class="form-control" name="salary_unit">
+                    <option value="VND">VND</option>
+                    <option value="$">$</option>
+                    <option value="¥">¥</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputLoction">Requirement</label>
+                        <textarea name="requirements" class="form-control small" placeholder="" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputLoction">Education</label>
+                        <textarea name="education" class="form-control small" placeholder="" rows="3" required></textarea>
+                    </div>
+                </div>
+            </div>
+                    <button type="submit" class="btn Post-Job-Offer">Post Job Offer</button>
+            </form>
+            </div>
+            </div>
+            </section>
 
 
-<footer id="footer" class="background-color-white">
-<div class="container">
-<div class="vertical-space-100"></div>
-<div class="row">
-<div class="col-lg-4 col-md-6 vertical-space-2">
-<h5>About Us</h5>
-<p class="paregraf">Tristique velit phasellus sed auctor leo eros luctus nibh fermentu ad impediet rhonus dolor habitant purus velit aliquet donecurna ut in turpis faucibus</p>
-<a href="#">
-<i class="fa fa-facebook social-icon"></i></a>
-<a href="#">
-<i class="fa fa-twitter social-icon"></i></a>
-<a href="#">
-<i class="fa fa-pinterest-p social-icon"></i></a>
-<a href="#">
-<i class="fa fa-map-marker social-icon"></i></a>
-</div>
-<div class="col-lg-2 col-md-6 vertical-space-2">
-<h5>Company</h5>
-<div class="text">
-<a href="#">About</a>
-<a href="#">Support</a>
-<a href="#">Tems</a>
-<a href="#">Privacy</a>
-</div>
-</div>
-<div class="col-lg-2 col-md-6 vertical-space-2">
-<h5>Supports</h5>
-<div class="text">
-<a href="#">About</a>
- <a href="#">Support</a>
-<a href="#">Tems</a>
-<a href="#">Privacy</a>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 vertical-space-2">
-<h5>Subscribe Us</h5>
-<p>Get latest update and newsletter</p>
-<div class="vertical-space-30"></div>
-<form>
-<input type="email" class="email " placeholder="Email Address " required="">
-<span class="fa fa-envelope email-icone "></span>
-<input type="submit" class="Subscribe" value="Subscribe">
-</form>
-</div>
-</div>
-<div class="vertical-space-60"></div>
-</div>
-<div class="container-fluid background-color-orange main-footer">
-<div class="container text-center">
-<div class="vertical-space-30"></div>
-<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-</div>
-</div>
+            <footer id="footer" class="background-color-white">
+            <div class="container">
+            <div class="vertical-space-100"></div>
+            <div class="row">
+            <div class="col-lg-4 col-md-6 vertical-space-2">
+            <h5>About Us</h5>
+            <p class="paregraf">Tristique velit phasellus sed auctor leo eros luctus nibh fermentu ad impediet rhonus dolor habitant purus velit aliquet donecurna ut in turpis faucibus</p>
+            <a href="#">
+            <i class="fa fa-facebook social-icon"></i></a>
+            <a href="#">
+            <i class="fa fa-twitter social-icon"></i></a>
+            <a href="#">
+            <i class="fa fa-pinterest-p social-icon"></i></a>
+            <a href="#">
+            <i class="fa fa-map-marker social-icon"></i></a>
+            </div>
+            <div class="col-lg-2 col-md-6 vertical-space-2">
+            <h5>Company</h5>
+            <div class="text">
+            <a href="#">About</a>
+            <a href="#">Support</a>
+            <a href="#">Tems</a>
+            <a href="#">Privacy</a>
+            </div>
+            </div>
+            <div class="col-lg-2 col-md-6 vertical-space-2">
+            <h5>Supports</h5>
+            <div class="text">
+            <a href="#">About</a>
+            <a href="#">Support</a>
+            <a href="#">Tems</a>
+            <a href="#">Privacy</a>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 vertical-space-2">
+            <h5>Subscribe Us</h5>
+            <p>Get latest update and newsletter</p>
+            <div class="vertical-space-30"></div>
+            <form>
+            <input type="email" class="email " placeholder="Email Address " required="">
+            <span class="fa fa-envelope email-icone "></span>
+            <input type="submit" class="Subscribe" value="Subscribe">
+            </form>
+            </div>
+            </div>
+            <div class="vertical-space-60"></div>
+            </div>
+            <div class="container-fluid background-color-orange main-footer">
+            <div class="container text-center">
+            <div class="vertical-space-30"></div>
+            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+            </div>
+            </div>
 </footer>
 
 
