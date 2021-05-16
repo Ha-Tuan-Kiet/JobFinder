@@ -287,10 +287,14 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Knowledges</h2>
-                                        <textarea name="introduction"  rows="3" placeholder="Introduction yourself"></textarea>
-                                        <textarea name="education" rows="3" placeholder="Education"></textarea>
-                                        <textarea name="experience"  rows="3" placeholder="Experience"></textarea>
-                                        <textarea name="activity"  rows="3" placeholder="Activity"></textarea>
+                                        <label>Introduction:</label>
+                                        <textarea name="introduction"  rows="3" id="introduction" placeholder="Introduction yourself"></textarea>
+                                        <label>Education:</label>
+                                        <textarea name="education" rows="3" id="education" placeholder="Education"></textarea>
+                                        <label>Experience:</label>
+                                        <textarea name="experience"  rows="3" id="experience" placeholder="Experience"></textarea>
+                                        <label>Activity:</label>
+                                        <textarea name="activity"  rows="3" id="activity" placeholder="Activity"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
@@ -298,13 +302,16 @@
                                         <h2 class="fs-title">Qualified</h2>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 ">
-                                                <textarea name="skill" placeholder="Skill" rows="3"></textarea>
+                                                <label>Skills:</label>
+                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3"></textarea>
                                             </div>
                                             <div class="col-lg-6 col-md-6 ">
-                                                <textarea name="certificate" placeholder="Certificate" rows="3"></textarea>
+                                                <label>Certificate</label>
+                                                <textarea name="certificate" id="certificate" placeholder="Certificate" rows="3"></textarea>
                                             </div>
                                         </div>
-                                        <textarea name="hobby" placeholder="Your Hobby" rows="3"></textarea>
+                                        <label>Hobby</label>
+                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button" >Submit</button>
                                 </fieldset>

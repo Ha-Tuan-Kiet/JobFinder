@@ -17,20 +17,18 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-//        if(!Auth::check())
-//        {
-//            return redirect()->route('login');
-//        }
-//        //role 1 = admin
-//        if(Auth::user()->role_id == 1)
-//        {
-//            return redirect()->route('admin');
-//        }
-//        //role 2= user
-//        if(Auth::user()->role_id == 2)
-//        {
-//            return $next($request);
-//        }
-//        return $next($request);
+        if(!Auth::check())
+        {
+           return redirect()->route('login');
+        }
+
+        //role 2= user
+        if(Auth::check() && Auth::user()->role_id ==2)
+        {
+            return $next($request);
+        }
+        else {
+            return redirect()->route('login');
+        }
     }
 }
