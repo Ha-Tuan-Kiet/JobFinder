@@ -42,13 +42,13 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
                               </div>
                             </div>
                           </div>
                         </div>
                         <button onclick="location.href='#'"  type="button" class="btn-warning" style="border-radius: .2rem"><i class="fas fa-edit"></i></button>
                         <button type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i></button>
+                        <button onclick="location.href='/Cv/DownloadResume/{{$cv->id}}'" type="button" class="btn-success"><i class="fa fa-download" aria-hidden="true"></i></button>
                     </td>                         
               </tr>
               @endforeach

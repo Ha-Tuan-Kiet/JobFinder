@@ -95,3 +95,4 @@ Route::get('/Cv',[CvController::class,'CvCreate'])->middleware('auth');
 Route::post('/Cv/create',[CvController::class,'create'])->middleware('auth')->name('/Cv/create');
 Route::get('/Cv/Resume/{id}',[CvController::class,'showResume'])->middleware('auth')->name('/Cv/Resume/');
 Route::get('/Cv/ShowAllCv',[CvController::class,'ShowAllCvCreated'])->middleware('auth')->name('/Cv/ShowAllCv');
+Route::get('/Cv/DownloadResume/{id}',[CvController::class,'downloadResume'])->middleware('auth')->name('/Cv/DownloadResume/');
