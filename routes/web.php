@@ -88,6 +88,10 @@ Route::get('/signin', [HomeController::class, 'index']);
 
 Route::group(['middleware'=>'admin'],function(){
     Route::get('/admin',[AdminController::class, 'dashboard']);
+    Route::get('/admin/joblist',[AdminController::class,'showJoblist']);
+    Route::get('/edit-job/{id}',[AdminController::class,'editJob']);
+    Route::post('/update-job/{id}',[AdminController::class,'updateJob']);
+    Route::get('/delete-job/{id}',[AdminController::class,'deleteJob']);
     Route::match(['get', 'post'],'/postjob',[AdminController::class, 'postjob'])->name('postjob');
 });
 

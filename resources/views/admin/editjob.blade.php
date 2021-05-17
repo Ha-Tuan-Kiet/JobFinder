@@ -72,17 +72,17 @@
             
         </div>
 <div class="job-post-box">
-            <form method="post" action="{{route('postjob')}}">
+            <form method="post" action="/update-job/{{$jobsdata->id}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <label for="exampleInputJobtitle">Job Position</label>
-                        <input type="text" name="position" class="form-control" placeholder="Enter your job position" required />
+                        <input type="text" name="position" class="form-control" placeholder="Enter your job position" value="{{$jobsdata->position}}" required />
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <label for="exampleInputJobtitle">Address</label>
-                    <input type="text" name="address" class="form-control" placeholder="Address" required />
+                    <input type="text" name="address" class="form-control" placeholder="Address" value="{{$jobsdata->address}}" required />
                     </div>
                 </div>
                 
@@ -91,7 +91,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label for="exampleInputCompany">Application Email</label>
-                            <input type="email" name="application_email" class="form-control" id="exampleInputCompany" placeholder="Email" required />
+                            <input type="email" name="application_email" class="form-control" id="exampleInputCompany" placeholder="Email" value="{{$jobsdata->application_email}}" required />
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -134,25 +134,25 @@
                                     <label>Company Logo</label>
                                     <div class="box text-center">
                                         <label for="img">Select image:</label>
-                                        <input type="file" id="img" name="image" accept="image/*">
+                                        <input type="file" id="img" name="image" accept="image/*"  value="{{$jobsdata->image}}" >
                                     </div>
                                 </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label for="exampleInputLoction">Details</label>
-                            <textarea name="details" class="form-control small" id="exampleInputShortDescription" placeholder="Write short description" rows="3" required></textarea>
+                            <textarea name="details" class="form-control small" id="exampleInputShortDescription" placeholder="Write short description" rows="3"  required>{{$jobsdata->details}}</textarea>
                         </div>
                     </div>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputShortDescription">Amount</label>
-                <input type="number" name="amount" />
+                <input type="number" name="amount" value="{{$jobsdata->amount}}" required/>
             </div>
             <div class="form-group">
                 <label for="exampleInputLongDescription">Experiences</label>
-                 <input type="number" name="experience" />
+                 <input type="number" name="experience"  value="{{$jobsdata->experience}}" required/>
             </div>
             <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -167,7 +167,7 @@
                                     </div>                  
                     </div>
                     <div class="col-lg-3 col-md-12">
-                        <input class="form-control" name="work_time" type="number" value="" placeholder="Time to Work" id="example-number-input">
+                        <input class="form-control" name="work_time" type="number" value="{{$jobsdata->work_time}}" placeholder="Time to Work" id="example-number-input"  required>
                     </div>
                     <div class="col-lg-3 col-md-12">
                         <input class="form-control" name="due_to_apply" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
@@ -211,17 +211,17 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label for="exampleInputLoction">Requirement</label>
-                        <textarea name="requirements" class="form-control small" placeholder="" rows="3" required></textarea>
+                        <textarea name="requirements" class="form-control small" placeholder="" rows="3"  required>{{$jobsdata->requirement}}</textarea>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label for="exampleInputLoction">Education</label>
-                        <textarea name="education" class="form-control small" placeholder="" rows="3" required></textarea>
+                        <textarea name="education" class="form-control small" placeholder="" rows="3"  required>{{$jobsdata->education}}</textarea>
                     </div>
                 </div>
             </div>
-                    <button type="submit" class="btn Post-Job-Offer">Post Job Offer</button>
+                    <button type="submit" class="btn Post-Job-Offer">Update Job</button>
             </form>
             </div>
             </div>

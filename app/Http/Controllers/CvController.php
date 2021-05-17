@@ -63,15 +63,17 @@ class CvController extends Controller
         ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
         ->first();
         $html=view('Cv.Resume',compact('cv'));
-        $pdf=new Dompdf();
-        $pdf->loadHtml($html);
-        // (Optional) Setup the paper size and orientation
-        $pdf->setPaper('A4', 'Landscape');
+        // $pdf = PDF::loadView('Cv.Resume',compact('cv'));
+        // return $pdf->download('invoice.pdf');
+            $pdf=new Dompdf();
+            $pdf->loadHtml($html);
+            // (Optional) Setup the paper size and orientation
+            $pdf->setPaper('A4', 'Landscape');
 
-        // Render the HTML as PDF
-        $pdf->render();
+            // Render the HTML as PDF
+            $pdf->render();
 
-        // Output the generated PDF to Browser
-        $pdf->stream('result.pdf');
+            // Output the generated PDF to Browser
+            $pdf->stream('result.pdf');
     }
 }
