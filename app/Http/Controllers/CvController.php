@@ -20,6 +20,9 @@ class CvController extends Controller
         return view('Cv.create');
     }
     public  function create(Request $request){
+        $request->validate([
+            'phone'=>'required',
+        ]);
         if($request->isMethod("POST")){
             $cv= new Cv();
             $cv->user_id=auth()->id();
@@ -40,6 +43,34 @@ class CvController extends Controller
         }
         return view('Cv.create');
     }
+    public function edit($id)
+    {
+        $cv = Cv::find($id);
+        return View('Cv.edit',compact('cv'));
+    }
+    public function update(Request $request,$id)
+    {
+        if($request->isMethod("POST")){
+            $cv= Cv::find($id);
+            $cv->user_id=auth()->id();
+            $cv->phone=$request->input('phone');
+            $cv->email=$request->input('email');
+            $cv->gender=$request->input('gender');
+            $cv->position_apply=$request->input('position_apply');
+            $cv->introduction=$request->input('introduction');
+            $cv->education=$request->input('education');
+            $cv->experience=$request->input('experience');
+            $cv->activity=$request->input('activity');
+            $cv->skill=$request->input('skill');
+            $cv->certificate=$request->input('certificate');
+            $cv->hobby=$request->input('hobby');
+
+            $cv->save();
+            return back();
+        }
+        return back();
+    }
+
     public function ShowAllCvCreated(){
         $cvs=DB::table('cvs')
         ->join('profiles','cvs.user_id','=','profiles.user_id')
@@ -75,4 +106,11 @@ class CvController extends Controller
         // Output the generated PDF to Browser
         $pdf->stream('result.pdf');
     }
+
+    public function destroy($id)
+    {
+        Cv::find($id)->delete();
+        return back();
+    }
+
 }

@@ -23,21 +23,20 @@
     <div class="col-lg-12 mb-4">
         <div class="card mb-4">
             <div class="card-body">
-                <form class="user" action="{{ route('profiles.update', ['profile' => $profile->id]) }}"
+                <form class="user" action="{{ route('profiles.update', ['id' => $profile->id]) }}"
                       method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+                        @csrf
                 <!-- khai báo này dùng để thiết lập phương thức PUT
                                                 nếu không khai báo thì khi submit không thiết lập HttpPUT -->
                     <div class="row">
                         <div class="col-lg-4 mb-4"></div>
                         <div class="col-lg-8 mb-4"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1" hidden>User id</label>
-                        <input type="text" style="background-color: #fb246a" name="user_id" class="form-control form-control-user"
-                               id="user_id" placeholder="Full Name" value="{{ $profile->user_id }}" disabled>
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="exampleInputEmail1" hidden>User id</label>--}}
+{{--                        <input type="text" style="background-color: #fb246a" name="user_id" class="form-control form-control-user"--}}
+{{--                               id="user_id" placeholder="User ID" value="{{ $profile->user_id }}" disabled>--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Full name</label>
                         <input type="text" style="background-color: #fb246a" name="full_name" class="form-control form-control-user"
@@ -60,7 +59,7 @@
                         <label for="exampleInputPassword1">Avatar</label><br>
 
                         <div class="card col-sm-4">
-                            <img class="card-img-top" src="{{URL::to($profile->avatar)}}"/>
+                            <img src="{{URL::to($profile->avatar)}}">
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <div class="custom-file" >
@@ -68,8 +67,8 @@
                                 <label for="avatar" class="custom-file-label">{{$profile->avatar}}</label>
                             </div>
                         </div>
-                        <button type="submit"  class="btn btn-primary"> Cập nhật user</button>
-                        <a href="{{route('users')}}" class="btn btn-primary">Back</a>
+                        <button type="submit"  class="btn btn-primary"> Update profile</button>
+{{--                        <a href="{{route('profile')}}" class="btn btn-primary">Back</a>--}}
                     </div>
 
 

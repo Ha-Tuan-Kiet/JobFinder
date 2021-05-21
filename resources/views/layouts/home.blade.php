@@ -180,7 +180,7 @@
   <!-- JS here -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+        <script src="//cdn.ckeditor.com/4.16.0/basic/ckeditor.js"></script>
         <script type="text/javascript">
             CKEDITOR.replace('skill');
             CKEDITOR.replace('introduction');
