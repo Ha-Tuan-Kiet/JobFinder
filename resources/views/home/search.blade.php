@@ -203,7 +203,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="count-job mb-35">
-                                        <span>{{$jobs->count()}} Jobs found</span>
+                                        <span>{{$jobsdata->total()}} Jobs found</span>
                                         <!-- Select job items start -->
                                         <div class="select-job-items">
                                             <span>Sort by</span>
@@ -220,29 +220,32 @@
                             </div>
                             <!-- Count of Job list End -->
                             <!-- single-job-content -->
-                            @foreach ($jobs as $job )
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
+                            <div id="search_data">
+                                @foreach($jobsdata as $job)
+                                <!-- single-job-content -->
+                                <div class="single-job-items mb-30">
+                                    <div class="job-items">
+                                        <div class="company-img">
+                                            <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
+                                        </div>
+                                        <div class="job-tittle">
+                                            <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+
+                                            <ul>
+                                                <li>{{$job->usercompany->name}}</li>
+                                                <li><i class="fas fa-map-marker-alt"></i>{{$job->province->name}}</li>
+                                                <li>{{$job->salary_min}} - {{$job->salary_max}} {{$job->salary_unit}} </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="{{route('jobdetails', ['id' => $job->id])}}">
-                                            <h4>{{$job->position}}</h4>
-                                        </a>
-                                        <ul>
-                                            <li>{{$job->name}}</li> 
-                                            <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
-                                            <li>{{$job->salary_max}} - {{$job->salary_min}} {{$job->salary_unit}}</li>
-                                        </ul>
+                                    <div class="items-link f-right">
+                                        <a href="job_details.html">{{$job->job_type}}</a>
+                                        <span>{{$job->work_time}} hours ago</span>
                                     </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>{{$job->work_time}} hours ago</span>
-                                </div>
+                                </div>                          
+                                @endforeach                                                     
+                                <div style="display:flex;justify-content:center">  {{ $jobsdata->appends(request()->input())->links() }}</div>  
                             </div>
-                            @endforeach
                     
                        
                             <!-- single-job-content -->
@@ -446,3 +449,24 @@
     
 </body>
 @endsection
+@push('scripts')
+<script>
+    // $(document).ready(function() {
+    //    $(document).on('click','.pagination a',function(event){
+    //        event.preventDefault();
+    //        var page = $(this).attr('href').split('page=')[1];
+    //        index(page);
+    //    })
+    // })
+    // function index(page){
+    //     $.ajax({
+    //         type: "GET",
+    //         url:"pagination?page="+page,
+    //         success: function(data){
+    //             console.log(data);
+    //             $('#search_data').html(data)
+    //         }
+    //     })
+    // }
+</script>
+@endpush

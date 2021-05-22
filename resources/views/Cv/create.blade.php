@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('content')
-
     <style>
 
         * {
@@ -250,7 +249,7 @@
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2><strong>Sign Up Your User Account</strong></h2>
+                    <h2><strong>Create Your CV</strong></h2>
                     <p>Fill all form field to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
@@ -258,15 +257,15 @@
                                 @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="account"><strong>1</strong></li>
-                                    <li id="personal"><strong>2</strong></li>
+                                    <li class="active" id="account" ><strong>1</strong></li>
+                                    <li id="personal" class="icon-image-02" ><strong>2</strong></li>
                                     <li id="payment"><strong>3</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Contact Information</h2>  
-                                        <input type="text" name="position_apply" placeholder="Position Apply"/>  
+                                        <h2 class="fs-title">Contact Information</h2>
+                                        <input type="text" name="position_apply" placeholder="Position Apply"/>
                                         <input type="number" name="phone" placeholder="Phone" maxlength="10"/>
                                         <input type="email" name="email" placeholder="Email" required/>
                                         <div class="row">
@@ -288,10 +287,14 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Knowledges</h2>
-                                        <textarea name="introduction"  rows="3" placeholder="Introduction yourself"></textarea>
-                                        <textarea name="education" rows="3" placeholder="Education"></textarea>
-                                        <textarea name="experience"  rows="3" placeholder="Experience"></textarea>
-                                        <textarea name="activity"  rows="3" placeholder="Activity"></textarea>
+                                        <label>Introduction:</label>
+                                        <textarea name="introduction"  rows="3" id="introduction" placeholder="Introduction yourself"></textarea>
+                                        <label>Education:</label>
+                                        <textarea name="education" rows="3" id="education" placeholder="Education"></textarea>
+                                        <label>Experience:</label>
+                                        <textarea name="experience"  rows="3" id="experience" placeholder="Experience"></textarea>
+                                        <label>Activity:</label>
+                                        <textarea name="activity"  rows="3" id="activity" placeholder="Activity"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
@@ -299,13 +302,16 @@
                                         <h2 class="fs-title">Qualified</h2>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 ">
-                                                <textarea name="skill" placeholder="Skill" rows="3"></textarea>
+                                                <label>Skills:</label>
+                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3"></textarea>
                                             </div>
                                             <div class="col-lg-6 col-md-6 ">
-                                                <textarea name="certificate" placeholder="Certificate" rows="3"></textarea>
+                                                <label>Certificate</label>
+                                                <textarea name="certificate" id="certificate" placeholder="Certificate" rows="3"></textarea>
                                             </div>
-                                        </div>                                    
-                                        <textarea name="hobby" placeholder="Your Hobby" rows="3"></textarea>
+                                        </div>
+                                        <label>Hobby</label>
+                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button" >Submit</button>
                                 </fieldset>
@@ -317,7 +323,7 @@
                                         </div> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-7 text-center">
-                                                <h5>You Have Successfully Signed Up</h5>
+                                                <h5>You Have Successfully Create CV</h5>
                                             </div>
                                         </div>
                                     </div>

@@ -1,3 +1,5 @@
+@extends('layouts.home')
+@section('content')
 <!doctype html>
 <html lang="zxx">
 
@@ -141,7 +143,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label for="exampleInputLoction">Details</label>
-                            <textarea name="details" class="form-control small" id="exampleInputShortDescription" placeholder="Write short description" rows="3" required></textarea>
+                            <textarea id="job_details"  name="details" class="form-control small" placeholder="Write short description" rows="3" required></textarea>
                         </div>
                     </div>
             </div>
@@ -152,7 +154,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputLongDescription">Experiences</label>
-                 <input type="number" name="experience" />
+                <textarea id="job_experience"  name="experience" class="form-control small" placeholder="Write short description" rows="3" required></textarea>
             </div>
             <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -211,13 +213,13 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label for="exampleInputLoction">Requirement</label>
-                        <textarea name="requirements" class="form-control small" placeholder="" rows="3" required></textarea>
+                        <textarea id="job_requirement" name="requirements" class="form-control small" placeholder="" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label for="exampleInputLoction">Education</label>
-                        <textarea name="education" class="form-control small" placeholder="" rows="3" required></textarea>
+                        <textarea id="job_education" name="education" class="form-control small" placeholder="" rows="3" required></textarea>
                     </div>
                 </div>
             </div>
@@ -282,8 +284,12 @@
             </div>
             </div>
 </footer>
+</body>
 
-
+</html>
+@endsection
+@push('scripts')
+    
 <script data-cfasync="false" src="{{asset('adminform/js/email-decode.min.js')}}"></script><script src="{{asset('adminform/js/jquery.min.js')}}"></script>
 <script src="{{asset('adminform/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('adminform/owlcarousel/owl.carousel.min.js')}}"></script>
@@ -296,6 +302,4 @@
             r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2");
         })(document, window, 0);
     </script>
-</body>
-
-</html>
+@endpush

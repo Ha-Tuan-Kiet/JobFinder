@@ -89,7 +89,7 @@
                                             <select name="provinces" id="provinces">
                                                 <option value="">Location</option>
                                                 @foreach ($provinces as $province)
-                                                <option value="{{$province}}">{{$province}}</option>
+                                                <option value="{{$province->id}}">{{$province->name}}</option>
                                                  @endforeach
                                             </select>
                                         </div>

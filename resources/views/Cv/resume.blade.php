@@ -4,76 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style>  
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+
   .bold {
     font-weight: 700;
     font-size: 20px;
     text-transform: uppercase;
   }
-  
+
   .semi-bold {
     font-weight: 500;
     font-size: 16px;
   }
-  
+
   .resume {
     width: 800px;
     height: auto;
     display: flex;
     margin: 50px auto;
   }
-  
+
   .resume .resume_left {
     width: 280px;
     background: #0bb5f4;
   }
-  
+
   .resume .resume_left .resume_profile {
     width: 100%;
     height: 280px;
   }
-  
+
   .resume .resume_left .resume_profile img {
     width: 100%;
     height: 100%;
   }
-  
+
   .resume .resume_left .resume_content {
     padding: 0 25px;
   }
-  
+
   .resume .title {
     margin-bottom: 20px;
   }
-  
+
   .resume .resume_left .bold {
     color: #fff;
   }
-  
+
   .resume .resume_left .regular {
     color: #b1eaff;
   }
-  
+
   .resume .resume_item {
     padding: 25px 0;
     border-bottom: 2px solid #b1eaff;
   }
-  
+
   .resume .resume_left .resume_item:last-child,
   .resume .resume_right .resume_item:last-child {
     border-bottom: 0px;
   }
-  
+
   .resume .resume_left ul li {
     display: flex;
     margin-bottom: 10px;
     align-items: center;
   }
-  
+
   .resume .resume_left ul li:last-child {
     margin-bottom: 0;
   }
-  
+
   .resume .resume_left ul li .icon {
     width: 35px;
     height: 35px;
@@ -84,7 +86,7 @@
     font-size: 16px;
     position: relative;
   }
-  
+
   .resume .icon i,
   .resume .resume_right .resume_hobby ul li i {
     position: absolute;
@@ -92,11 +94,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
   .resume .resume_left ul li .data {
     color: #b1eaff;
   }
-  
+
   .resume .resume_left .resume_skills ul li {
     display: flex;
     margin-bottom: 10px;
@@ -104,11 +106,11 @@
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .resume .resume_left .resume_skills ul li .skill_name {
     width: 25%;
   }
-  
+
   .resume .resume_left .resume_skills ul li .skill_progress {
     width: 60%;
     margin: 0 5px;
@@ -116,11 +118,11 @@
     background: #009fd9;
     position: relative;
   }
-  
+
   .resume .resume_left .resume_skills ul li .skill_per {
     width: 15%;
   }
-  
+
   .resume .resume_left .resume_skills ul li .skill_progress span {
     position: absolute;
     top: 0;
@@ -128,46 +130,46 @@
     height: 100%;
     background: #fff;
   }
-  
+
   .resume .resume_left .resume_social .semi-bold {
     color: #fff;
     margin-bottom: 3px;
   }
-  
+
   .resume .resume_right {
     width: 520px;
     background: #fff;
     padding: 25px;
   }
-  
+
   .resume .resume_right .bold {
     color: #0bb5f4;
   }
-  
+
   .resume .resume_right .resume_work ul,
   .resume .resume_right .resume_education ul {
     padding-left: 40px;
     overflow: hidden;
   }
-  
+
   .resume .resume_right ul li {
     position: relative;
   }
-  
+
   .resume .resume_right ul li .date {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  
+
   .resume .resume_right ul li .info {
     margin-bottom: 20px;
   }
-  
+
   .resume .resume_right ul li:last-child .info {
     margin-bottom: 0;
   }
-  
+
   .resume .resume_right .resume_work ul li:before,
   .resume .resume_right .resume_education ul li:before {
     content: "";
@@ -179,7 +181,7 @@
     border-radius: 50%;
     border: 2px solid #0bb5f4;
   }
-  
+
   .resume .resume_right .resume_work ul li:after,
   .resume .resume_right .resume_education ul li:after {
     content: "";
@@ -190,12 +192,12 @@
     height: 115px;
     background: #0bb5f4;
   }
-  
+
   .resume .resume_right .resume_hobby ul {
     display: flex;
     justify-content: space-between;
   }
-  
+
   .resume .resume_right .resume_hobby ul li {
     width: 80px;
     height: 80px;
@@ -204,11 +206,11 @@
     position: relative;
     color: #0bb5f4;
   }
-  
+
   .resume .resume_right .resume_hobby ul li i {
     font-size: 30px;
   }
-  
+
   .resume .resume_right .resume_hobby ul li:before {
     content: "";
     position: absolute;
@@ -218,13 +220,13 @@
     height: 2px;
     background: #0bb5f4;
   }
-  
+
   .resume .resume_right .resume_hobby ul li:last-child:before {
     display: none;
   }
-  
+
   </style>
- 
+
 </head>
 <body>
   <div class="resume">
@@ -243,7 +245,7 @@
                 <i class="fas fa-map-signs"></i>
               </div>
               <div class="data">
-                {{$cv->address}} <br /> 
+                {{$cv->address}} <br />
               </div>
             </li>
             <li>
@@ -260,7 +262,7 @@
               </div>
               <div class="data">
                {{$cv->email}}
-              </div>           
+              </div>
             </li>
             <li>
               <div class="icon">
@@ -372,69 +374,30 @@
    <div class="resume_right">
      <div class="resume_item resume_about">
          <div class="title">
-            <p class="bold">About us</p>
+            <p class="bold">Introduction</p>
           </div>
-         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio culpa officia totam atque exercitationem inventore repudiandae?</p>
+         {!!$cv->introduction!!}
      </div>
      <div class="resume_item resume_work">
          <div class="title">
             <p class="bold">Work Experience</p>
           </div>
-         <ul>
-             <li>
-                 <div class="date">2013 - 2015</div> 
-                 <div class="info">
-                      <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                 </div>
-             </li>
-             <li>
-               <div class="date">2015 - 2017</div>
-               <div class="info">
-                      <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                 </div>
-             </li>
-             <li>
-               <div class="date">2017 - Present</div>
-               <div class="info">
-                      <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                 </div>
-             </li>
-         </ul>
+         {!!$cv->experience !!}
      </div>
      <div class="resume_item resume_education">
        <div class="title">
             <p class="bold">Education</p>
           </div>
-       <ul>
-             <li>
-                 <div class="date">2010 - 2013</div> 
-                 <div class="info">
-                      <p class="semi-bold">Web Designing (Texas University)</p> 
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                 </div>
-             </li>
-             <li>
-               <div class="date">2000 - 2010</div>
-               <div class="info">
-                      <p class="semi-bold">Texas International School</p> 
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                 </div>
-             </li>
-         </ul>
+         <div>
+             {!!$cv->education!!}
+         </div>
+
      </div>
-     <div class="resume_item resume_hobby">
+     <div class="resume_item ">
        <div class="title">
             <p class="bold">Hobby</p>
           </div>
-        <ul>
-          <li><i class="fas fa-book"></i></li>
-          <li><i class="fas fa-gamepad"></i></li>
-          <li><i class="fas fa-music"></i></li>
-          <li><i class="fab fa-pagelines"></i></li>
-       </ul>
+         {!!$cv->hobby !!}
      </div>
    </div>
  </div>

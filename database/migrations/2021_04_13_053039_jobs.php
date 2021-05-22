@@ -20,7 +20,7 @@ class Jobs extends Migration
             $table->char('image',255)->nullable();
             $table->text('details');
             $table->integer('amount');
-            $table->integer('experience');
+            $table->text('experience');
             $table->decimal('salary_max',10,0);
             $table->decimal('salary_min',10,0);
             $table->char('salary_unit',50);
@@ -28,8 +28,8 @@ class Jobs extends Migration
             $table->char('address');
             $table->dateTime('deadline_for_submission');        
             $table->char('job_type');
-            $table->char('requirement');
-            $table->char('education');
+            $table->text('requirement');
+            $table->text('education');
             $table->char('province_id',5)->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('company_id')->nullable();
@@ -46,6 +46,6 @@ class Jobs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job');
+        Schema::dropIfExists('jobs');
     }
 }

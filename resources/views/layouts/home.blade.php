@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="{{ asset('bootstrap/site.webmanifest')}}">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('bootstrap/img/favicon.ico')}}">
-      
+
 		<!-- CSS here -->
             <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/owl.carousel.min.css')}}">
@@ -43,7 +43,7 @@
    </head>
 
    <body>
-    
+
     @include('home.header')
     @yield('content');
 
@@ -180,7 +180,24 @@
     </footer>
 
   <!-- JS here -->
-	
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('skill');
+            CKEDITOR.replace('introduction');
+            CKEDITOR.replace('certificate');
+            CKEDITOR.replace('hobby');
+            CKEDITOR.replace('experience');
+            CKEDITOR.replace('education');
+            CKEDITOR.replace('activity');
+            CKEDITOR.replace('job_education');
+            CKEDITOR.replace('job_details')
+            CKEDITOR.replace('job_requirement');
+            CKEDITOR.replace('job_experience');
+            CKEDITOR.replace('candidate_introduction');
+            CKEDITOR.replace('content_response');
+        </script>
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.j')}}"></script>
 		<!-- Jquery, Popper, Bootstrap -->
@@ -194,7 +211,7 @@
         <script src="{{ asset('bootstrap/js/owl.carousel.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/slick.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/price_rangs.js')}}"></script>
-        
+
 		<!-- One Page, Animated-HeadLin -->
         <script src="{{ asset('bootstrap/js/wow.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/animated.headline.js')}}"></script>
@@ -204,15 +221,15 @@
         <script src="{{ asset('bootstrap/js/jquery.scrollUp.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
 		<script src="{{ asset('bootstrap/js/jquery.sticky.js')}}"></script>
-        
+
         <!-- contact js -->
         <script src="{{ asset('bootstrap/js/contact.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.form.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.validate.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/mail-script.js')}}"></script>
         <script src="{{ asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
+
+		<!-- Jquery Plugins, main Jquery -->
         <script src="{{ asset('bootstrap/js/plugins.js')}}"></script>
         <script src="{{ asset('bootstrap/js/main.js')}}"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -230,10 +247,10 @@
         <script src="assets/js/gsdk-bootstrap-wizard.js"></script>
 
         <!--CV-->
-       
+
         @stack('scripts')
 
-    
+
 
 
     </body>

@@ -201,6 +201,7 @@
 
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.j')}}"></script>
+        <script type="text/javascript" src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
 		<!-- Jquery, Popper, Bootstrap -->
 		<script src="{{ asset('bootstrap/js/vendor/jquery-1.12.4.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/popper.min.js')}}"></script>

@@ -6,7 +6,9 @@ use App\Models\Cv;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Dompdf\Dompdf;
-use PDF;
+//use PDF;
+use App\Models\CandidateApply;
+use App\Models\MessagesFromEmployers;
 class CvController extends Controller
 {
     /**
@@ -75,5 +77,43 @@ class CvController extends Controller
 
             // Output the generated PDF to Browser
             $pdf->stream('result.pdf');
+    }
+    public function apply_job(Request $request){
+        if($request->isMethod('POST')){
+            $candidate_apply= new CandidateApply();
+            $candidate_apply->email = $request->input('email');
+            $candidate_apply->phone=$request->input('phone');
+            $candidate_apply->introduction=$request->input('candidate_introduction');
+            $candidate_apply->job_id=$request->input('job_id');
+            $candidate_apply->user_id=auth()->id();
+            $candidate_apply->cv_id=$request->input('resume');
+            $candidate_apply->save();
+            return back();
+        }
+    }
+
+    public function show_messages(){
+        $messages=DB::table('messages_from_employers')
+        ->join('users','users.id','=','messages_from_employers.user_id')
+        ->join('user_companies','user_companies.id','=','company_id')
+        ->where('messages_from_employers.user_id','=',auth()->id())
+        ->select('messages_from_employers.*','user_companies.name')
+        ->get();
+        return view('users.messages_from_employer',compact('messages'));
+    }
+    public function show_messages_detail($id){
+        $message=DB::table('messages_from_employers')
+        ->join('users','users.id','=','messages_from_employers.user_id')
+        ->join('user_companies','user_companies.id','=','company_id')
+        ->where('messages_from_employers.user_id','=',auth()->id())
+        ->where('messages_from_employers.id','=',$id)
+        ->select('messages_from_employers.*','user_companies.name')
+        ->first();
+        return view('users.messages_details',compact('message'));
+    }
+    public function delete_message($id){
+        $message=MessagesFromEmployers::find($id);
+        $message->delete();
+        return redirect()->back();
     }
 }

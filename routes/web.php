@@ -92,6 +92,9 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/edit-job/{id}',[AdminController::class,'editJob']);
     Route::post('/update-job/{id}',[AdminController::class,'updateJob']);
     Route::get('/delete-job/{id}',[AdminController::class,'deleteJob']);
+    Route::get('/admin/job_application',[AdminController::class,'job_application']);
+    Route::get('/admin/application_details/{id}',[AdminController::class,'show_application_details']);
+    Route::post('/admin/response_job_application',[AdminController::class,'response_job_application'])->name('/admin/response_job_application');
     Route::match(['get', 'post'],'/postjob',[AdminController::class, 'postjob'])->name('postjob');
 });
 
@@ -100,3 +103,7 @@ Route::post('/Cv/create',[CvController::class,'create'])->middleware('auth')->na
 Route::get('/Cv/Resume/{id}',[CvController::class,'showResume'])->middleware('auth')->name('/Cv/Resume/');
 Route::get('/Cv/ShowAllCv',[CvController::class,'ShowAllCvCreated'])->middleware('auth')->name('/Cv/ShowAllCv');
 Route::get('/Cv/DownloadResume/{id}',[CvController::class,'downloadResume'])->middleware('auth')->name('/Cv/DownloadResume/');
+Route::post('/Cv/ApplyJob',[CvController::class,'apply_job'])->middleware('auth')->name('/Cv/ApplyJob');
+Route::get('/Cv/showMessages',[CvController::class,'show_messages'])->middleware('auth')->name('/Cv/showMessages');
+Route::get('/Cv/showMessages_detail/{id}',[CvController::class,'show_messages_detail'])->middleware('auth')->name('/Cv/showMessages_detail');
+Route::get('/Cv/showMessages_delete/{id}',[CvController::class,'delete_message'])->middleware('auth')->name('/Cv/showMessages_delete');

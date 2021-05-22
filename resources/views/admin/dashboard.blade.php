@@ -14,6 +14,21 @@
 
 <title>Jobz-index</title>
 
+<style>
+    .border-icon{
+        font-size: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 1px;
+    }
+    .label-dashboard{
+        font-size: xx-large;
+    font-family: 'proxima nova rg';
+    }
+</style>
 {{-- <script src="{{asset('adminform/js/4n2NXumNjtg5LPp6VXLlDicTUfA.js')}}"></script><link rel="apple-touch-icon" href="{{asset('adminform/images/apple-touch-icon.html')}}"> --}}
 <link rel="stylesheet" href="{{asset('adminform/css/style.css')}}">
 </head>
@@ -53,30 +68,80 @@
 <section id="Jobtend">
 <div class="container">
 <div class="vertical-space-85"></div>
-<div class="row">
-<div class="col-lg-9 col-md-6  align-self-center">
-<h3 class="title">Jobtend - Best Place to Find Jobs & Employee</h3>
-<div class="vertical-space-30"></div>
-<p class="max-width">Lorem ipsum tempus amet conubia adipiscing fermentum viverra gravida, mollis suspendisse pretium dictumst inceptos mattis euismod lorem nulla magna duis nostra sodales luctus nulla
-</p>
-<div class="vertical-space-30"></div>
-<h4>Why we are best</h4>
-<div class="vertical-space-30"></div>
-<ul>
-<li class="list-item1 ">Et vestibulum ullamcorper curae tellus consectetur erat pharetra et cubilia
-<br /> Nibh est auctor lacus nam lacinia aptent
-</li>
-<li class="list-item1 ">Vitae sociosqu a nisi cubilia vulputate aliquam vulputate imperdiet tempor arcu fames</li>
-<li class="list-item1 ">Odio habitasse senectus morbi dapibus mauris non primis, nisl ante hendrerit consectetur nulla phasellus eleifend, ad at scelerisque vulputate habitant tempor</li>
-</ul>
-<div class="vertical-space-30"></div>
-<a href="#" class="Explore-Employee">Explore Employee</a>
-<a href="#" class="Explore-New-Jobs">Explore New Jobs</a>
+<label class="label-dashboard"> DASH BOARD</label>
+<div class="row mb-20">
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body px-3 py-4-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stats-icon purple">
+                            <i class="fas fa-briefcase ml-100 border-icon" style="background-color: #ffedd2;color:#feaa2f"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h6 class="text-muted font-semibold">Job Posted</h6>
+                        <h6 class="font-extrabold mb-0">{{$jobsdata->count()}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body px-3 py-4-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stats-icon purple">
+                            <i class="fas fa-newspaper ml-100 border-icon" style="background-color: #ccf3e9;color:#00c292"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h6 class="text-muted font-semibold">News Posted</h6>
+                        <h6 class="font-extrabold mb-0">112.000</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="col-lg-3 col-md-6">
-<img src="{{asset('adminform/imags/man.png')}}" alt="" class="man-img">
+<div class="row mb-20">
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body px-3 py-4-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stats-icon purple">
+                            <i class="fas fa-file ml-100 border-icon" style="background-color: #ccf2f4;color:#01c0c8" ></i>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h6 class="text-muted font-semibold " >Job Application</h6>
+                        <h6 class="font-extrabold mb-0">112</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body px-3 py-4-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stats-icon purple">
+                            <i class="fas fa-sync ml-100 border-icon" style="background-color: beige;color:#afbc58" ></i>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h6 class="text-muted font-semibold" >Job Comments</h6>
+                        <h6 class="font-extrabold mb-0">115</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="vertical-space-60"></div>
+<div class="vertical-space-10"></div>
 </div>
 </div>
 </section>
