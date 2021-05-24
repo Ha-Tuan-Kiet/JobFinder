@@ -19,8 +19,6 @@ class MessagesFromEmployers extends Migration
             $table->integer('user_id');
             $table->char('title');
             $table->text('content');
-            $table->char('attachment');
-            $table->dateTime('created_on');
             $table->boolean('seen');
             $table->timestamps();
         });

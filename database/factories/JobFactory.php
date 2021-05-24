@@ -33,7 +33,7 @@ class JobFactory extends Factory
             'image'=>$this->faker->realText(50),
             'details'=>$this->faker->realText(200),
             'amount'=>$this->faker->randomFloat(2,10,100),
-            'experience'=>$this->faker->randomFloat(2,10),
+            'experience'=>'5 years',
             'salary_max'=>3000,
             'salary_min'=>2500,
             'salary_unit'=>'$',
