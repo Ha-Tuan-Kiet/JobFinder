@@ -17,15 +17,20 @@ class CvController extends Controller
      */
     public function CvCreate()
     {
-        return view('Cv.create');
+       return view('Cv.create');
     }
     public  function create(Request $request){
-        $request->validate([
-            'phone'=>'required',
-        ]);
+//        $request->validate([
+//            'phone'=>'required',
+//           'email'=>'reqired',
+//            'gender'=>'required',
+//            'position_apply'=>'required',
+//            'education'=>'required'
+//        ]);
         if($request->isMethod("POST")){
             $cv= new Cv();
             $cv->user_id=auth()->id();
+            $cv->title=$request->input('title');
             $cv->phone=$request->input('phone');
             $cv->email=$request->input('email');
             $cv->gender=$request->input('gender');
@@ -39,9 +44,8 @@ class CvController extends Controller
             $cv->hobby=$request->input('hobby');
 
             $cv->save();
-            return back();
         }
-        return view('Cv.create');
+        return view('Cv.index');
     }
     public function edit($id)
     {
@@ -53,6 +57,7 @@ class CvController extends Controller
         if($request->isMethod("POST")){
             $cv= Cv::find($id);
             $cv->user_id=auth()->id();
+            $cv->title=$request->input('title');
             $cv->phone=$request->input('phone');
             $cv->email=$request->input('email');
             $cv->gender=$request->input('gender');

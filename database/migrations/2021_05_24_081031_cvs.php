@@ -1,3 +1,4 @@
+@@ -1,44 +0,0 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -16,6 +17,7 @@ class Cvs extends Migration
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('title');
             $table->string('phone');
             $table->string('email');
             $table->string('gender');

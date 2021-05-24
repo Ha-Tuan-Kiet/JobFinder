@@ -263,10 +263,12 @@
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
+                                        <h2 class="fs-title">Title For Your CV</h2>
+                                        <input type="text" name="title" placeholder="Title CV" value="{{$cv->title}}"/>
                                         <h2 class="fs-title">Contact Information</h2>
-                                        <input type="text" name="position_apply" placeholder="Position Apply" value={{$cv->position_apply}}>
-                                        <input type="number" name="phone" placeholder="Phone" maxlength="10" value={{$cv->phone}}>
-                                        <input type="email" name="email" placeholder="Email" value={{$cv->email}} >
+                                        <input type="text" name="position_apply"  value="{{$cv->position_apply}}"/>
+                                        <input type="number" name="phone" placeholder="Phone"  maxlength="10" value="{{$cv->phone}}"/>
+                                        <input type="email" name="email" placeholder="Email" value="{{$cv->email}}" />
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div class="col-lg-6 col-md-6">
@@ -287,30 +289,30 @@
                                     <div class="form-card">
                                         <h2 class="fs-title">Knowledges</h2>
                                         <label>Introduction:</label>
-                                        <textarea name="introduction"  rows="3" id="introduction" value="{{$cv->introduction}}" placeholder="Introduction yourself"></textarea>
+                                        <textarea name="introduction"  rows="3" id="introduction"  placeholder="Introduction yourself" value={!!$cv->introduction!!} ></textarea>
                                         <label>Education:</label>
-                                        <textarea name="education" rows="3" id="education" value="{{$cv->education}}" placeholder="Education"></textarea>
+                                        <textarea name="education" rows="3" id="education" placeholder="Education" value={!! $cv->education !!} ></textarea>
                                         <label>Experience:</label>
-                                        <textarea name="experience"  rows="3" id="experience" value="{{$cv->experience}}" placeholder="Experience"></textarea>
+                                        <textarea name="experience"  rows="3" id="experience" placeholder="Experience" value={!! $cv->experience !!} ></textarea>
                                         <label>Activity:</label>
-                                        <textarea name="activity"  rows="3" id="activity" value="{{$cv->activity}}" placeholder="Activity"></textarea>
+                                        <textarea name="activity"  rows="3" id="activity" placeholder="Activity" value={!! $cv->activity !!} ></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Qualified</h2>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 ">
+
+
                                                 <label>Skills:</label>
-                                                <textarea name="skill" id="skill" value="{{$cv->skill}}"  placeholder="Skill" rows="3"></textarea>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 ">
+                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3" value={!! $cv->skill !!}   ></textarea>
+
+
                                                 <label>Certificate</label>
-                                                <textarea name="certificate" id="certificate" value="{{$cv->certificate}}" placeholder="Certificate" rows="3"></textarea>
-                                            </div>
-                                        </div>
+                                                <textarea name="certificate" id="certificate" placeholder="Certificate"rows="3" value={!! $cv->certificate !!}   ></textarea>
+
+
                                         <label>Hobby</label>
-                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby" value="{{$cv->hobby}}" rows="3"></textarea>
+                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby"  rows="3" value= {!!$cv->hobby!!}   ></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button" >Submit</button>
                                 </fieldset>

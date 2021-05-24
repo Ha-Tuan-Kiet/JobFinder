@@ -26,27 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_11_38_AM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_11_082513_profile.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cv.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_14_140825_cvs.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +210,9 @@
       <workItem from="1621322075294" duration="15149000" />
       <workItem from="1621395593275" duration="22407000" />
       <workItem from="1621515505893" duration="4326000" />
+      <workItem from="1621580108815" duration="1478000" />
+      <workItem from="1621842337316" duration="6727000" />
+      <workItem from="1621861103494" duration="299000" />
     </task>
     <servers />
   </component>

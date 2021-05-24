@@ -6,7 +6,7 @@
         <table class="table">
             <thead class="thead-light">
               <tr >
-                <th scope="col" style="background-color: #fb246a;color: white">Name</th>
+                <th scope="col" style="background-color: #fb246a;color: white">Title</th>
                 <th scope="col"style="background-color: #fb246a;color: white">Email</th>
                 <th scope="col"style="background-color: #fb246a;color: white">Day of birthday</th>
                 <th scope="col"style="background-color: #fb246a;color: white">Created</th>
@@ -16,9 +16,9 @@
             <tbody>
               @foreach ($cvs as $cv )
               <tr>
-                    <td>{{$cv->full_name}}</td>
+                    <td >{{$cv->title}}</td>
                     <td>{{$cv->email}}</td>
-                    <td>{{$cv->birthday}}</td>
+                    <td>{{$cv->full_name}}</td>
                     <th scope="row">{{$cv->created_at}}</th>
                     <td>
                       <button data-path="{{ route('/Cv/Resume/', ['id' => $cv->id]) }}"

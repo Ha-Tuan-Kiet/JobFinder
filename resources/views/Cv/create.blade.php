@@ -264,10 +264,12 @@
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
+                                        <h2 class="fs-title">Title For Your CV</h2>
+                                        <input type="text" name="title" placeholder="Title CV" />
                                         <h2 class="fs-title">Contact Information</h2>
-                                        <input type="text" name="position_apply" placeholder="Position Apply" required="required"/>
-                                        <input type="number" name="phone" placeholder="Phone" required="required" maxlength="10"/>
-                                        <input type="email" name="email" placeholder="Email" required="required"/>
+                                        <input type="text" name="position_apply" placeholder="Position Apply" />
+                                        <input type="number" name="phone" placeholder="Phone"  maxlength="10"/>
+                                        <input type="email" name="email" placeholder="Email"/>
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div class="col-lg-6 col-md-6">
@@ -300,17 +302,14 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Qualified</h2>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 ">
+
                                                 <label>Skills:</label>
                                                 <textarea name="skill" id="skill"  placeholder="Skill" rows="3"></textarea>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 ">
+
                                                 <label>Certificate</label>
                                                 <textarea name="certificate" id="certificate" placeholder="Certificate" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <label>Hobby</label>
+
+                                        <label>Hobby:</label>
                                         <textarea name="hobby" id="hobby" placeholder="Your Hobby" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button" >Submit</button>
