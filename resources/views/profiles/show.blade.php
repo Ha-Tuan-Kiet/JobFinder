@@ -1,27 +1,21 @@
-{{--@extends('layouts.layout1')--}}
-
-{{--@section('content')--}}
-{{--    <p>Họ tên: {{$profile->full_name}}</p>--}}
-{{--    <p>Địa chỉ: {{$profile->address}}</p>--}}
-{{--    <p>Ngày sinh: {{$profile->birthday}}</p>--}}
-{{--@endsection--}}
 
 @extends('layouts.app')
-
+@section('js')
+    <script>
+        $('#avatar').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+    </script>
+@endsection('js')
 @section('content')
 
-{{--        @if ($profile ?? '' !=null)--}}
-{{--            @if ($message = Session::get('success'))--}}
-{{--                <div class="alert alert-success"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->--}}
-{{--                    <li>{{ $message }}  </li>--}}
-{{--                    @if ($message = Session::get('file'))--}}
-{{--                        <li>{{ $message }}  </li>--}}
-{{--                    @endif--}}
-{{--                </div>--}}
-{{--            @endif--}}
+
     @if (count($errors) > 0)
         <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->
-            <li>{{ $message }}  </li>
+{{--            <li>{{ $message }}  </li>--}}
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -37,7 +31,7 @@
 
                     <h1 class="m-0 font-weight-bold text-light">Profile {{ $profiles->full_name }}</h1>
                     <div class="m-1">
-                        <a href="{{ $user->id }}/edit" class="btn btn-light btn-icon btn"
+                        <a href="edit/{{ $profiles->id }}" class="btn btn-light btn-icon btn"
                            role="button">
                             <span class="icon">
                                 <i class="fas fa-user-edit"></i>
@@ -55,7 +49,8 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Avatar</label>
                                     <div class="card">
-                                        <img class="card-img-top"  src="{{URL::to($profiles->avatar)}}"/>
+
+                                        <embed src="{!!URL::to($profiles->avatar)!!}"style="width:350px; height:300px;" frameborder="0">
 {{--                                        --}}{{-- <div style="background-image: url({{$profile->avatar}}), style="width: 450px;height: 350px""></div> --}}
 {{--                                        --}}{{-- <img class="card-img-top"--}}
 {{--                                            src="{{ $profile->avatar }}"--}}

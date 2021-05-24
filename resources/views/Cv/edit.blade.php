@@ -240,8 +240,8 @@
         }
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+            -webkit-appearance: none;
+            margin: 0;
         }
     </style>
     <!-- MultiStep Form -->
@@ -249,13 +249,12 @@
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2><strong>Create Your CV</strong></h2>
-                    <p>Fill all form field to go to next step</p>
+                    <h2><strong>Update Your CV</strong></h2>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" method="POST" action="{{route('/Cv/create')}}">
-                                @csrf
-                                <!-- progressbar -->
+                            <form id="msform" method="POST" action="{{route('Cv/update', ['id' => $cv->id]) }}">
+                            @csrf
+                            <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="account" ><strong>Step 1</strong></li>
                                     <li id="personal" class="icon-image-02" ><strong>Step 2</strong></li>
@@ -265,9 +264,9 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Contact Information</h2>
-                                        <input type="text" name="position_apply" placeholder="Position Apply" required="required"/>
-                                        <input type="number" name="phone" placeholder="Phone" required="required" maxlength="10"/>
-                                        <input type="email" name="email" placeholder="Email" required="required"/>
+                                        <input type="text" name="position_apply" placeholder="Position Apply" value={{$cv->position_apply}}>
+                                        <input type="number" name="phone" placeholder="Phone" maxlength="10" value={{$cv->phone}}>
+                                        <input type="email" name="email" placeholder="Email" value={{$cv->email}} >
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div class="col-lg-6 col-md-6">
@@ -288,13 +287,13 @@
                                     <div class="form-card">
                                         <h2 class="fs-title">Knowledges</h2>
                                         <label>Introduction:</label>
-                                        <textarea name="introduction"  rows="3" id="introduction" placeholder="Introduction yourself"></textarea>
+                                        <textarea name="introduction"  rows="3" id="introduction" value="{{$cv->introduction}}" placeholder="Introduction yourself"></textarea>
                                         <label>Education:</label>
-                                        <textarea name="education" rows="3" id="education" placeholder="Education"></textarea>
+                                        <textarea name="education" rows="3" id="education" value="{{$cv->education}}" placeholder="Education"></textarea>
                                         <label>Experience:</label>
-                                        <textarea name="experience"  rows="3" id="experience" placeholder="Experience"></textarea>
+                                        <textarea name="experience"  rows="3" id="experience" value="{{$cv->experience}}" placeholder="Experience"></textarea>
                                         <label>Activity:</label>
-                                        <textarea name="activity"  rows="3" id="activity" placeholder="Activity"></textarea>
+                                        <textarea name="activity"  rows="3" id="activity" value="{{$cv->activity}}" placeholder="Activity"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
@@ -303,15 +302,15 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 ">
                                                 <label>Skills:</label>
-                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3"></textarea>
+                                                <textarea name="skill" id="skill" value="{{$cv->skill}}"  placeholder="Skill" rows="3"></textarea>
                                             </div>
                                             <div class="col-lg-6 col-md-6 ">
                                                 <label>Certificate</label>
-                                                <textarea name="certificate" id="certificate" placeholder="Certificate" rows="3"></textarea>
+                                                <textarea name="certificate" id="certificate" value="{{$cv->certificate}}" placeholder="Certificate" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <label>Hobby</label>
-                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby" rows="3"></textarea>
+                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby" value="{{$cv->hobby}}" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <button type="submit" class="next action-button" >Submit</button>
                                 </fieldset>
@@ -323,7 +322,7 @@
                                         </div> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-7 text-center">
-                                                <h5>You Have Successfully Create CV</h5>
+                                                <h5>You Have Successfully Update CV</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -343,8 +342,6 @@
 
             var current_fs, next_fs, previous_fs; //fieldsets
             var opacity;
-
-
 
             $(".next").click(function(){
 
@@ -407,6 +404,7 @@
             $(".submit").click(function(){
                 return false;
             })
+
         });
     </script>
 @endpush

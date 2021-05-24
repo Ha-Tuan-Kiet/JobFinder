@@ -60,27 +60,11 @@ Route::get('/search',[SearchController::class,'search'])->name('search');
 
 
 Route::resource('users', UserController::class)->middleware(['auth','role:admin']);
-//Route::get('/users', function (){
-//    $user = DB::table('users')->get();
-//    return view('users.index',  ['users' => $user]);
-//})->name('users');
 
 Route::get('/create', function () {
     return view('users.create');
 })->middleware(['auth','role:admin']);
 //Route::delete('/users/id}',[UserController::class, 'destroy'])->name('delete');
-
-Route::resource('profiles', ProfileController::class);
-
-Route::get('/profiles', function (){
-    return view('profiles.create');
-})->middleware(['auth','role:admin']);
-
-Route::get('/profiles/{id}',[ProfileController::class])->middleware((['auth','role:admin']))->name('profiles');
-Route::get('/create', function () {
-    return view('profiles.create');
-})->middleware(['auth','role:admin']);
-
 Auth::routes();
 
 Route::get('/signin', [HomeController::class, 'index']);
@@ -100,10 +84,22 @@ Route::group(['middleware'=>'admin'],function(){
 
 Route::get('/Cv',[CvController::class,'CvCreate'])->middleware('auth');
 Route::post('/Cv/create',[CvController::class,'create'])->middleware('auth')->name('/Cv/create');
+Route::get('/Cv/edit/{id}',[CvController::class,'edit'])->middleware('auth')->name('Cv/edit');
+Route::post('/Cv/update/{id}',[CvController::class,'update'])->middleware('auth')->name('Cv/update');
 Route::get('/Cv/Resume/{id}',[CvController::class,'showResume'])->middleware('auth')->name('/Cv/Resume/');
 Route::get('/Cv/ShowAllCv',[CvController::class,'ShowAllCvCreated'])->middleware('auth')->name('/Cv/ShowAllCv');
 Route::get('/Cv/DownloadResume/{id}',[CvController::class,'downloadResume'])->middleware('auth')->name('/Cv/DownloadResume/');
+
 Route::post('/Cv/ApplyJob',[CvController::class,'apply_job'])->middleware('auth')->name('/Cv/ApplyJob');
 Route::get('/Cv/showMessages',[CvController::class,'show_messages'])->middleware('auth')->name('/Cv/showMessages');
 Route::get('/Cv/showMessages_detail/{id}',[CvController::class,'show_messages_detail'])->middleware('auth')->name('/Cv/showMessages_detail');
 Route::get('/Cv/showMessages_delete/{id}',[CvController::class,'delete_message'])->middleware('auth')->name('/Cv/showMessages_delete');
+
+//Route::get('profiles',[ProfileController::class,'create'])->middleware('auth')->name('profiles.create');
+
+Route::get('profiles/{id}',[ProfileController::class,'show'])->middleware('auth')->name('profiles');
+Route::get('profiles/edit/{id}',[ProfileController::class,'edit'])->middleware('auth')->name('profiles.edit');
+Route::post('profiles/update/{id}',[ProfileController::class,'update'])->middleware('auth')->name('profiles.update');
+Route::get('profiles/create',[ProfileController::class,'create'])->middleware('auth')->name('profiles.create');
+Route::post('profiles/create',[ProfileController::class,'create'])->middleware('auth')->name('profiles.create');
+
