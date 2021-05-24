@@ -28,7 +28,9 @@
             <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
             <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-{{--
+
+      
+{{-- 
             	<!--     Fonts and icons     -->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 	<!-- CSS Files -->
@@ -180,7 +182,7 @@
   <!-- JS here -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="//cdn.ckeditor.com/4.16.0/basic/ckeditor.js"></script>
+        <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
         <script type="text/javascript">
             CKEDITOR.replace('skill');
             CKEDITOR.replace('introduction');
@@ -189,6 +191,12 @@
             CKEDITOR.replace('experience');
             CKEDITOR.replace('education');
             CKEDITOR.replace('activity');
+            CKEDITOR.replace('job_education');
+            CKEDITOR.replace('job_details')
+            CKEDITOR.replace('job_requirement');
+            CKEDITOR.replace('job_experience');
+            CKEDITOR.replace('candidate_introduction');
+            CKEDITOR.replace('content_response');
         </script>
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="{{ asset('bootstrap/js/vendor/modernizr-3.5.0.min.j')}}"></script>

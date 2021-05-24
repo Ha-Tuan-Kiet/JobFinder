@@ -35,7 +35,7 @@ class JobController extends Controller
         ->get();
 
         //Search
-        $provinces =Province::select('name')->distinct()->get()->pluck('name')->sort();
+        $provinces =Province::all();
 
             // $careerdata=Job::with('careers')->get()->groupBy('careers.id','careers.name')->get()->dd();
         return view('home.mainpage',compact('jobsdata','provinces','careerdata'));
@@ -243,19 +243,15 @@ class JobController extends Controller
         ->where('jobs.id',$id)
         ->orderBy('jobs.updated_at','desc')
         ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+        ->first();
+        $cvs=DB::table('cvs')
+        ->where('cvs.user_id','=',auth()->id())
         ->get();
-        return view('home.jobdetails',compact('jobsdata'));
+        return view('home.jobdetails',compact('jobsdata','cvs'));
     }
     
     //CARRERS
     public function showAllCareers(){
-        // $careerdata= DB::table('careers')
-        // ->join('jobs','jobs.career_id','=','careers.id')
-        // ->join('provinces','jobs.province_id','=','provinces.id')
-        // ->join('users','jobs.created_by','=','users.id')
-        // ->join('user_companies','user_companies.user_id','=','users.id')
-        // ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','jobs.id as job_id')
-        // ->get();
         $jobsdata=DB::table('jobs')
         ->join('careers','jobs.career_id','=','careers.id')
         ->join('provinces','jobs.province_id','=','provinces.id')

@@ -34,7 +34,7 @@
                          <div class=" d-none f-right d-lg-block">
                              {{-- <a href="http://127.0.0.1:8000/register" class="btn head-btn1">Register</a>
                              <a href="http://127.0.0.1:8000/login" class="btn head-btn2">Login</a> --}}
-                             @guest
+                        @guest
                              @if (Route::has('register'))
                                      <a class="btn head-btn1" href="{{ route('register') }}">{{ __('Register') }}</a>
                              @endif
@@ -42,6 +42,25 @@
                              @if (Route::has('login'))
                                 <a class="btn head-btn1 " href="{{ route('login') }}">{{ __('Login') }}</a>
                              @endif
+                            @else
+                         
+                         @if (Auth::user()->role_id ==1)
+                         <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="btn head-btn1 nav-link dropdown-toggle" style="border-radius: 5px" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                          @else
                              <li class="nav-item dropdown">
                                  <a id="navbarDropdown" class="btn head-btn1 nav-link dropdown-toggle" style="border-radius: 5px" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -52,6 +71,7 @@
                                      <a class="dropdown-item" href="/profiles/{{Auth::user()->id}}"> User Profile </a>
                                      <a class="dropdown-item" href="/Cv"> Create your CV </a>
                                      <a class="dropdown-item" href="/Cv/ShowAllCv"> Show All Cv</a>
+                                     <a class="dropdown-item" href="/Cv/showMessages"> Messages From Employer</a>
                                      <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">
@@ -63,7 +83,8 @@
                                      </form>
                                  </div>
                              </li>
-                         @endguest
+                          @endif
+                          @endguest
                          </div>
                      </div>
                  </div>

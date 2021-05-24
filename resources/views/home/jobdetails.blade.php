@@ -1,6 +1,44 @@
 @extends('layouts.home')
 @section('content')
 
+<style>
+    .input-file{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    padding: 14px 0;
+    cursor: pointer;
+    z-index: 1;
+    }
+    .input-file-trigger{
+        width: 100%;
+        top: 0;
+        position:absolute;
+        display: block;
+    padding: 14px 45px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+    }
+    .input-file-container{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    border-radius: 3px;
+    }
+    .file-return{
+    position: absolute;
+    top: 50px;
+    font-style: italic;
+    font-size: .9em;
+    font-weight: bold;
+    }
+   .js .file-return:not(:empty):before { content: "Selected file: "; font-style: normal; font-weight: normal; } /* Useless styles, just for demo styles */ 
+</style>
 
    <body>
     <!-- Preloader Start -->
@@ -38,20 +76,20 @@
                     <!-- Left Content -->
                     <div class="col-xl-7 col-lg-8">
                         <!-- job single -->
-                        @foreach($jobsdata as $job)
+                        
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
+                                    <a href="#"><img src="{{ asset('bootstrap/img/icon/'.$jobsdata->image_logo)}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
-                                        <h4>{{$job->position}}</h4>
+                                        <h4>{{$jobsdata->position}}</h4>
                                     </a>
                                     <ul>
-                                        <li>{{$job->name}}</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
-                                        <li>{{$job->salary_min}} - {{$job->salary_max}} {{$job->salary_unit}}</li>
+                                        <li>{{$jobsdata->name}}</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$jobsdata->location}}</li>
+                                        <li>{{$jobsdata->salary_min}} - {{$jobsdata->salary_max}} {{$jobsdata->salary_unit}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,36 +103,28 @@
                                 <div class="small-section-tittle">
                                     <h4>Job Description</h4>
                                 </div>
-                                <p>{{$job->details}}</p>
+                                <p>{!!$jobsdata->details!!}</p>
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
                                     <h4>Required Knowledge, Skills, and Abilities</h4>
                                 </div>
-                               <ul>
-                                   <li>System Software Development</li>
-                                   <li>Mobile Applicationin iOS/Android/Tizen or other platform</li>
-                                   <li>Research and code , libraries, APIs and frameworks</li>
-                                   <li>Strong knowledge on software development life cycle</li>
-                                   <li>Strong problem solving and debugging skills</li>
-                               </ul>
+
+                                {!!$jobsdata->requirement!!}
+                            
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
                                     <h4>Education + Experience</h4>
                                 </div>
-                               <ul>
-                                   <li>3 or more years of professional design experience</li>
-                                   <li>Direct response email experience</li>
-                                   <li>Ecommerce website design experience</li>
-                                   <li>Familiarity with mobile and web apps preferred</li>
-                                   <li>Experience using Invision a plus</li>
-                               </ul>
+                               {!!$jobsdata->education!!}
+                               {!!$jobsdata->experience!!}
+                           
                             </div>
                         </div>
-                        @endforeach
+                       
                     </div>
                     <!-- Right Content -->
                     <div class="col-xl-4 col-lg-4">
@@ -112,7 +142,66 @@
                               <li>Application date : <span>12 Sep 2020</span></li>
                           </ul>
                          <div class="apply-btn2">
-                            <a href="#" class="btn">Apply Now</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                                Apply Now
+                            </button>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Job Application</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label>
+                                        <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
+                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">      
+                                         <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >           
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <label>Phone:</label>
+                                                <input name="phone" class="form-control" type="phone" value="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <label>Email:</label>
+                                                <input name="email" class="form-control" type="email" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 ">
+                                                <label>Introduction:</label>
+                                                <textarea name="candidate_introduction" id="candidate_introduction" placeholder="Tell us something about yourself"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label>Resume:</label><br>
+                                                @foreach ($cvs as $cv )
+                                                <input type="radio" name="resume" value="{{$cv->id}}">{{$cv->position_apply}} <br>
+                                                @endforeach
+                                               
+                                                {{-- <div class="form-group input-file-container">
+                                                    <input type="file" name="Resume" id="file" class="input-file">
+                                                      <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
+                                                      <p class="file-return"></p>
+                                                </div> --}}
+                                            </div>                                      
+                                        </div>  
+                                        <div class="modal-footer">
+                                            {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                            <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
+                                            </div>        
+                                        </form>
+                                    </div>
+                                   
+                                </div>
+                                </div>
+                            </div>
                          </div>
                        </div>
                         <div class="post-details4  mb-50">
@@ -172,6 +261,25 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{asset('bootstrap/js/plugins.js')}}"></script>
     <script src="{{asset('bootstrap/js/main.js')}}"></script>
-        
+    <script>
+        document.querySelector("html").classList.add('js');
+
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+      
+    button.addEventListener( "keydown", function( event ) {  
+        if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+            fileInput.focus();  
+        }  
+    });
+    button.addEventListener( "click", function( event ) {
+    fileInput.focus();
+    return false;
+    });  
+    fileInput.addEventListener( "change", function( event ) {  
+        the_return.innerHTML = this.value;  
+    });  
+    </script>
     </body>
 @endsection

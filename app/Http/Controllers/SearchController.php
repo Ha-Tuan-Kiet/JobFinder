@@ -19,24 +19,19 @@ class SearchController extends Controller
      */
     public function search(Request $request)
     {
-        
+      
         $search_company =$_GET['company'];
-        $search_province =$_GET['provinces'];
+        $search_province =$request->input('provinces');
         // $jobs=Job::where('position','LIKE','%'.$search_company.'%')->with(['careers','province'=>function($query)use($search_province){
         //     $query->where('name','LIKE','%'.$search_province.'%')
         //         ->orWhere('name','=','');
         // },'user','usercompany'])->get();
         
-        $jobs=DB::table('jobs')
-        ->join('provinces','provinces.id','=','jobs.province_id')
-        ->join('careers','careers.id','=','jobs.career_id')
-        ->join('users','users.id','=','jobs.created_by')
-        ->join('user_companies','user_companies.id','=','jobs.id')
-        ->where('jobs.position','LIKE','%'.$search_company.'%')
-        ->where('provinces.name','LIKE','%'.$search_province.'%')
-        ->select('jobs.*','provinces.name as location','user_companies.name')
-        ->get();
-
+        $jobsdata=Job::with('careers','province','user','usercompany')
+        ->where('position','LIKE','%'.$search_company.'%')
+        ->where('province_id','=',$search_province)
+        ->paginate(5)
+        ->appends(request()->query());        
         // $companies=UserCompany::where('name','LIKE','%'.$search_province.'%');
         // $job=$companies->Job::where('position','LIKE','%'.$search_company.'%')->with(['careers','province','user','usercompany'])->get()->dd();
 
@@ -44,6 +39,6 @@ class SearchController extends Controller
         // if($request->filled('position')){
         //     $job->where('position',$request->position);
         // }
-        return view('home.search',compact('jobs'));
+        return view('home.search',compact('jobsdata'));
     }
 }
