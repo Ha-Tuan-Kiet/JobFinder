@@ -26,16 +26,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_14_140825_cvs.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_13_063156_user_skills.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +175,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../techjob" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -213,6 +212,11 @@
       <workItem from="1621580108815" duration="1478000" />
       <workItem from="1621842337316" duration="6727000" />
       <workItem from="1621861103494" duration="299000" />
+      <workItem from="1621861884094" duration="5672000" />
+      <workItem from="1621929194225" duration="3502000" />
+      <workItem from="1621942047265" duration="11405000" />
+      <workItem from="1622029056505" duration="7946000" />
+      <workItem from="1622117109400" duration="5876000" />
     </task>
     <servers />
   </component>
@@ -245,11 +249,11 @@
     </state>
     <state x="-1421" y="174" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834/-1920.2.1536.834@-1920.2.1536.834" timestamp="1620722637360" />
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1621421438991" />
-    <state x="-1371" y="172" key="FileChooserDialogImpl" timestamp="1620827250713">
-      <screen x="-1920" y="0" width="1536" height="834" />
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1621931178273">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="-1371" y="172" key="FileChooserDialogImpl/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1620827250713" />
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1620748859559" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1621931178273" />
     <state x="-1316" y="341" key="NewPhpFileDialog" timestamp="1621329526344">
       <screen x="-1920" y="0" width="1536" height="834" />
     </state>

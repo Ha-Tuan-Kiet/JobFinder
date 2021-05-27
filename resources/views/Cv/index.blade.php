@@ -18,7 +18,7 @@
               <tr>
                     <td >{{$cv->title}}</td>
                     <td>{{$cv->email}}</td>
-                    <td>{{$cv->full_name}}</td>
+                    <td>{{$cv->birthday}}</td>
                     <th scope="row">{{$cv->created_at}}</th>
                     <td>
                       <button data-path="{{ route('/Cv/Resume/', ['id' => $cv->id]) }}"

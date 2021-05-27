@@ -9,6 +9,8 @@ use Dompdf\Dompdf;
 //use PDF;
 use App\Models\CandidateApply;
 use App\Models\MessagesFromEmployers;
+use App\Models\Career;
+
 class CvController extends Controller
 {
     /**
@@ -18,8 +20,10 @@ class CvController extends Controller
      */
     public function CvCreate()
     {
-       return view('Cv.create');
+        $career_id= Career::all();
+       return view('Cv.create',compact('career_id'));
     }
+
     public  function create(Request $request){
 //        $request->validate([
 //            'phone'=>'required',
@@ -28,6 +32,7 @@ class CvController extends Controller
 //            'position_apply'=>'required',
 //            'education'=>'required'
 //        ]);
+
         if($request->isMethod("POST")){
             $cv= new Cv();
             $cv->user_id=auth()->id();
@@ -43,7 +48,8 @@ class CvController extends Controller
             $cv->skill=$request->input('skill');
             $cv->certificate=$request->input('certificate');
             $cv->hobby=$request->input('hobby');
-
+            $cv->status=0;
+            $cv->career_id=$request->input('career_id');
             $cv->save();
         }
         return view('Cv.index');
@@ -70,7 +76,8 @@ class CvController extends Controller
             $cv->skill=$request->input('skill');
             $cv->certificate=$request->input('certificate');
             $cv->hobby=$request->input('hobby');
-
+            $cv->status=0;
+            $cv->career_id=$request->input('career_id');
             $cv->save();
             return back();
         }

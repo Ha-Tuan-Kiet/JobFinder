@@ -1,5 +1,6 @@
 @extends('layouts.home')
 @section('content')
+
     <style>
 
         * {
@@ -143,7 +144,7 @@
         }
 
         #progressbar {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             overflow: hidden;
             color: lightgrey
         }
@@ -162,23 +163,25 @@
 
         #progressbar #account:before {
             font-family: FontAwesome;
-            content: "\f023"
+            content: "\f007"
         }
 
         #progressbar #personal:before {
             font-family: FontAwesome;
-            content: "\f007"
+            content: "\f19d"
         }
 
         #progressbar #payment:before {
             font-family: FontAwesome;
-            content: "\f09d"
+            content: "\f0a3"
         }
 
         #progressbar #confirm:before {
             font-family: FontAwesome;
             content: "\f00c"
         }
+
+
 
         #progressbar li:before {
             width: 50px;
@@ -240,8 +243,17 @@
         }
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .modal-backdrop {
+            /* position: fixed; */
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            background-color: #000;
         }
     </style>
     <!-- MultiStep Form -->
@@ -257,23 +269,22 @@
                                 @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="account" ><strong>Step 1</strong></li>
-                                    <li id="personal" class="icon-image-02" ><strong>Step 2</strong></li>
-                                    <li id="payment"><strong>Step 3</strong></li>
-                                    <li id="confirm"><strong>Finish</strong></li>
+                                    <li class="active" id="account" ><strong>Contact</strong></li>
+                                    <li id="personal" ><strong>Knowledges</strong></li>
+                                    <li id="payment"><strong>Qualified</strong></li>
+                                    <li id="confirm"><strong>Preview</strong></li>
                                 </ul> <!-- fieldsets -->
                                 <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Title For Your CV</h2>
+                                    <div class="form-card" >
+                                        <label for="text"><b>Title For Your CV</b></label>
                                         <input type="text" name="title" placeholder="Title CV" />
-                                        <h2 class="fs-title">Contact Information</h2>
+                                        <label><b>Contact Information</b></label>
                                         <input type="text" name="position_apply" placeholder="Position Apply" />
                                         <input type="number" name="phone" placeholder="Phone"  maxlength="10"/>
                                         <input type="email" name="email" placeholder="Email"/>
                                         <div class="row">
                                             <label>Gender:</label>
-                                            <div class="col-lg-6 col-md-6">
-
+                                            <div >
                                                 <select name="gender">
                                                     <option value="Male">
                                                         Male
@@ -283,52 +294,139 @@
                                                     </option>
                                                 </select>
                                             </div>
+
                                         </div>
+                                        <div class="row">
+                                            <label for="cars">Choose careers:</label>
+
+                                            <select name="career_id" id="career_id">
+                                                @foreach($career_id as $career)
+                                                    <option value="{{ $career->id }}">{{$career->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
                                     </div> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Knowledges</h2>
-                                        <label>Introduction:</label>
+{{--                                        <h2 class="fs-title">Knowledges</h2>--}}
+                                        <label><b>Introduction:</b></label>
                                         <textarea name="introduction"  rows="3" id="introduction" placeholder="Introduction yourself"></textarea>
-                                        <label>Education:</label>
+                                        <label><b>Education:</b></label>
                                         <textarea name="education" rows="3" id="education" placeholder="Education"></textarea>
-                                        <label>Experience:</label>
+                                        <label><b>Experience:</b></label>
                                         <textarea name="experience"  rows="3" id="experience" placeholder="Experience"></textarea>
-                                        <label>Activity:</label>
+                                        <label><b>Activity:</b></label>
                                         <textarea name="activity"  rows="3" id="activity" placeholder="Activity"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Qualified</h2>
+{{--                                        <h2 class="fs-title">Qualified</h2>--}}
+                                        <label><b>Skills:</b></label>
+                                        <textarea name="skill" id="skill"  placeholder="Skill" rows="3"></textarea>
 
-                                                <label>Skills:</label>
-                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3"></textarea>
+                                        <label><b>Certificate</b></label>
+                                        <textarea name="certificate" id="certificate" placeholder="Certificate" rows="3"></textarea>
 
-                                                <label>Certificate</label>
-                                                <textarea name="certificate" id="certificate" placeholder="Certificate" rows="3"></textarea>
 
-                                        <label>Hobby:</label>
+                                        <label><b>Hobby:</b></label>
                                         <textarea name="hobby" id="hobby" placeholder="Your Hobby" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                    <button type="submit" class="next action-button" >Submit</button>
+                                    <button type="button" value="Next Step" class="next action-button" >Next Step</button>
+{{--                                    <button type="submit" class="btn btn-danger btn-icon btn-sm"--}}
+{{--                                            onclick="return confirm('Are you sure you want to save this CV?');"--}}
+{{--                                            value="Save">--}}
+{{--                                        Save--}}
+{{--                                    </button>--}}
+
+
                                 </fieldset>
                                 <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
-                                        </div> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>You Have Successfully Create CV</h5>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="form-card">--}}
+{{--                                        <h2 class="fs-title text-center">Success !</h2> <br><br>--}}
+{{--                                        <div class="row justify-content-center">--}}
+{{--                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>--}}
+{{--                                        </div> <br><br>--}}
+{{--                                        <div class="row justify-content-center">--}}
+{{--                                            <div class="col-7 text-center">--}}
+{{--                                                <h5>You Have Successfully Create CV</h5>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+
+
+
+{{--                                    new--}}
+<!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Preview CV
+    </button>
+
+                                    <!-- Modal -->
+
+
+{{--                                    new--}}
+
                                 </fieldset>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{--       This code for preview cv--}}
+    <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content" style="width:1000px">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Preview CV</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                                <div class="row justify-content-center round">
+                                    <div class="col-lg-10 col-md-12 ">
+                                        <div class="card shadow-lg card-1">
+                                            <div class="card-body inner-card">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-lg-5 col-md-6 col-sm-12">
+                                                        <div class="form-group"><label for="first-name">First Name</label><input type="text" class="form-control" id="first-name" placeholder="Type your Name"> </div>
+                                                        <div class="form-group"> <label for="Mobile-Number">Mobile Number</label> <input type="text" class="form-control" id="Mobile-Number" placeholder=""> </div>
+                                                        <div class="form-group"> <label for="inputEmail4">Project Type</label> <select class="form-control">
+                                                                <option>Web Design</option>
+                                                                <option>Blockchain</option>
+                                                                <option>ML</option>
+                                                            </select> </div>
+                                                        <div class="form-group"> <label for="time">Maximum time for the project</label> <input type="text" class="form-control" id="time" placeholder=""> </div>
+                                                        <div class="form-group"><label for="skill">Required Skills</label> <input type="text" class="form-control" id="skill" placeholder=""> </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-6 col-sm-12">
+                                                        <div class="form-group"> <label for="last-name">Last Name</label> <input type="text" class="form-control" id="last-name" placeholder=""> </div>
+                                                        <div class="form-group"> <label for="phone">Email</label> <input type="email" class="form-control" id="email" placeholder=""> </div>
+                                                        <div class="form-group"> <label for="Evaluate Budget">Evaluate Budget</label> <input type="text" class="form-control" id="Evaluate Budget" placeholder=""> </div>
+                                                        <div class="form-group"> <label for="Company-Name">Company Name</label> <input type="text" class="form-control" id="Company-Name" placeholder=""> </div>
+                                                        <div class="form-group"> <label for="inputEmail4">Country</label> <select class="form-control">
+                                                                <option>India</option>
+                                                                <option>China</option>
+                                                                <option>UK</option>
+                                                            </select></div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -337,7 +435,7 @@
 
 @endsection
 @push('scripts')
-    <script>
+    <script type="text/javascript">
         $(document).ready(function(){
 
             var current_fs, next_fs, previous_fs; //fieldsets
@@ -383,7 +481,7 @@
                 previous_fs.show();
 
 //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
+                current_fs.animate({}, {
                     step: function(now) {
 // for making fielset appear animation
                         opacity = 1 - now;
@@ -407,5 +505,19 @@
                 return false;
             })
         });
+
+       $(document).ready(function ()
+        {
+            $('#submit').on('click',function (e)
+            {
+               e.preventDefault();
+               preview();
+            });
+        });
+       function preview()
+       {
+           var text = $('input[name=title]').val();
+
+       }
     </script>
 @endpush

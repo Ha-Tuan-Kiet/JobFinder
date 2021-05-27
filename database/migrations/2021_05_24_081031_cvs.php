@@ -29,6 +29,8 @@ class Cvs extends Migration
             $table->text('skill')->nullable();
             $table->text('certificate')->nullable();
             $table->text('hobby')->nullable();
+            $table->boolean('status')->nullabale();
+            $table->unsignedBigInteger('career_id');
             $table->unsignedBigInteger('candidate_id')->nullable();
             $table->timestamps();
         });
