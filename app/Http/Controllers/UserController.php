@@ -16,9 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-//            $users = DB::table('users')->get();
-////        return View('user.userlist',['users'=>$users]);
-//        return view('user.index');
+
         $users = DB::table('users')->get();
         return View('users.index',['users'=>$users]);
     }

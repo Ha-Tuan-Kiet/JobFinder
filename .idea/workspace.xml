@@ -26,13 +26,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_16_2021_2_52_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_6_2021_11_38_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_14_140825_cvs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_14_140825_cvs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_11_082513_profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +193,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads\avatar" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
     </key>
   </component>
@@ -202,6 +217,10 @@
       <workItem from="1620995103938" duration="3785000" />
       <workItem from="1621056607637" duration="343000" />
       <workItem from="1621151556351" duration="8620000" />
+      <workItem from="1621318469730" duration="3585000" />
+      <workItem from="1621322075294" duration="15149000" />
+      <workItem from="1621395593275" duration="22407000" />
+      <workItem from="1621515505893" duration="4326000" />
     </task>
     <servers />
   </component>
@@ -221,24 +240,28 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1389" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1621326110453">
+      <screen x="-1920" y="0" width="1536" height="834" />
+    </state>
+    <state x="-1389" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1621326110453" />
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620997949502">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1620997949502" />
-    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621002432832">
+    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621421438991">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="-1421" y="174" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834/-1920.2.1536.834@-1920.2.1536.834" timestamp="1620722637360" />
-    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1621002432832" />
+    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1621421438991" />
     <state x="-1371" y="172" key="FileChooserDialogImpl" timestamp="1620827250713">
       <screen x="-1920" y="0" width="1536" height="834" />
     </state>
     <state x="-1371" y="172" key="FileChooserDialogImpl/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1620827250713" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1620748859559" />
-    <state x="604" y="341" key="NewPhpFileDialog" timestamp="1620998821862">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="-1316" y="341" key="NewPhpFileDialog" timestamp="1621329526344">
+      <screen x="-1920" y="0" width="1536" height="834" />
     </state>
-    <state x="-1316" y="341" key="NewPhpFileDialog/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1620826180758" />
+    <state x="-1316" y="341" key="NewPhpFileDialog/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1621329526344" />
     <state x="-1316" y="343" key="NewPhpFileDialog/0.0.1536.834/-1920.2.1536.834@-1920.2.1536.834" timestamp="1620721945523" />
     <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1620998821862" />
     <state x="-1559" y="152" key="Vcs.Push.Dialog.v2" timestamp="1620808511928">

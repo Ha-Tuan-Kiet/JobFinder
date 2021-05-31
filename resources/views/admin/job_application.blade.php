@@ -67,6 +67,7 @@
             <th scope="col">Email/Phone</th>
             <th scope="col">Position</th>
             <th scope="col">Created</th>
+            <th scope="col">Apply</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
@@ -78,6 +79,11 @@
             <td>{{$candidate->email}}<br>{{$candidate->phone}}</td>
             <td>{{$candidate->position}}</td>
             <td>{{$candidate->created_at}}</td>
+            @if ($candidate->is_applying==1)
+            <td><i class="fas fa-circle" style="color: forestgreen;"></i></td>            
+            @else
+            <td><i class="far fa-times-circle"></i></td> 
+            @endif
             
             @if ($candidate->is_active ==1)
             <td><i class="fas fa-check-circle" style="color:green"></i></td>            

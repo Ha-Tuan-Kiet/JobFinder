@@ -158,7 +158,8 @@ class AdminController extends Controller
             $candidate=CandidateApply::find($request->input('id_for_update_status'));
             $candidate->is_active=1;
             $candidate->save();
-            return view('admin.job_application',compact('candidates'));
+            return back();      
         }
+        return view('admin.job_application',compact('candidates'));
     }
 }

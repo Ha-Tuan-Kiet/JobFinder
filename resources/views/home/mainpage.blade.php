@@ -229,7 +229,7 @@
                         <div class="cv-caption text-center">
                             <p class="pera1">FEATURED TOURS Packages</p>
                             <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                            <a href="#" class="border-btn2 border-btn4">Upload your cv</a>
+                            <a href="http://127.0.0.1:8000/Cv" class="border-btn2 border-btn4">Create Your Resume</a>
                         </div>
                     </div>
                 </div>
@@ -260,7 +260,7 @@
                                         <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
                                     </div>
                                     <div class="job-tittle">
-                                        <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+                                        <a href="jobdetails/{{$job->id}}/career/{{$job->career_id}}"><h4>{{$job->position}}</h4></a>
     
                                         <ul>
                                             <li>{{$job->name}}</li>

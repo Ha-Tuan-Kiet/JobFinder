@@ -72,6 +72,8 @@
                                      <a class="dropdown-item" href="/Cv"> Create your CV </a>
                                      <a class="dropdown-item" href="/Cv/ShowAllCv"> Show All Cv</a>
                                      <a class="dropdown-item" href="/Cv/showMessages"> Messages From Employer</a>
+                                     <a class="dropdown-item" href="/CV/job_applied"> Job Applied</a>
+                                     <a class="dropdown-item" href="/Cv/showFavorite_job"> Favorite Job</a>
                                      <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">

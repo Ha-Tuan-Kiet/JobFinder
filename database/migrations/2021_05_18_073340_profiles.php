@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Profile extends Migration
+class Profiles extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,11 @@ class Profile extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('full_name',100);
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->string('avatar')->nullable();
-            $table->date('birthday');
+            $table->date('birthday')->nullable();
             $table->timestamps();
         });
     }

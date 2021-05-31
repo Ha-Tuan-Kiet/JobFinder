@@ -229,7 +229,7 @@
                                         <a href="#"><img src="{{asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
                                     </div>
                                     <div class="job-tittle job-tittle2">
-                                        <a href="{{route('jobdetails', ['id' => $careerdetails->job_id])}}">
+                                        <a href="{{route('jobdetails', ['id' => $careerdetails->job_id,'eventid'=>$careerdetails->career_id])}}">
                                             <h4>{{$careerdetails->position}}</h4>
                                         </a>
                                         <ul>

@@ -2,28 +2,28 @@
 @section('content')
 <meta name="_token" content="{{ csrf_token() }}" />
 <body>
-    <div class="container p-3 my-5 border " style="height:1000px;background-color:aliceblue">
+    <div class="container p-3 my-5 border " style="height:1000px;background-color:honeydew">
         <table class="table">
             <thead class="thead-light">
-              <tr>           
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Day of birthday</th>
-                <th scope="col">Created</th>
-                <th scope="col">Action</th>
+              <tr >
+                <th scope="col" style="background-color: #fb246a;color: white">Name</th>
+                <th scope="col"style="background-color: #fb246a;color: white">Email</th>
+                <th scope="col"style="background-color: #fb246a;color: white">Day of birthday</th>
+                <th scope="col"style="background-color: #fb246a;color: white">Created</th>
+                <th scope="col"style="background-color: #fb246a;color: white">Action</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($cvs as $cv )
-              <tr>               
+              <tr>
                     <td>{{$cv->full_name}}</td>
                     <td>{{$cv->email}}</td>
                     <td>{{$cv->birthday}}</td>
                     <th scope="row">{{$cv->created_at}}</th>
                     <td>
-                      <button data-path="{{ route('/Cv/Resume/', ['id' => $cv->id]) }}" 
-                        class="btn-primary load-ajax-modal" 
-                        role="button" 
+                      <button data-path="{{ route('/Cv/Resume/', ['id' => $cv->id]) }}"
+                        class="btn-primary load-ajax-modal"
+                        role="button"
                         data-toggle="modal" data-target="#dynamic-modal">
                         <i class="fas fa-eye"></i>
                      </button>
@@ -38,7 +38,7 @@
                                   </button>
                               </div>
                               <div class="modal-body">
-                                                                            
+
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -46,19 +46,20 @@
                             </div>
                           </div>
                         </div>
-                        <button onclick="location.href='#'"  type="button" class="btn-warning" style="border-radius: .2rem"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i></button>
+                        <button onclick="location.href='/Cv/edit/{{$cv->id}}'"  type="button" class="btn-warning" style="border-radius: .2rem"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i>
+                        </button>
                         <button onclick="location.href='/Cv/DownloadResume/{{$cv->id}}'" type="button" class="btn-success"><i class="fa fa-download" aria-hidden="true"></i></button>
-                    </td>                         
+                    </td>
               </tr>
               @endforeach
         </table>
         <!-- Button trigger modal -->
-       
+
         <!-- Modal -->
-     
+
     </div>
- 
+
 </body>
 @endsection
 @push('scripts')
@@ -82,5 +83,5 @@ $.ajax({
 });
 });
 </script>
-  
+
 @endpush
