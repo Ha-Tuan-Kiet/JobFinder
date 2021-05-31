@@ -18,7 +18,6 @@ class SaveJobs extends Migration
             $table->id();
             $table->integer('job_id');
             $table->integer('user_id');
-            $table->dateTime('saved_on');
             $table->timestamps();
         });
     }

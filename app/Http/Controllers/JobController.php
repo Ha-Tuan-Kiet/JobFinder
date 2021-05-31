@@ -8,6 +8,7 @@ use App\Models\Province;
 use App\Models\UserCompany;
 use App\Models\User;
 use App\Models\Career;
+use App\Models\SaveJob;
 use Illuminate\Support\Facades\DB;
 class JobController extends Controller
 {
@@ -234,20 +235,31 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function showDetail($id)
+    public function showDetail($id,$eventid)
     {
         $jobsdata = DB::table('jobs')
+        ->join('careers','jobs.career_id','=','careers.id')
         ->join('provinces','jobs.province_id','=','provinces.id')
         ->join('users','jobs.created_by','=','users.id')
         ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->where('jobs.id',$id)
+        ->where('jobs.career_id',$eventid)
         ->orderBy('jobs.updated_at','desc')
-        ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo')
+        ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','careers.name as career_name')
         ->first();
         $cvs=DB::table('cvs')
         ->where('cvs.user_id','=',auth()->id())
+        ->where('cvs.career_id','=',$eventid)
+        ->select('cvs.*')
         ->get();
-        return view('home.jobdetails',compact('jobsdata','cvs'));
+
+        // $save_job=SaveJob::where('job_id',$id)->count();
+        // $user_id=SaveJob::where('user_id',auth()->id())->exists();
+        $user_save_data=DB::table('save_jobs')
+        ->where('user_id','=',auth()->id())
+        ->where('job_id',$id)
+        ->count();
+        return view('home.jobdetails',compact('jobsdata','cvs','user_save_data'));
     }
     
     //CARRERS
@@ -272,7 +284,7 @@ class JobController extends Controller
         ->join('users','jobs.created_by','=','users.id')
         ->join('user_companies','jobs.province_id','=','user_companies.id')
         ->where('careers.id',$id)
-        ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','jobs.id as job_id')
+        ->select('jobs.*','provinces.name as location','user_companies.name','user_companies.image_logo','jobs.id as job_id','jobs.career_id as career_id')
         ->get();
 
         // $careerintro=DB::table('careers')

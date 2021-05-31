@@ -260,7 +260,7 @@
                                         <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
                                     </div>
                                     <div class="job-tittle">
-                                        <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+                                        <a href="jobdetails/{{$job->id}}/career/{{$job->career_id}}"><h4>{{$job->position}}</h4></a>
     
                                         <ul>
                                             <li>{{$job->name}}</li>

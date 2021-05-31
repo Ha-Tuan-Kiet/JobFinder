@@ -11,6 +11,8 @@ use App\Models\CandidateApply;
 use App\Models\MessagesFromEmployers;
 use App\Models\Career;
 
+use App\Models\SaveJob;
+use Toastr;
 class CvController extends Controller
 {
     /**
@@ -123,15 +125,24 @@ class CvController extends Controller
     }
     public function apply_job(Request $request){
         if($request->isMethod('POST')){
-            $candidate_apply= new CandidateApply();
-            $candidate_apply->email = $request->input('email');
-            $candidate_apply->phone=$request->input('phone');
-            $candidate_apply->introduction=$request->input('candidate_introduction');
-            $candidate_apply->job_id=$request->input('job_id');
-            $candidate_apply->user_id=auth()->id();
-            $candidate_apply->cv_id=$request->input('resume');
-            $candidate_apply->save();
-            return back();
+            if(!CandidateApply::where([
+                ['cv_id',request('resume')],
+                ['job_id',request('job_id')],
+                ])->exists())
+            {
+                $candidate_apply=new CandidateApply();
+                $candidate_apply->email = $request->input('email');
+                $candidate_apply->phone=$request->input('phone');
+                $candidate_apply->introduction=$request->input('candidate_introduction');
+                $candidate_apply->job_id=$request->input('job_id');
+                $candidate_apply->user_id=auth()->id();
+                $candidate_apply->cv_id=$request->input('resume');
+                $candidate_apply->save();
+                return back()->with('success','You success to applied this job.');
+            }
+            else{
+              return back()->with('message','Sorry it resume already applied.');
+            }
         }
     }
 
@@ -165,5 +176,76 @@ class CvController extends Controller
         Cv::find($id)->delete();
         return back();
     }
-
+    public function applied_job(){
+        $candidates=DB::table('candidate_applies')
+        ->join('jobs','jobs.id','=','candidate_applies.job_id')
+        ->join('users','users.id','=','candidate_applies.user_id')
+        ->join('profiles','profiles.user_id','=','candidate_applies.user_id')
+        ->join('user_companies','user_companies.id','=','jobs.company_id')
+        ->join('cvs','cvs.id','=','candidate_applies.cv_id')
+        ->where('candidate_applies.user_id','=',auth()->id())
+        ->select('candidate_applies.*','jobs.position','users.name','user_companies.name as company_name')
+        ->get();
+        return view('users.job_applied',compact('candidates'));
+    }
+    public function applied_job_detail($id){
+        $candidate=DB::table('candidate_applies')
+        ->join('jobs','jobs.id','=','candidate_applies.job_id')
+        ->join('users','users.id','=','candidate_applies.user_id')
+        ->join('profiles','profiles.user_id','=','candidate_applies.user_id')
+        ->join('cvs','cvs.id','=','candidate_applies.cv_id')
+        ->where('candidate_applies.id',"=",$id)
+        ->select('candidate_applies.*','jobs.position','users.name','profiles.full_name')
+        ->first();
+        return view('users.job_applied_detail',compact('candidate'));
+    }
+    public function cancel_job_applied($id){
+        $candidate=CandidateApply::find($id);
+        $candidate->is_applying=0;
+        $candidate->save();
+        return redirect()->back();
+    }
+    //User favorite Job
+    public function add_favorite_job($id){
+        $user_save_data=DB::table('save_jobs')
+        ->where('user_id','=',auth()->id())
+        ->where('job_id',$id)
+        ->count();
+        if($user_save_data ==0 ){
+            $add_job=new SaveJob();
+            $add_job->job_id=$id;
+            $add_job->user_id=auth()->id();
+            $add_job->save();
+            return redirect()->back()->with('add','You saved it to favorite job list');
+        }
+        else{
+            $remove_job=SaveJob::where([
+                ['job_id',$id],
+                ['user_id',auth()->id()]
+            ]);
+            $remove_job->delete();
+            return redirect()->back()->with('remove','You successed to remove it from favorite job list');
+        }
+    }
+    //Show favorite Job
+    public function show_favorite_job(){
+        $favorite_jobs=DB::table('save_jobs')
+        ->join('jobs','jobs.id','=','save_jobs.job_id')
+        ->join('users','users.id','=','save_jobs.user_id')
+        ->join('user_companies','user_companies.id','=','jobs.company_id')
+        ->join('provinces','provinces.id','=','jobs.province_id')
+        ->where('save_jobs.user_id',auth()->id())
+        ->select('save_jobs.created_at','jobs.*','user_companies.name as company_name','user_companies.image_logo','provinces.name as location')
+        ->get();
+        return view('users.favorite_job',compact('favorite_jobs'));
+    }
+    //Delete favorite job
+    public function delete_favorite_job($id){
+        $favorite_job=SaveJob::where([
+            ['job_id',$id],
+            ['user_id',auth()->id()]
+        ]);
+        $favorite_job->delete();
+        return redirect()->back();
+    }
 }
