@@ -52,7 +52,7 @@ class CvController extends Controller
             $cv->career_id=$request->input('career_id');
             $cv->save();
         }
-        return view('Cv.index');
+        return redirect()->route('/Cv/ShowAllCv');
     }
     public function edit($id)
     {

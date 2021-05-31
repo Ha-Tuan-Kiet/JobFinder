@@ -255,6 +255,232 @@
             z-index: 1040;
             background-color: #000;
         }
+
+
+    /*    CSS RESUME*/
+
+        .bold {
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #28395a;
+        }
+
+        .semi-bold {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .resume {
+            width: 900px;
+            height: auto;
+            display: flex;
+            margin: 20px auto;
+        }
+
+        .resume .resume_left {
+            width: 300px;
+            background: #0bb5f4;
+        }
+
+        .resume .resume_left .resume_profile {
+            width: 100%;
+            height: 300px;
+        }
+
+        .resume .resume_left .resume_profile img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .resume .resume_left .resume_content {
+            padding: 0 25px;
+            background-color: powderblue;
+        }
+
+        .resume .title {
+            margin-bottom: 20px;
+        }
+
+        .resume .resume_left .bold {
+            color:  #28395a;
+        }
+
+        .resume .resume_left .regular {
+            color:  #28395a;
+        }
+
+        .resume .resume_item {
+            padding: 25px 0;
+            border-bottom: 2px solid #b1eaff;
+        }
+
+        .resume .resume_left .resume_item:last-child,
+        .resume .resume_right .resume_item:last-child {
+            border-bottom: 0px;
+        }
+
+        .resume .resume_left ul li {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .resume .resume_left ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .resume .resume_left ul li .icon {
+            width: 35px;
+            height: 35px;
+            background: #fff;
+            color:  #28395a;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .resume .icon i,
+        .resume .resume_right .resume_hobby ul li i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .resume .resume_left ul li .data {
+            color:   #28395a;
+        }
+
+        .resume .resume_left .resume_skills ul li {
+            display: flex;
+            margin-bottom: 10px;
+            color:  #28395a;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_name {
+            width: 25%;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_progress {
+            width: 60%;
+            margin: 0 5px;
+            height: 5px;
+            background: #009fd9;
+            position: relative;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_per {
+            width: 15%;
+        }
+
+        .resume .resume_left .resume_skills ul li .skill_progress span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #fff;
+        }
+
+        .resume .resume_left .resume_social .semi-bold {
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .resume .resume_right {
+            width: 600px;
+            background: #fff;
+            padding: 30px;
+        }
+
+        .resume .resume_right .bold {
+            color:  #28395a;
+        }
+
+        .resume .resume_right .resume_about ul,
+        .resume .resume_right .resume_work ul,
+        .resume .resume_right .resume_education ul {
+            padding-left: 40px;
+            overflow: hidden;
+        }
+
+        .resume .resume_right ul li {
+            position: relative;
+        }
+
+        /*.resume .resume_right ul li .date {*/
+        /*    font-size: 16px;*/
+        /*    font-weight: 500;*/
+        /*    margin-bottom: 15px;*/
+        /*}*/
+
+        /*.resume .resume_right ul li .info {*/
+        /*    margin-bottom: 20px;*/
+        /*}*/
+
+        /*.resume .resume_right ul li:last-child .info {*/
+        /*    margin-bottom: 0;*/
+        /*}*/
+        .resume .resume_right .resume_hobby ul li:before,
+        .resume .resume_right .resume_about ul li:before,
+        .resume .resume_right .resume_work ul li:before,
+        .resume .resume_right .resume_education ul li:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: -25px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            /*border: 2px solid #0bb5f4;*/
+        }
+        .resume .resume_right .resume_hobby ul li:after,
+        .resume .resume_right .resume_about ul li:after,
+        .resume .resume_right .resume_work ul li:after,
+        .resume .resume_right .resume_education ul li:after {
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: -21px;
+            width: 2px;
+            height: 115px;
+            background: #0bb5f4;
+        }
+
+        .resume .resume_right .resume_hobby ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /*.resume .resume_right .resume_hobby ul li {*/
+        /*    width: 80px;*/
+        /*    height: 80px;*/
+        /*    border: 2px solid #0bb5f4;*/
+        /*    border-radius: 50%;*/
+        /*    position: relative;*/
+        /*    color: #0bb5f4;*/
+        /*}*/
+
+        /*.resume .resume_right .resume_hobby ul li i {*/
+        /*    font-size: 30px;*/
+        /*}*/
+
+        /*.resume .resume_right .resume_hobby ul li:before {*/
+        /*    content: "";*/
+        /*    position: absolute;*/
+        /*    top: 40px;*/
+        /*    right: -52px;*/
+        /*    width: 50px;*/
+        /*    height: 2px;*/
+        /*    background: #0bb5f4;*/
+        /*}*/
+
+        .resume .resume_right .resume_hobby ul li:last-child:before {
+            display: none;
+        }
     </style>
     <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
@@ -274,7 +500,7 @@
                                     <li id="payment"><strong>Qualified</strong></li>
                                     <li id="confirm"><strong>Preview</strong></li>
                                 </ul> <!-- fieldsets -->
-                                <fieldset>
+                                <fieldset >
                                     <div class="form-card" >
                                         <label for="text"><b>Title For Your CV</b></label>
                                         <input type="text" name="title" placeholder="Title CV" />
@@ -308,7 +534,7 @@
 
                                     </div> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
-                                <fieldset>
+                                <fieldset >
                                     <div class="form-card">
 {{--                                        <h2 class="fs-title">Knowledges</h2>--}}
                                         <label><b>Introduction:</b></label>
@@ -321,7 +547,7 @@
                                         <textarea name="activity"  rows="3" id="activity" placeholder="Activity"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
-                                <fieldset>
+                                <fieldset >
                                     <div class="form-card">
 {{--                                        <h2 class="fs-title">Qualified</h2>--}}
                                         <label><b>Skills:</b></label>
@@ -341,22 +567,24 @@
 {{--                                        Save--}}
 {{--                                    </button>--}}
 
-
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                        Preview CV
+                                    </button>
                                 </fieldset>
                                 <fieldset>
-{{--                                    <div class="form-card">--}}
-{{--                                        <h2 class="fs-title text-center">Success !</h2> <br><br>--}}
-{{--                                        <div class="row justify-content-center">--}}
-{{--                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>--}}
-{{--                                        </div> <br><br>--}}
-{{--                                        <div class="row justify-content-center">--}}
-{{--                                            <div class="col-7 text-center">--}}
-{{--                                                <h5>You Have Successfully Create CV</h5>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                        </div> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>You Have Successfully Create CV</h5>
+                                            </div>
+                                        </div>
+                                    </div>
 
-
+                                    <button type="submit" class="next action-button" >Submit</button>
 
 {{--                                    new--}}
 <!-- Button trigger modal -->
@@ -389,44 +617,133 @@
                     </div>
                     <div class="modal-body">
 
-                                <div class="row justify-content-center round">
-                                    <div class="col-lg-10 col-md-12 ">
-                                        <div class="card shadow-lg card-1">
-                                            <div class="card-body inner-card">
-                                                <div class="row justify-content-center">
-                                                    <div class="col-lg-5 col-md-6 col-sm-12">
-                                                        <div class="form-group"><label for="first-name">First Name</label><input type="text" class="form-control" id="first-name" placeholder="Type your Name"> </div>
-                                                        <div class="form-group"> <label for="Mobile-Number">Mobile Number</label> <input type="text" class="form-control" id="Mobile-Number" placeholder=""> </div>
-                                                        <div class="form-group"> <label for="inputEmail4">Project Type</label> <select class="form-control">
-                                                                <option>Web Design</option>
-                                                                <option>Blockchain</option>
-                                                                <option>ML</option>
-                                                            </select> </div>
-                                                        <div class="form-group"> <label for="time">Maximum time for the project</label> <input type="text" class="form-control" id="time" placeholder=""> </div>
-                                                        <div class="form-group"><label for="skill">Required Skills</label> <input type="text" class="form-control" id="skill" placeholder=""> </div>
-                                                    </div>
-                                                    <div class="col-lg-5 col-md-6 col-sm-12">
-                                                        <div class="form-group"> <label for="last-name">Last Name</label> <input type="text" class="form-control" id="last-name" placeholder=""> </div>
-                                                        <div class="form-group"> <label for="phone">Email</label> <input type="email" class="form-control" id="email" placeholder=""> </div>
-                                                        <div class="form-group"> <label for="Evaluate Budget">Evaluate Budget</label> <input type="text" class="form-control" id="Evaluate Budget" placeholder=""> </div>
-                                                        <div class="form-group"> <label for="Company-Name">Company Name</label> <input type="text" class="form-control" id="Company-Name" placeholder=""> </div>
-                                                        <div class="form-group"> <label for="inputEmail4">Country</label> <select class="form-control">
-                                                                <option>India</option>
-                                                                <option>China</option>
-                                                                <option>UK</option>
-                                                            </select></div>
-                                                    </div>
+                        <div class="resume">
+                            <div class="resume_left">
+
+                                <div class="resume_content">
+                                    <div class="resume_item resume_info">
+
+                                        <ul>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fas fa-map-signs"></i>
                                                 </div>
+                                                <div class="data">
 
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fas fa-mobile-alt"></i>
+                                                </div>
+                                                <div class="data">
 
-                                            </div>
-                                        </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fas fa-envelope"></i>
+                                                </div>
+                                                <div class="data">
+
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fab fa-weebly"></i>
+                                                </div>
+                                                <div class="data">
+                                                    www.stephen.com
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
+                                    <div class="resume_item resume_skills">
+                                        <div class="title">
+                                            <p class="bold">skill's</p>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <div class="skill_name">
+                                                    HTML
+                                                </div>
+                                                <div class="skill_progress">
+                                                    <span style="width: 80%;"></span>
+                                                </div>
+                                                <div class="skill_per">80%</div>
+                                            </li>
+                                            <li>
+                                                <div class="skill_name">
+                                                    CSS
+                                                </div>
+                                                <div class="skill_progress">
+                                                    <span style="width: 70%;"></span>
+                                                </div>
+                                                <div class="skill_per">70%</div>
+                                            </li>
+                                            <li>
+                                                <div class="skill_name">
+                                                    SASS
+                                                </div>
+                                                <div class="skill_progress">
+                                                    <span style="width: 90%;"></span>
+                                                </div>
+                                                <div class="skill_per">90%</div>
+                                            </li>
+                                            <li>
+                                                <div class="skill_name">
+                                                    JS
+                                                </div>
+                                                <div class="skill_progress">
+                                                    <span style="width: 60%;"></span>
+                                                </div>
+                                                <div class="skill_per">60%</div>
+                                            </li>
+                                            <li>
+                                                <div class="skill_name">
+                                                    JQUERY
+                                                </div>
+                                                <div class="skill_progress">
+                                                    <span style="width: 88%;"></span>
+                                                </div>
+                                                <div class="skill_per">88%</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
                                 </div>
+                            </div>
+                            <div class="resume_right">
+                                <div class="resume_item resume_about">
+                                    <div class="title">
+                                        <p class="bold">Introduction</p>
+                                    </div>
+
+                                </div>
+                                <div class="resume_item resume_work">
+                                    <div class="title">
+                                        <p class="bold">Work Experience</p>
+                                    </div>
+
+                                </div>
+                                <div class="resume_item resume_education">
+                                    <div class="title">
+                                        <p class="bold">Education</p>
+                                    </div>
+
+                                </div>
+                                <div class="resume_item ">
+                                    <div class="title">
+                                        <p class="bold">Hobby</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" >Save changes</button>
                     </div>
                 </div>
             </div>
@@ -435,13 +752,11 @@
 
 @endsection
 @push('scripts')
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){
 
             var current_fs, next_fs, previous_fs; //fieldsets
             var opacity;
-
-
 
             $(".next").click(function(){
 
@@ -481,7 +796,7 @@
                 previous_fs.show();
 
 //hide the current fieldset with style
-                current_fs.animate({}, {
+                current_fs.animate({opacity: 0}, {
                     step: function(now) {
 // for making fielset appear animation
                         opacity = 1 - now;
@@ -506,18 +821,30 @@
             })
         });
 
-       $(document).ready(function ()
-        {
-            $('#submit').on('click',function (e)
-            {
-               e.preventDefault();
-               preview();
+        $('.review').click(function() {
+            var formValues = [];
+            // get values from inputs in first fieldset
+            $('.field1 :input').each(function() {
+                formValues.push($(this).val());
             });
-        });
-       function preview()
-       {
-           var text = $('input[name=title]').val();
 
-       }
+            formValues.pop(); //remove the button from input values
+            console.log(formValues);
+
+            // set values in second fieldset
+            $('.field2 :input').each(function(index) {
+                if (formValues[index]) {
+                    $(this).val(formValues[index]);
+                }
+            });
+
+            $('.current').removeClass('current').hide().next().show().addClass('current');
+
+        });
+
+        $('.previous1').click(function() {
+            $('.current').removeClass('current').hide().prev().show().addClass('current');
+
+        });
     </script>
 @endpush

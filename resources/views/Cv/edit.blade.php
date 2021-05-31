@@ -264,8 +264,6 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <label><b>Title For Your CV</b></label>
-                                        <input type="text" name="title" placeholder="Title CV" />
-                                        <label><b>Contact Information</b></label>
                                         <input type="text" name="title" placeholder="Title CV" value="{{$cv->title}}"/>
                                         <h2 class="fs-title">Contact Information</h2>
                                         <input type="text" name="position_apply"  value="{{$cv->position_apply}}"/>
@@ -289,9 +287,10 @@
                                             <label for="cars">Choose careers:</label>
 
                                             <select name="career_id" id="career_id">
-{{--                                                @foreach($career_id as $career)--}}
-{{--                                                    <option value="{{ $cv->carre}}">{{$career->name}}</option>--}}
+{{--                                                @foreach($cv as $career)--}}
+{{--                                                    <option value="{{$cv->$career}}" </option>--}}
 {{--                                                @endforeach--}}
+                                                <option {{$cv->career_id}}> </option>
                                             </select>
                                         </div>
                                     </div> <input type="button" name="next" class="next action-button" value="Next Step" />
