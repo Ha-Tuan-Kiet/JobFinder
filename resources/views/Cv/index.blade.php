@@ -47,7 +47,7 @@
                           </div>
                         </div>
                         <button onclick="location.href='/Cv/edit/{{$cv->id}}'"  type="button" class="btn-warning" style="border-radius: .2rem"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i>
+                        <button onclick="location.href='/Cv/DeleteResume/{{$cv->id}}'" type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i>
                         </button>
                         <button onclick="location.href='/Cv/DownloadResume/{{$cv->id}}'" type="button" class="btn-success"><i class="fa fa-download" aria-hidden="true"></i></button>
                     </td>

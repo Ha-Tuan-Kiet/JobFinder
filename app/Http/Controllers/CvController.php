@@ -10,7 +10,6 @@ use Dompdf\Dompdf;
 use App\Models\CandidateApply;
 use App\Models\MessagesFromEmployers;
 use App\Models\Career;
-
 use App\Models\SaveJob;
 use Toastr;
 class CvController extends Controller
@@ -82,9 +81,8 @@ class CvController extends Controller
             $cv->status=0;
             $cv->career_id=$request->input('career_id');
             $cv->save();
-            return back();
         }
-        return back();
+        return redirect()->route('/Cv/ShowAllCv');
     }
 
     public function ShowAllCvCreated(){
@@ -172,10 +170,10 @@ class CvController extends Controller
         $message->delete();
         return redirect()->back();
     }
-
-    public function destroy($id)
+    public function delete_resume($id)
     {
-        Cv::find($id)->delete();
+        $cv= Cv::find($id);
+        $cv->delete();
         return back();
     }
     public function applied_job(){

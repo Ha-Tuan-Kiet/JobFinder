@@ -26,12 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/img/updatecv.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +226,7 @@
       <workItem from="1623296122626" duration="3617000" />
       <workItem from="1623313339502" duration="7518000" />
       <workItem from="1623334266621" duration="749000" />
+      <workItem from="1623390188090" duration="3694000" />
     </task>
     <servers />
   </component>
