@@ -84,7 +84,7 @@
 
         #msform .action-button {
             width: 100px;
-            background: skyblue;
+            background: #252b60;
             font-weight: bold;
             color: white;
             border: 0 none;
@@ -96,7 +96,7 @@
 
         #msform .action-button:hover,
         #msform .action-button:focus {
-            box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #252b60
         }
 
         #msform .action-button-previous {
@@ -110,10 +110,35 @@
             padding: 10px 5px;
             margin: 10px 5px
         }
-
         #msform .action-button-previous:hover,
-        #msform .action-button-previous:focus {
+        #msform .action-button-previous:focus
+        {
             box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+        }
+
+        #msform .action-button-submit,
+        #msform .action-button-preview {
+            width: 100px;
+            background: #252b60;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+        #msform .action-button-submit:hover,
+        #msform .action-button-submit:focus
+        {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #fb246a
+        }
+
+        #msform .action-button-preview:hover,
+        #msform .action-button-preview:focus
+        {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #252b60
         }
 
         select.list-dt {
@@ -156,7 +181,7 @@
         #progressbar li {
             list-style-type: none;
             font-size: 12px;
-            width: 25%;
+            width: 33%;
             float: left;
             position: relative
         }
@@ -176,10 +201,10 @@
             content: "\f0a3"
         }
 
-        #progressbar #confirm:before {
-            font-family: FontAwesome;
-            content: "\f00c"
-        }
+        /*#progressbar #confirm:before {*/
+        /*    font-family: FontAwesome;*/
+        /*    content: "\f00c"*/
+        /*}*/
 
 
 
@@ -209,7 +234,7 @@
 
         #progressbar li.active:before,
         #progressbar li.active:after {
-            background: skyblue
+            background: #252b60
         }
 
         .radio-group {
@@ -257,7 +282,7 @@
         }
 
 
-    /*    CSS RESUME*/
+        /*    CSS RESUME*/
 
         .bold {
             font-weight: 700;
@@ -498,16 +523,16 @@
                                     <li class="active" id="account" ><strong>Contact</strong></li>
                                     <li id="personal" ><strong>Knowledges</strong></li>
                                     <li id="payment"><strong>Qualified</strong></li>
-                                    <li id="confirm"><strong>Preview</strong></li>
+{{--                                    <li id="confirm"><strong>Preview</strong></li>--}}
                                 </ul> <!-- fieldsets -->
-                                <fieldset >
+                                <fieldset id="filed1">
                                     <div class="form-card" >
                                         <label for="text"><b>Title For Your CV</b></label>
-                                        <input type="text" name="title" placeholder="Title CV" />
+                                        <input type="text" id="title" name="title" placeholder="Title CV" />
                                         <label><b>Contact Information</b></label>
-                                        <input type="text" name="position_apply" placeholder="Position Apply" />
-                                        <input type="number" name="phone" placeholder="Phone"  maxlength="10"/>
-                                        <input type="email" name="email" placeholder="Email"/>
+                                        <input type="text" id="position_apply" name="position_apply" placeholder="Position Apply" />
+                                        <input type="number" id="phone" name="phone" placeholder="Phone"  maxlength="10"/>
+                                        <input type="email" id="email" name="email" placeholder="Email"/>
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div >
@@ -532,9 +557,9 @@
                                             </select>
                                         </div>
 
-                                    </div> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    </div> <input type="button" id="nextbtn" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
-                                <fieldset >
+                                <fieldset id="filed2">
                                     <div class="form-card">
 {{--                                        <h2 class="fs-title">Knowledges</h2>--}}
                                         <label><b>Introduction:</b></label>
@@ -545,7 +570,7 @@
                                         <textarea name="experience"  rows="3" id="experience" placeholder="Experience"></textarea>
                                         <label><b>Activity:</b></label>
                                         <textarea name="activity"  rows="3" id="activity" placeholder="Activity"></textarea>
-                                    </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    </div> <input type="button" id="nextbtn" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset >
                                     <div class="form-card">
@@ -560,37 +585,33 @@
                                         <label><b>Hobby:</b></label>
                                         <textarea name="hobby" id="hobby" placeholder="Your Hobby" rows="3"></textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                    <button type="button" value="Next Step" class="next action-button" >Next Step</button>
-{{--                                    <button type="submit" class="btn btn-danger btn-icon btn-sm"--}}
-{{--                                            onclick="return confirm('Are you sure you want to save this CV?');"--}}
-{{--                                            value="Save">--}}
-{{--                                        Save--}}
-{{--                                    </button>--}}
-
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+{{--                                    <button type="button" id="nextbtn1" value="Next Step" class="next action-button" >Next Step</button>--}}
+                                    <button type="button" id="preview"  class="action-button-preview" data-toggle="modal" data-target="#exampleModalCenter">
                                         Preview CV
                                     </button>
+                                    <button type="submit" style="background-color: #fb246a" class="action-button-submit" >Submit</button>
                                 </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
-                                        </div> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>You Have Successfully Create CV</h5>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <fieldset >
 
-                                    <button type="submit" class="next action-button" >Submit</button>
-
+{{--                                    <div class="form-card">--}}
+{{--                                        <h2 class="fs-title text-center">Success !</h2> <br><br>--}}
+{{--                                        <div class="row justify-content-center">--}}
+{{--                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>--}}
+{{--                                        </div> <br><br>--}}
+{{--                                        <div class="row justify-content-center">--}}
+{{--                                            <div class="col-7 text-center">--}}
+{{--                                                <h5>You Have Successfully Create CV</h5>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+                                    <div> <img style="width:400px;height:400px;" src="./assets/img/CV selection.png" class="fit-image"> </div>
+                                    <button type="submit"  class="action-button-submit" >Submit</button>
+{{--                                    <button type="button" id="preview" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">--}}
+{{--                                        Preview CV--}}
+{{--                                    </button>--}}
 {{--                                    new--}}
 <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Preview CV
-    </button>
+
 
                                     <!-- Modal -->
 
@@ -628,7 +649,7 @@
                                                 <div class="icon">
                                                     <i class="fas fa-map-signs"></i>
                                                 </div>
-                                                <div class="data">
+                                                <div class="data" id="datatitle">
 
                                                 </div>
                                             </li>
@@ -636,7 +657,7 @@
                                                 <div class="icon">
                                                     <i class="fas fa-mobile-alt"></i>
                                                 </div>
-                                                <div class="data">
+                                                <div class="data" id="dataphone">
 
                                                 </div>
                                             </li>
@@ -644,24 +665,18 @@
                                                 <div class="icon">
                                                     <i class="fas fa-envelope"></i>
                                                 </div>
-                                                <div class="data">
+                                                <div class="data" id="dataemail">
 
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fab fa-weebly"></i>
-                                                </div>
-                                                <div class="data">
-                                                    www.stephen.com
-                                                </div>
-                                            </li>
+
                                         </ul>
                                     </div>
                                     <div class="resume_item resume_skills">
                                         <div class="title">
                                             <p class="bold">skill's</p>
                                         </div>
+
                                         <ul>
                                             <li>
                                                 <div class="skill_name">
@@ -718,32 +733,33 @@
                                     <div class="title">
                                         <p class="bold">Introduction</p>
                                     </div>
-
+                                    <div id="dataintroduction"></div>
                                 </div>
                                 <div class="resume_item resume_work">
                                     <div class="title">
                                         <p class="bold">Work Experience</p>
                                     </div>
+                                    <div id="dataexperience"></div>
 
                                 </div>
                                 <div class="resume_item resume_education">
                                     <div class="title">
                                         <p class="bold">Education</p>
                                     </div>
-
+                                    <div id="dataeducation"></div>
                                 </div>
                                 <div class="resume_item ">
                                     <div class="title">
                                         <p class="bold">Hobby</p>
                                     </div>
-
+                                    <div id="datahobby"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-secondary" >Save changes</button>
+{{--                        <button type="button" class="btn btn-secondary" >Save changes</button>--}}
                     </div>
                 </div>
             </div>
@@ -821,30 +837,43 @@
             })
         });
 
-        $('.review').click(function() {
-            var formValues = [];
-            // get values from inputs in first fieldset
-            $('.field1 :input').each(function() {
-                formValues.push($(this).val());
+
+        // using Jquery
+
+            $('#nextbtn').click(function(){
+               var position_apply= $("#msform #position_apply ").val().trim();
+                $('#datatitle').html(position_apply);
+                var phone= $("#msform #phone ").val().trim();
+                $('#dataphone').html(phone);
+                var email= $("#msform #email ").val().trim();
+                $('#dataemail').html(email);
+
+                // var introduction = CKEDITOR.instances.introduction.getdata();
+                // // $('#dataintroduction').html(introduction)
+
+
             });
 
-            formValues.pop(); //remove the button from input values
-            console.log(formValues);
+            $('#preview').click(function ()
+            {
+                var introduction = CKEDITOR.instances.introduction.getData();
+                $('#dataintroduction').html(introduction);
+                var education = CKEDITOR.instances.education.getData();
+                $('#dataeducation').html(education);
+                var experience = CKEDITOR.instances.experience.getData();
+                $('#dataexperience').html(experience);
+                var activity = CKEDITOR.instances.activity.getData();
+                $('#dataactivity').html(activity);
 
-            // set values in second fieldset
-            $('.field2 :input').each(function(index) {
-                if (formValues[index]) {
-                    $(this).val(formValues[index]);
-                }
+                var skill = CKEDITOR.instances.skill.getData();
+                $('#dataskill').html(skill);
+                var certificate = CKEDITOR.instances.certificate.getData();
+                $('#dataCertificate').html(certificate);
+                var hobby = CKEDITOR.instances.hobby.getData();
+                $('#datahobby').html(hobby);
             });
 
-            $('.current').removeClass('current').hide().next().show().addClass('current');
 
-        });
 
-        $('.previous1').click(function() {
-            $('.current').removeClass('current').hide().prev().show().addClass('current');
-
-        });
     </script>
 @endpush

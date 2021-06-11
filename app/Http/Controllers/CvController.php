@@ -59,7 +59,8 @@ class CvController extends Controller
     public function edit($id)
     {
         $cv = Cv::find($id);
-        return View('Cv.edit',compact('cv'));
+        $career_id= Career::all();
+        return View('Cv.edit',compact('cv','career_id')  );
     }
     public function update(Request $request,$id)
     {
@@ -165,6 +166,7 @@ class CvController extends Controller
         ->first();
         return view('users.messages_details',compact('message'));
     }
+
     public function delete_message($id){
         $message=MessagesFromEmployers::find($id);
         $message->delete();

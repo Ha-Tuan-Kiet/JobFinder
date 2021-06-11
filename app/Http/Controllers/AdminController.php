@@ -106,7 +106,7 @@ class AdminController extends Controller
     public function deleteJob($id){
         $jobsdata=Job::find($id);
         $jobsdata->delete();
-        return redirect()->back()->with('success', 'Deleted success'); 
+        return redirect()->back()->with('success', 'Deleted success');
     }
 
     //Job Application Managemenment
@@ -154,11 +154,11 @@ class AdminController extends Controller
             $message_from_employer->user_id=$request->input('user_id');
             $message_from_employer->title=$request->input('title');
             $message_from_employer->content=$request->input('content_response');
-            $message_from_employer->save();          
+            $message_from_employer->save();
             $candidate=CandidateApply::find($request->input('id_for_update_status'));
             $candidate->is_active=1;
             $candidate->save();
-            return back();      
+            return back();
         }
         return view('admin.job_application',compact('candidates'));
     }

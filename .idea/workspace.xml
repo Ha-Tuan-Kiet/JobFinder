@@ -26,11 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/img/updatecv.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,12 +172,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets/img" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
+      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads\avatar" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
     </key>
@@ -215,6 +221,12 @@
       <workItem from="1622117109400" duration="5876000" />
       <workItem from="1622172964152" duration="1093000" />
       <workItem from="1622185280625" duration="2607000" />
+      <workItem from="1622531521900" duration="12382000" />
+      <workItem from="1622603118202" duration="5453000" />
+      <workItem from="1622785879015" duration="5508000" />
+      <workItem from="1623296122626" duration="3617000" />
+      <workItem from="1623313339502" duration="7518000" />
+      <workItem from="1623334266621" duration="749000" />
     </task>
     <servers />
   </component>
