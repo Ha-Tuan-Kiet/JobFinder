@@ -21,6 +21,7 @@ class CandidateApplies extends Migration
             $table->integer('job_id');
             $table->integer('user_id');
             $table->integer('cv_id');
+            $table->integer('company_id');
             $table->boolean('is_active')->nullable();
             $table->boolean('is_applying')->nullable();
             $table->timestamps();

@@ -29,6 +29,9 @@ Route::get('/',[JobController::class,'index']) ;
 Route::get('/pagination',[JobController::class,'paginate_data']);
 Route::get('pagination/fetch_data',[JobController::class,'fetch_data']);
 Route::post('pagination/fetch_data',[JobController::class,'filter_jobs']);
+
+Route::get('findajob/pagination/fetch_data_detail',[JobController::class,'fetch_data_detail']);
+Route::post('findajob/pagination/fetch_data_detail',[JobController::class,'filter_job_detail']);// Special Route for filter detail
 // Route::get('/', function () {
 //     return view('home.mainpage');
 // });
@@ -41,15 +44,15 @@ Route::get('/findajob/{id}', [JobController::class,'showDetailCareers']);
 Route::get('/about', function () {
     return view('home.about');
 });
-Route::get('/blog', function () {
-    return view('home.blog');
-});
-Route::get('/blogdetails', function () {
-    return view('home.blogdetails');
-});
-Route::get('/elements', function () {
-    return view('home.elements');
-});
+// Route::get('/blog', function () {
+//     return view('home.blog');
+// });
+// Route::get('/blogdetails', function () {
+//     return view('home.blogdetails');
+// });
+// Route::get('/elements', function () {
+//     return view('home.elements');
+// });
 Route::get('/jobdetails/{id}/career/{eventid}', [JobController::class,'showDetail'])->name('jobdetails');
 
 Route::get('/contact', function () {
@@ -76,9 +79,10 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/edit-job/{id}',[AdminController::class,'editJob']);
     Route::post('/update-job/{id}',[AdminController::class,'updateJob']);
     Route::get('/delete-job/{id}',[AdminController::class,'deleteJob']);
-    Route::get('/admin/job_application',[AdminController::class,'job_application']);
+    Route::get('/admin/job_application/{id}',[AdminController::class,'job_application']);
     Route::get('/admin/application_details/{id}',[AdminController::class,'show_application_details']);
     Route::post('/admin/response_job_application',[AdminController::class,'response_job_application'])->name('/admin/response_job_application');
+    Route::get('/admin/profile',[AdminController::class,'showProfile']);
     Route::match(['get', 'post'],'/postjob',[AdminController::class, 'postjob'])->name('postjob');
 });
 
@@ -98,7 +102,8 @@ Route::get('/CV/job_applied_detail/{id}',[CvController::class,'applied_job_detai
 Route::get('/Cv/job_applied_cancel/{id}',[CvController::class,'cancel_job_applied'])->middleware('auth')->name('/Cv/job_applied_cancel');
 Route::post('/Cv/add_favorite_job/{id}',[CvController::class,'add_favorite_job'])->middleware('auth')->name('/Cv/add_favorite_job/');
 Route::get('/Cv/showFavorite_job',[CvController::class,'show_favorite_job'])->middleware('auth')->name('/Cv/showFavorite_job');
-route::get('/Cv/deleteFavorite_job/{id}',[CvController::class,'delete_favorite_job'])->middleware('auth')->name('/Cv/deleteFavorite_job/');
+Route::get('/Cv/deleteFavorite_job/{id}',[CvController::class,'delete_favorite_job'])->middleware('auth')->name('/Cv/deleteFavorite_job/');
+Route::get('/Cv/show_email_response/{id}',[CvController::class,'show_email_response'])->middleware('auth')->name('/Cv/showEmail_response/');
 //Route::get('profiles',[ProfileController::class,'create'])->middleware('auth')->name('profiles.create');
 
 Route::get('profiles/{id}',[ProfileController::class,'show'])->middleware('auth')->name('profiles');

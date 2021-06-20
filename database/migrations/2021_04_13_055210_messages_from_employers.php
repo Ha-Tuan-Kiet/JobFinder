@@ -17,9 +17,9 @@ class MessagesFromEmployers extends Migration
             $table->id();
             $table->integer('company_id');
             $table->integer('user_id');
+            $table->integer('candidate_id');
             $table->char('title');
             $table->text('content');
-            $table->boolean('seen');
             $table->timestamps();
         });
     }

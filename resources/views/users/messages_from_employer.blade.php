@@ -58,7 +58,9 @@
                 </td>
         </tbody>
         @endforeach
+               
     </table>
+    <div style="display:flex;justify-content:center">  {!! $messages->links() !!}</div>   
 </div>
 @endsection
 @push('scripts')
