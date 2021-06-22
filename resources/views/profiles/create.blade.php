@@ -19,7 +19,7 @@
             @endif
         </div>
 
-    <form class="profile" action="{{ route('profiles.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="profile" action="{{ route('profiles.create') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div class="form-group" >

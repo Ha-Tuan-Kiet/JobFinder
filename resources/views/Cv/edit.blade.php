@@ -559,13 +559,13 @@
                                     <div class="form-card">
 {{--                                        <h2 class="fs-title">Knowledges</h2>--}}
                                         <label><b>Introduction:</b></label>
-                                        <textarea name="introduction"  rows="3" id="introduction"  placeholder="Introduction yourself" value={!!$cv->introduction!!} ></textarea>
+                                        <textarea name="introduction"  rows="3" id="introduction"  placeholder="Introduction yourself" >{!!$cv->introduction!!}</textarea>
                                         <label><b>Education:</b></label>
-                                        <textarea name="education" rows="3" id="education" placeholder="Education" value={!! $cv->education !!} ></textarea>
+                                        <textarea name="education" rows="3" id="education" placeholder="Education">{!! $cv->education !!}</textarea>
                                         <label><b>Experience:</b></label>
-                                        <textarea name="experience"  rows="3" id="experience" placeholder="Experience" value={!! $cv->experience !!} ></textarea>
+                                        <textarea name="experience"  rows="3" id="experience" placeholder="Experience" >{!! $cv->experience !!}</textarea>
                                         <label><b>Activity:</b></label>
-                                        <textarea name="activity"  rows="3" id="activity" placeholder="Activity" value={!! $cv->activity !!} ></textarea>
+                                        <textarea name="activity"  rows="3" id="activity" placeholder="Activity" >{!! $cv->activity !!}</textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
                                 <fieldset>
@@ -574,15 +574,15 @@
 
 
                                         <label><b>Skills:</b></label>
-                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3" value={!! $cv->skill !!}   ></textarea>
+                                                <textarea name="skill" id="skill"  placeholder="Skill" rows="3">{!! $cv->skill !!}</textarea>
 
 
                                         <label><b>Certificate</b></label>
-                                                <textarea name="certificate" id="certificate" placeholder="Certificate"rows="3" value={!! $cv->certificate !!}   ></textarea>
+                                                <textarea name="certificate" id="certificate" placeholder="Certificate"rows="3"  >{!! $cv->certificate !!}</textarea>
 
 
                                         <label><b>Hobby:</b></label>
-                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby"  rows="3" value= {!!$cv->hobby!!}   ></textarea>
+                                        <textarea name="hobby" id="hobby" placeholder="Your Hobby"  rows="3"   >{!!$cv->hobby!!}</textarea>
                                     </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
 {{--                                    <button type="submit" class="next action-button" >Submit</button>--}}
 {{--                                    <button type="button" id="nextbtn" value="Next Step" class="next action-button" >Next Step</button>--}}

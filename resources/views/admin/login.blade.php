@@ -1,251 +1,221 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('bootstrap/img/admin_img/apple-icon.png')}}">
-	<link rel="icon" type="image/png" href="{{asset('bootstrap/img/admin_img/favicon.png')}}">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Get Shit Done Bootstrap Wizard by Creative Tim</title>
+<style>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    body {
+        color: #000;
+        overflow-x: hidden;
+        height: 100%;
+        background-color: #B0BEC5;
+        background-repeat: no-repeat
+    }
 
-	<!--     Fonts and icons     -->
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    .card0 {
+        box-shadow: 0px 4px 8px 0px #757575;
+        border-radius: 0px
+    }
 
-	<!-- CSS Files -->
-    <link href="{{asset('bootstrap/css/bootstrap2.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('bootstrap/css/gsdk-bootstrap-wizard.css')}}" rel="stylesheet" />
+    .card2 {
+        margin: 0px 40px
+    }
 
-	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link href="{{asset('bootstrap/css/demo.css')}}" rel="stylesheet" />
+    .logo {
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+        margin-left: 35px
+    }
 
-</head>
+    .image {
+        width: 360px;
+        height: 280px
+    }
 
-<body>
-<div class="image-container set-full-height" style="background-image: url('./bootstrap/img/admin_img/wizard-city.jpg')">
-    <!--   Creative Tim Branding   -->
-    <a href="http://creative-tim.com">
-         <div class="logo-container">
-            <div class="logo">
-                <img src="{{asset('bootstrap/img/admin_img/new_logo.png')}}">
-            </div>
-            <div class="brand">
-                Creative Tim
-            </div>
-        </div>
-    </a>
+    .border-line {
+        border-right: 1px solid #EEEEEE
+    }
 
-    <!--   Big container   -->
-    <div class="container">
-        <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+    .facebook {
+        background-color: #3b5998;
+        color: #fff;
+        font-size: 18px;
+        padding-top: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer
+    }
 
-            <!--      Wizard container        -->
-            <div class="wizard-container">
-                <div class="card wizard-card" data-color="green" id="wizard">
-                <form action="" method="">
-                <!--        You can switch ' data-color="green" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+    .twitter {
+        background-color: #1DA1F2;
+        color: #fff;
+        font-size: 18px;
+        padding-top: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer
+    }
 
-                    	<div class="wizard-header">
-                        	<h3>
-                        	   <b>LIST</b> YOUR PLACE <br>
-                        	   <small>This information will let us know more about your place.</small>
-                        	</h3>
-                    	</div>
-						<div class="wizard-navigation">
-							<ul>
-	                            <li><a href="#location" data-toggle="tab">Location</a></li>
-	                            <li><a href="#type" data-toggle="tab">Type</a></li>
-	                            <li><a href="#facilities" data-toggle="tab">Facilities</a></li>
-	                            <li><a href="#description" data-toggle="tab">Description</a></li>
-	                        </ul>
-						</div>
+    .linkedin {
+        background-color: #2867B2;
+        color: #fff;
+        font-size: 18px;
+        padding-top: 5px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        cursor: pointer
+    }
 
-                        <div class="tab-content">
-                            <div class="tab-pane" id="location">
-                              <div class="row">
-                                  <div class="col-sm-12">
-                                    <h4 class="info-text"> Let's start with the basic details</h4>
-                                  </div>
-                                  <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                        <label>City</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Where is your place located?">
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-5">
-                                       <div class="form-group">
-                                            <label>Country</label><br>
-                                             <select name="country" class="form-control">
-                                                <option disabled="" selected="">- country -</option>
-                                                <option value="Afghanistan"> Afghanistan </option>
-                                                <option value="Albania"> Albania </option>
-                                                <option value="Algeria"> Algeria </option>
-                                                <option value="American Samoa"> American Samoa </option>
-                                                <option value="Andorra"> Andorra </option>
-                                                <option value="Angola"> Angola </option>
-                                                <option value="Anguilla"> Anguilla </option>
-                                                <option value="Antarctica"> Antarctica </option>
-                                                <option value="...">...</option>
-                                            </select>
-                                          </div>
-                                  </div>
-                                  <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                          <label>Accommodates</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- persons -</option>
-                                            <option>1 Person</option>
-                                            <option>2 Persons </option>
-                                            <option>3 Persons</option>
-                                            <option>4 Persons</option>
-                                            <option>5 Persons</option>
-                                            <option>6+ Persons</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-5">
-                                      <div class="form-group">
-                                          <label>Rent price</label>
-                                          <div class="input-group">
-                                              <input type="text" class="form-control" placeholder="Rent price per day">
-                                              <span class="input-group-addon">$</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="tab-pane" id="type">
-                                <h4 class="info-text">What type of location do you have? </h4>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="col-sm-4 col-sm-offset-2">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you have a house.">
-                                                <input type="radio" name="type" value="House">
-                                                <div class="icon">
-                                                    <i class="fa fa-home"></i>
-                                                </div>
-                                                <h6>House</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you have an appartment">
-                                                <input type="radio" name="type" value="Appartment">
-                                                <div class="icon">
-                                                    <i class="fa fa-building"></i>
-                                                </div>
-                                                <h6>Appartment</h6>
-                                            </div>
-                                        </div>
+    .line {
+        height: 1px;
+        width: 45%;
+        background-color: #E0E0E0;
+        margin-top: 10px
+    }
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="facilities">
-                                <h4 class="info-text">Tell us more about facilities. </h4>
-                                <div class="row">
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                          <label>Your place is good for</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- type -</option>
-                                            <option>Business</option>
-                                            <option>Vacation </option>
-                                            <option>Work</option>
-                                          </select>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                      <div class="form-group">
-                                          <label>Is air conditioning included ?</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- response -</option>
-                                            <option>Yes</option>
-                                            <option>No </option>
-                                          </select>
-                                      </div>
-                                     </div>
-                                     <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                          <label>Does your place have wi-fi?</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- response -</option>
-                                            <option>Yes</option>
-                                            <option>No </option>
-                                          </select>
-                                       </div>
-                                      </div>
-                                      <div class="col-sm-5">
-                                       <div class="form-group">
-                                          <label>Is breakfast included?</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- response -</option>
-                                            <option>Yes</option>
-                                            <option>No </option>
-                                          </select>
-                                       </div>
-                                      </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="description">
-                                <div class="row">
-                                    <h4 class="info-text"> Drop us a small description. </h4>
-                                    <div class="col-sm-6 col-sm-offset-1">
-                                         <div class="form-group">
-                                            <label>Place description</label>
-                                            <textarea class="form-control" placeholder="" rows="9">
+    .or {
+        width: 10%;
+        font-weight: bold
+    }
 
-                                            </textarea>
-                                          </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                         <div class="form-group">
-                                            <label>Example</label>
-                                            <p class="description">"The place is really nice. We use it every sunday when we go fishing. It is so awesome."</p>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wizard-footer">
-                            	<div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd btn-sm' name='next' value='Next' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-success btn-wd btn-sm' name='finish' value='Finish' />
+    .text-sm {
+        font-size: 14px !important
+    }
 
-                                </div>
-                                <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
-                                </div>
-                                <div class="clearfix"></div>
-                        </div>
+    ::placeholder {
+        color: #BDBDBD;
+        opacity: 1;
+        font-weight: 300
+    }
 
-                    </form>
+    :-ms-input-placeholder {
+        color: #BDBDBD;
+        font-weight: 300
+    }
+
+    ::-ms-input-placeholder {
+        color: #BDBDBD;
+        font-weight: 300
+    }
+
+    input,
+    textarea {
+        padding: 10px 12px 10px 12px;
+        border: 1px solid lightgrey;
+        border-radius: 2px;
+        margin-bottom: 5px;
+        margin-top: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #2C3E50;
+        font-size: 14px;
+        letter-spacing: 1px
+    }
+
+    input:focus,
+    textarea:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #304FFE;
+        outline-width: 0
+    }
+
+    button:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        outline-width: 0
+    }
+
+    a {
+        color: inherit;
+        cursor: pointer
+    }
+
+    .btn-blue {
+        background-color: #1A237E;
+        width: 150px;
+        color: #fff;
+        border-radius: 2px
+    }
+
+    .btn-blue:hover {
+        background-color: #000;
+        cursor: pointer
+    }
+
+    .bg-blue {
+        color: #fff;
+        background-color: #1A237E
+    }
+
+    @media screen and (max-width: 991px) {
+        .logo {
+            margin-left: 0px
+        }
+
+        .image {
+            width: 300px;
+            height: 220px
+        }
+
+        .border-line {
+            border-right: none
+        }
+
+        .card2 {
+            border-top: 1px solid #EEEEEE !important;
+            margin: 0px 15px
+        }
+    }
+</style>
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
                 </div>
-            </div> <!-- wizard container -->
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+                        <div class="facebook text-center mr-3">
+                            <div class="fa fa-facebook"></div>
+                        </div>
+                        <div class="twitter text-center mr-3">
+                            <div class="fa fa-twitter"></div>
+                        </div>
+                        <div class="linkedin text-center mr-3">
+                            <div class="fa fa-linkedin"></div>
+                        </div>
+                    </div>
+                    <div class="row px-3 mb-4">
+                        <div class="line"></div> <small class="or text-center">Or</small>
+                        <div class="line"></div>
+                    </div>
+                    <div class="row px-3"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Email Address</h6>
+                        </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> </div>
+                    <div class="row px-3"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Password</h6>
+                        </label> <input type="password" name="password" placeholder="Enter password"> </div>
+                    <div class="row px-3 mb-4">
+                        <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+                    </div>
+                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div>
+                </div>
+            </div>
         </div>
-        </div> <!-- row -->
-    </div> <!--  big container -->
-
-    <div class="footer">
-        <div class="container">
-             Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>. Free download <a href="http://www.creative-tim.com/product/bootstrap-wizard">here.</a>
+        <div class="bg-blue py-4">
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+            </div>
         </div>
     </div>
 </div>
-
-</body>
-
-	<!--   Core JS Files   -->
-	<script src="{{asset('bootstrap/js/jquery-2.2.4.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('bootstrap/js/bootstrap2.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('bootstrap/js/jquery.bootstrap.wizard.js')}}" type="text/javascript"></script>
-
-	<!--  Plugin for the Wizard -->
-	<script src="{{asset('bootstrap/js/gsdk-bootstrap-wizard.js')}}"></script>
-
-	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
-	<script src="{{asset('bootstrap/js/jquery2.validate.min.js')}}"></script>
-
-</html>
-

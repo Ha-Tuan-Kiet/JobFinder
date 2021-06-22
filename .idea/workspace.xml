@@ -27,9 +27,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,7 +231,13 @@
       <workItem from="1623296122626" duration="3617000" />
       <workItem from="1623313339502" duration="7518000" />
       <workItem from="1623334266621" duration="749000" />
-      <workItem from="1623390188090" duration="3694000" />
+      <workItem from="1623390188090" duration="5176000" />
+      <workItem from="1623398140185" duration="705000" />
+      <workItem from="1623739522433" duration="3921000" />
+      <workItem from="1624178341771" duration="2456000" />
+      <workItem from="1624257524791" duration="9529000" />
+      <workItem from="1624340033534" duration="3520000" />
+      <workItem from="1624344489279" duration="1216000" />
     </task>
     <servers />
   </component>
@@ -264,12 +275,12 @@
     </state>
     <state x="-1371" y="172" key="FileChooserDialogImpl/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1620827250713" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1621931178273" />
-    <state x="-1316" y="341" key="NewPhpFileDialog" timestamp="1621329526344">
-      <screen x="-1920" y="0" width="1536" height="834" />
+    <state x="604" y="341" key="NewPhpFileDialog" timestamp="1623741274809">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="-1316" y="341" key="NewPhpFileDialog/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1621329526344" />
     <state x="-1316" y="343" key="NewPhpFileDialog/0.0.1536.834/-1920.2.1536.834@-1920.2.1536.834" timestamp="1620721945523" />
-    <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1620998821862" />
+    <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1623741274809" />
     <state x="-1559" y="152" key="Vcs.Push.Dialog.v2" timestamp="1620808511928">
       <screen x="-1920" y="2" width="1536" height="834" />
     </state>

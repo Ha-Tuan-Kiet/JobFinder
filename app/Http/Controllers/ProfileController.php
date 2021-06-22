@@ -24,7 +24,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function PFcreate()
     {
         return View('profiles.create');
     }
@@ -35,7 +35,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'avatar' => 'required|mimes:jpg,jpeg,png,xlx,xls,pdf|max:2048',
@@ -45,7 +45,6 @@ class ProfileController extends Controller
         ]);
 
             $profile = new Profile();
-
             $profile->full_name = $request->input('full_name');
             $profile->address = $request->input('address');
             $profile->birthday = $request->input('birthday');
@@ -69,7 +68,6 @@ class ProfileController extends Controller
     {
         $user =  DB::table('users')->where('id', $id)->first();
         if ($profiles = DB::table('profiles')->where('user_id', '=',$id)->first()) {
-
             return view('profiles.show', ['profiles' => $profiles],['user' => $user]);
         } else if ($profiles = DB::table('profiles')) {
             return View('profiles.create',['id'=>$id])->with('messages','Done');
@@ -84,7 +82,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profile =Profile::find($id);
+        $profile = Profile::find($id);
         return View('profiles.edit',compact('profile'));
     }
 
@@ -134,10 +132,5 @@ class ProfileController extends Controller
         $profile->delete();
     }
 
-//    public function profile_detail($id)
-//    {
-//        $profile =  DB::table('profiles')->where('id','=',$id)->get()->dd();
-//        return view('profiles.edit',compact('profile'));
-//    }
 
 }

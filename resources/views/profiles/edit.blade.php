@@ -10,16 +10,16 @@
     </script>
 @endsection('js')
 @section('content')
-    @if (count($errors) > 0)
-        <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->
+{{--    @if (count($errors) > 0)--}}
+{{--        <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->--}}
 {{--            <li>{{ $message }}  </li>--}}
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+{{--            <ul>--}}
+{{--                @foreach ($errors->all() as $error)--}}
+{{--                    <li>{{ $error }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
     <div class="col-lg-12 mb-4">
         <div class="card mb-4">
             <div class="card-body">
@@ -79,5 +79,8 @@
 
         </div>
     </div>
+
+
+
 
 @endsection

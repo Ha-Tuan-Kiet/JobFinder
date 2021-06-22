@@ -105,5 +105,5 @@ route::get('/Cv/deleteFavorite_job/{id}',[CvController::class,'delete_favorite_j
 Route::get('profiles/{id}',[ProfileController::class,'show'])->middleware('auth')->name('profiles');
 Route::get('profiles/edit/{id}',[ProfileController::class,'edit'])->middleware('auth')->name('profiles.edit');
 Route::post('profiles/update/{id}',[ProfileController::class,'update'])->middleware('auth')->name('profiles.update');
-Route::get('profiles/create',[ProfileController::class,'create'])->middleware('auth')->name('profiles.create');
+Route::get('profiles/PFcreate',[ProfileController::class,'PFcreate'])->middleware('auth');
 Route::post('profiles/create',[ProfileController::class,'create'])->middleware('auth')->name('profiles.create');
