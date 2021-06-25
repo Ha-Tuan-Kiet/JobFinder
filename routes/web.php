@@ -93,6 +93,7 @@ Route::post('/Cv/update/{id}',[CvController::class,'update'])->middleware('auth'
 Route::get('/Cv/Resume/{id}',[CvController::class,'showResume'])->middleware('auth')->name('/Cv/Resume/');
 Route::get('/Cv/ShowAllCv',[CvController::class,'ShowAllCvCreated'])->middleware('auth')->name('/Cv/ShowAllCv');
 Route::get('/Cv/DownloadResume/{id}',[CvController::class,'downloadResume'])->middleware('auth')->name('/Cv/DownloadResume/');
+route::get('/Cv/DeleteResume/{id}',[CvController::class,'delete_resume'])->middleware('auth')->name('/Cv/delete_resume/');
 Route::post('/Cv/ApplyJob',[CvController::class,'apply_job'])->middleware('auth')->name('/Cv/ApplyJob');
 Route::get('/Cv/showMessages',[CvController::class,'show_messages'])->middleware('auth')->name('/Cv/showMessages');
 Route::get('/Cv/showMessages_detail/{id}',[CvController::class,'show_messages_detail'])->middleware('auth')->name('/Cv/showMessages_detail');

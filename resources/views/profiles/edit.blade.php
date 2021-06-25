@@ -40,19 +40,19 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Full name</label>
                         <input type="text" style="background-color: #fb246a" name="full_name" class="form-control form-control-user"
-                               id="full_name" placeholder="Full Name" value="{{ $profile->full_name }}">
+                               id="full_name" placeholder="Full Name" value="{{ $profile->full_name }}" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Address</label>
                         <input type="text" style="background-color: #fb246a" name="address" class="form-control form-control-user"
-                               id="address" placeholder="Address" value="{{ $profile->address }}">
+                               id="address" placeholder="Address" value="{{ $profile->address }}" required>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="exampleInputEmail1">Birthday</label>
                             <input type="date" style="background-color: #fb246a" class="form-control form-control-user" name="birthday"
-                                   id="birthday" placeholder="Birthday" value="{{ $profile->birthday }}">
+                                   id="birthday" placeholder="Birthday" value="{{ $profile->birthday }}" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <div class="custom-file" >
-                                <input type="file" class="custom-file-input " id="avatar" name="avatar" >
+                                <input type="file" class="custom-file-input " id="avatar" name="avatar" required>
                                 <label for="avatar" class="custom-file-label">{{$profile->avatar}}</label>
                             </div>
                         </div>

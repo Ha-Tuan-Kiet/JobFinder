@@ -252,7 +252,7 @@
         <div class="resume">
             <div class="resume_left">
                 <div class="resume_profile">
-                    <img src="{{ asset('storage/uploads/moutain.jpg')}}" alt="profile_pic">
+                    <img src="{{ asset('storage/uploads/bg_login.jpg')}}" alt="profile_pic">
                 </div>
                 <div class="resume_content">
                     <div class="resume_item resume_info">

@@ -6,7 +6,7 @@
         <table class="table">
             <thead class="thead-light">
               <tr >
-                <th scope="col" style="background-color: #fb246a;color: white">Name</th>
+                <th scope="col" style="background-color: #fb246a;color: white">Title</th>
                 <th scope="col"style="background-color: #fb246a;color: white">Email</th>
                 <th scope="col"style="background-color: #fb246a;color: white">Day of birthday</th>
                 <th scope="col"style="background-color: #fb246a;color: white">Created</th>
@@ -16,7 +16,7 @@
             <tbody>
               @foreach ($cvs as $cv )
               <tr>
-                    <td>{{$cv->full_name}}</td>
+                    <td >{{$cv->title}}</td>
                     <td>{{$cv->email}}</td>
                     <td>{{$cv->birthday}}</td>
                     <th scope="row">{{$cv->created_at}}</th>
@@ -47,7 +47,7 @@
                           </div>
                         </div>
                         <button onclick="location.href='/Cv/edit/{{$cv->id}}'"  type="button" class="btn-warning" style="border-radius: .2rem"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i>
+                        <button onclick="location.href='/Cv/DeleteResume/{{$cv->id}}'" type="button" class="btn-danger" style="border-radius: .2rem"><i class="fas fa-trash-alt"></i>
                         </button>
                         <button onclick="location.href='/Cv/DownloadResume/{{$cv->id}}'" type="button" class="btn-success"><i class="fa fa-download" aria-hidden="true"></i></button>
                     </td>

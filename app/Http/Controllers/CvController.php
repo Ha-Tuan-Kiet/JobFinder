@@ -9,6 +9,7 @@ use Dompdf\Dompdf;
 //use PDF;
 use App\Models\CandidateApply;
 use App\Models\MessagesFromEmployers;
+use App\Models\Career;
 use App\Models\SaveJob;
 use Toastr;
 class CvController extends Controller
@@ -20,15 +21,23 @@ class CvController extends Controller
      */
     public function CvCreate()
     {
-        return view('Cv.create');
+        $career_id= Career::all();
+       return view('Cv.create',compact('career_id'));
     }
+
     public  function create(Request $request){
-        $request->validate([
-            'phone'=>'required',
-        ]);
+//        $request->validate([
+//            'phone'=>'required',
+//           'email'=>'reqired',
+//            'gender'=>'required',
+//            'position_apply'=>'required',
+//            'education'=>'required'
+//        ]);
+
         if($request->isMethod("POST")){
             $cv= new Cv();
             $cv->user_id=auth()->id();
+            $cv->title=$request->input('title');
             $cv->phone=$request->input('phone');
             $cv->email=$request->input('email');
             $cv->gender=$request->input('gender');
@@ -40,22 +49,24 @@ class CvController extends Controller
             $cv->skill=$request->input('skill');
             $cv->certificate=$request->input('certificate');
             $cv->hobby=$request->input('hobby');
-
+            $cv->status=0;
+            $cv->career_id=$request->input('career_id');
             $cv->save();
-            return back();
         }
-        return view('Cv.create');
+        return redirect()->route('/Cv/ShowAllCv');
     }
     public function edit($id)
     {
         $cv = Cv::find($id);
-        return View('Cv.edit',compact('cv'));
+        $career_id= Career::all();
+        return View('Cv.edit',compact('cv','career_id')  );
     }
     public function update(Request $request,$id)
     {
         if($request->isMethod("POST")){
             $cv= Cv::find($id);
             $cv->user_id=auth()->id();
+            $cv->title=$request->input('title');
             $cv->phone=$request->input('phone');
             $cv->email=$request->input('email');
             $cv->gender=$request->input('gender');
@@ -67,11 +78,11 @@ class CvController extends Controller
             $cv->skill=$request->input('skill');
             $cv->certificate=$request->input('certificate');
             $cv->hobby=$request->input('hobby');
-
+            $cv->status=0;
+            $cv->career_id=$request->input('career_id');
             $cv->save();
-            return back();
         }
-        return back();
+        return redirect()->route('/Cv/ShowAllCv');
     }
 
     public function ShowAllCvCreated(){
@@ -131,7 +142,7 @@ class CvController extends Controller
             }
             else{
               return back()->with('message','Sorry it resume already applied.');
-            }            
+            }
         }
     }
 
@@ -154,15 +165,16 @@ class CvController extends Controller
         ->first();
         return view('users.messages_details',compact('message'));
     }
+
     public function delete_message($id){
         $message=MessagesFromEmployers::find($id);
         $message->delete();
         return redirect()->back();
     }
-
-    public function destroy($id)
+    public function delete_resume($id)
     {
-        Cv::find($id)->delete();
+        $cv= Cv::find($id);
+        $cv->delete();
         return back();
     }
     public function applied_job(){

@@ -161,12 +161,12 @@
                                <h4>Job Overview</h4>
                            </div>
                           <ul>
-                              <li>Posted date : <span>12 Aug 2019</span></li>
-                              <li>Location : <span>New York</span></li>
-                              <li>Vacancy : <span>02</span></li>
-                              <li>Job nature : <span>Full time</span></li>
-                              <li>Salary :  <span>$7,800 yearly</span></li>
-                              <li>Application date : <span>12 Sep 2020</span></li>
+                              <li>Posted date : <span>{{$jobsdata->created_at}}</span></li>
+                              <li>Location : <span>{{$jobsdata->location}}</span></li>
+                              <li>Vacancy : <span>{{$jobsdata->amount}}</span></li>
+                              <li>Job nature : <span>{{$jobsdata->job_type}}</span></li>
+                              <li>Salary :  <span>{{$jobsdata->salary_min}}-{{$jobsdata->salary_max}}{{$jobsdata->salary_unit}} yearly</span></li>
+                              <li>Application date : <span>{{$jobsdata->deadline_for_submission}}</span></li>
                           </ul>
                          <div class="apply-btn2">
                             <!-- Button trigger modal -->
@@ -205,11 +205,16 @@
                                            <div class="row">
                                                <div class="col-lg-6 col-md-6">
                                                    <label>Phone:</label>
-                                                   <input name="phone" class="form-control" type="phone" value="{{$user_data->user_phone}}" readonly>
+                                                   @foreach ($cvs as $cv )
+                                                   <input name="phone" class="form-control" type="phone" value="{{$cv->phone}}" readonly >
+                                                   @endforeach
+                                                   
                                                </div>
                                                <div class="col-lg-6 col-md-6">
                                                    <label>Email:</label>
-                                                   <input name="email" class="form-control" type="email" value="{{$user_data->user_email}}" readonly>
+                                                   @foreach ($cvs as $cv )
+                                                   <input name="email" class="form-control" type="email" value="{{$cv->email}}" readonly >
+                                                   @endforeach             
                                                </div>
                                            </div>
                                            <div class="row">
@@ -230,11 +235,10 @@
                                                            Thank you so much for your time and consideration.<br>
                                                            
                                                            Best,<br>
-                                                           <strong>
-                                                               {{$user_data->user_name}}<br>
-                                                               {{$user_data->user_phone}}<br>
-                                                               {{$user_data->user_email}}<br>
-                                                           </strong>
+                                                            @foreach ($cvs as $cv )
+                                                                <p>Email:</p><strong>{{$cv->email}}</strong>
+                                                                <p>Phone:</p><strong>{{$cv->phone}}</strong>
+                                                            @endforeach
                                                         
                                                        </p>
                                                    </textarea>
@@ -256,7 +260,14 @@
                                            </div>  
                                            <div class="modal-footer">
                                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                               <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
+                                              @foreach ($cvs as $cv )
+                                                  @if ($cv->email !=null)
+                                                  <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
+                                                  @else
+                                                  <button type="submit" class="btn btn-primary mt-50" disabled>Submit Application</button>
+                                                  @endif
+                                              @endforeach
+                                               
                                                </div>        
                                            </form>
                                            @elseif (Auth::user()->role_id==1)

@@ -32,7 +32,7 @@
 {{-- <script src="{{asset('adminform/js/4n2NXumNjtg5LPp6VXLlDicTUfA.js')}}"></script><link rel="apple-touch-icon" href="{{asset('adminform/images/apple-touch-icon.html')}}"> --}}
 </head>
 <body>
-<section class="blog_area section-padding" style="background:#7952b3">
+<section class="blog_area section-padding">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 mb-5 mb-lg-0">

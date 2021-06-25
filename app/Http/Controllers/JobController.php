@@ -414,18 +414,13 @@ class JobController extends Controller
         ->where('cvs.career_id','=',$eventid)
         ->select('cvs.*')
         ->get();
-        $user_data=DB::table('cvs')
-        ->join('profiles','cvs.user_id','=','profiles.user_id')
-        ->where('cvs.user_id','=',auth()->id())
-        ->select('cvs.phone as user_phone','cvs.email as user_email','profiles.full_name as user_name')
-        ->first();
         // $save_job=SaveJob::where('job_id',$id)->count();
         // $user_id=SaveJob::where('user_id',auth()->id())->exists();
         $user_save_data=DB::table('save_jobs')
         ->where('user_id','=',auth()->id())
         ->where('job_id',$id)
         ->count();
-        return view('home.jobdetails',compact('jobsdata','cvs','user_save_data','user_data'));
+        return view('home.jobdetails',compact('jobsdata','cvs','user_save_data'));
     }
     
     //CARRERS
