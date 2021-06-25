@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-<link rel="stylesheet" type="text/css" 
+<link rel="stylesheet" type="text/css"
      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
      .input-file{
@@ -38,12 +38,12 @@
     font-size: .9em;
     font-weight: bold;
     }
-   .js .file-return:not(:empty):before { content: "Selected file: "; font-style: normal; font-weight: normal; } /* Useless styles, just for demo styles */  
+   .js .file-return:not(:empty):before { content: "Selected file: "; font-style: normal; font-weight: normal; } /* Useless styles, just for demo styles */
 </style>
 
    <body>
     <!-- Preloader Start -->
-   
+
 
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -79,7 +79,7 @@
                     <!-- Left Content -->
                     <div class="col-xl-7 col-lg-8">
                         <!-- job single -->
-                        
+
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
@@ -88,14 +88,14 @@
                                 <div class="job-tittle">
                                     <a href="#">
                                         <h4>{{$jobsdata->position}}</h4>
-                                        
+
                                     </a>
-                                   
+
                                     <ul>
                                         <li>{{$jobsdata->name}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{$jobsdata->location}}</li>
                                         <li>{{$jobsdata->salary_min}} - {{$jobsdata->salary_max}} {{$jobsdata->salary_unit}}</li>
-                                        
+
                                     </ul>
                                 </div>
                             </div>
@@ -104,27 +104,27 @@
                                 <a href="#" style="border-style: none;" onclick="toastr.info('If you want to add it to favourtie job please login first','Info',{closeButton:true,progressBar:true})"><i class="far fa-heart" style="font-size:25px" ></i></a>
                                 @elseif (Auth::user()->role_id ==2)
                                 <a href="#" style="border-style: none;" onclick="document.getElementById('favorite_job_{{$jobsdata->id}}').submit();">
-                                    @if ($user_save_data ==0)                                            
+                                    @if ($user_save_data ==0)
                                     <i class="far fa-heart" style="font-size:25px" ></i>
                                     @else
-                                    <i class="fas fa-heart" style="font-size:25px" ></i>    
+                                    <i class="fas fa-heart" style="font-size:25px" ></i>
                                     @endif
-                                    
+
                                 </a>
                                 <form id="favorite_job_{{$jobsdata->id}}" method="post" action="{{route('/Cv/add_favorite_job/',['id'=>$jobsdata->id])}}" enctype="multipart/form-data" style="display:none">
                                     @csrf
-                                
+
                                 </form>
                                 @endguest
-                                
+
                                 <a href="#">{{$jobsdata->job_type}}</a>
                             </div>
                         </div>
-                       
+
                           <!-- job single End -->
-                       
+
                         <div class="job-post-details">
-                            
+
                             <div class="post-details1 mb-50">
                                 <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
@@ -139,7 +139,7 @@
                                 </div>
 
                                 {!!$jobsdata->requirement!!}
-                            
+
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
@@ -148,10 +148,10 @@
                                 </div>
                                {!!$jobsdata->education!!}
                                {!!$jobsdata->experience!!}
-                           
+
                             </div>
                         </div>
-                       
+
                     </div>
                     <!-- Right Content -->
                     <div class="col-xl-4 col-lg-4">
@@ -173,7 +173,7 @@
                             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                 Apply Now
                             </button>
-                            
+
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -188,8 +188,8 @@
                                         <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label><br>
                                         <label>Trong lĩnh vực: <span style="font-weight: bold">{{$jobsdata->career_name}}</span> </label>
                                         <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
-                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">      
-                                         <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >           
+                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                         <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <label>Phone:</label>
@@ -212,21 +212,21 @@
                                                 @foreach ($cvs as $cv )
                                                 <input type="radio" name="resume" value="{{$cv->id}}" required>{{$cv->position_apply}} <br>
                                                 @endforeach
-                                               
+
                                                 {{-- <div class="form-group input-file-container">
                                                     <input type="file" name="Resume" id="file" class="input-file">
                                                       <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
                                                       <p class="file-return"></p>
                                                 </div> --}}
-                                            </div>                                      
-                                        </div>  
+                                            </div>
+                                        </div>
                                         <div class="modal-footer">
                                             {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
                                             <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
-                                            </div>        
+                                            </div>
                                         </form>
                                     </div>
-                                   
+
                                 </div>
                                 </div>
                             </div>
@@ -253,29 +253,29 @@
 
     </main>
 
-	
-<!-- JS here -->  
+
+<!-- JS here -->
     <script>
         document.querySelector("html").classList.add('js');
 
-var fileInput  = document.querySelector( ".input-file" ),  
+var fileInput  = document.querySelector( ".input-file" ),
     button     = document.querySelector( ".input-file-trigger" ),
     the_return = document.querySelector(".file-return");
-      
-    button.addEventListener( "keydown", function( event ) {  
-        if ( event.keyCode == 13 || event.keyCode == 32 ) {  
-            fileInput.focus();  
-        }  
+
+    button.addEventListener( "keydown", function( event ) {
+        if ( event.keyCode == 13 || event.keyCode == 32 ) {
+            fileInput.focus();
+        }
     });
     button.addEventListener( "click", function( event ) {
     fileInput.focus();
     return false;
-    });  
-    fileInput.addEventListener( "change", function( event ) {  
-        the_return.innerHTML = this.value;  
-    });  
+    });
+    fileInput.addEventListener( "change", function( event ) {
+        the_return.innerHTML = this.value;
+    });
     </script>
-  
+
     </body>
 @endsection
 @push('scripts')
@@ -319,5 +319,5 @@ var fileInput  = document.querySelector( ".input-file" ),
             toastr.success("{{ session('remove') }}",'Remove success');
     @endif
 </script>
- 
+
 @endpush
