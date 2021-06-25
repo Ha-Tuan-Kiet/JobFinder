@@ -280,7 +280,7 @@
                  </div>
 
                 </div>
-            </div>>
+            </div>
 
         </section>
 {{--        <!-- Featured_job_end -->--}}
