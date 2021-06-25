@@ -89,8 +89,8 @@ class CvController extends Controller
         $cvs=DB::table('cvs')
         ->join('profiles','cvs.user_id','=','profiles.user_id')
         ->where('cvs.user_id','=',auth()->id())
-        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday','profiles.avatar')
-        ->get();
+        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
+        ->paginate(5);
         return view('Cv.index',compact('cvs'));
     }
 
@@ -136,6 +136,7 @@ class CvController extends Controller
                 $candidate_apply->job_id=$request->input('job_id');
                 $candidate_apply->user_id=auth()->id();
                 $candidate_apply->cv_id=$request->input('resume');
+                $candidate_apply->company_id=$request->input('company_id');
                 $candidate_apply->save();
                 return back()->with('success','You success to applied this job.');
             }
@@ -151,7 +152,7 @@ class CvController extends Controller
         ->join('user_companies','user_companies.id','=','company_id')
         ->where('messages_from_employers.user_id','=',auth()->id())
         ->select('messages_from_employers.*','user_companies.name')
-        ->get();
+        ->paginate(5);
         return view('users.messages_from_employer',compact('messages'));
     }
     public function show_messages_detail($id){
@@ -181,11 +182,11 @@ class CvController extends Controller
         ->join('jobs','jobs.id','=','candidate_applies.job_id')
         ->join('users','users.id','=','candidate_applies.user_id')
         ->join('profiles','profiles.user_id','=','candidate_applies.user_id')
-        ->join('user_companies','user_companies.id','=','jobs.company_id')
+        ->join('user_companies','user_companies.id','=','candidate_applies.company_id')
         ->join('cvs','cvs.id','=','candidate_applies.cv_id')
         ->where('candidate_applies.user_id','=',auth()->id())
         ->select('candidate_applies.*','jobs.position','users.name','user_companies.name as company_name')
-        ->get();
+        ->paginate(5);
         return view('users.job_applied',compact('candidates'));
     }
     public function applied_job_detail($id){
@@ -236,7 +237,7 @@ class CvController extends Controller
         ->join('provinces','provinces.id','=','jobs.province_id')
         ->where('save_jobs.user_id',auth()->id())
         ->select('save_jobs.created_at','jobs.*','user_companies.name as company_name','user_companies.image_logo','provinces.name as location')
-        ->get();
+        ->paginate(5);
         return view('users.favorite_job',compact('favorite_jobs'));
     }
     //Delete favorite job
@@ -247,5 +248,17 @@ class CvController extends Controller
         ]);
         $favorite_job->delete();
         return redirect()->back();
+    }
+    //Show email response
+    public function show_email_response($id){
+        $message=DB::table('messages_from_employers')
+        ->join('users','users.id','=','messages_from_employers.user_id')
+        ->join('user_companies','user_companies.id','=','company_id')
+        ->join('candidate_applies','candidate_applies.id','=','messages_from_employers.candidate_id')
+        ->where('messages_from_employers.user_id','=',auth()->id())
+        ->where('messages_from_employers.candidate_id','=',$id)
+        ->select('messages_from_employers.*','user_companies.name')
+        ->first();
+        return view('users.messages_details',compact('message'));
     }
 }

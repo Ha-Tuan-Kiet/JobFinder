@@ -34,7 +34,8 @@
               <span>{{$favorite_job->work_time}} hours ago</span>
           </div>
       </div>                          
-      @endforeach           
+      @endforeach 
+      <div style="display:flex;justify-content:center">  {!! $favorite_jobs->links() !!}</div>             
     </div>
 </body>
 </html>

@@ -54,6 +54,7 @@
               </tr>
               @endforeach
         </table>
+        <div style="display:flex;justify-content:center">  {!! $cvs->links() !!}</div>   
         <!-- Button trigger modal -->
 
         <!-- Modal -->

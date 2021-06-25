@@ -77,10 +77,10 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <!-- Left Content -->
-                    <div class="col-xl-7 col-lg-8">
+                    <div class="col-xl-8 col-lg-8">
                         <!-- job single -->
-
-                        <div class="single-job-items mb-50">
+                        
+                        <div class="single-job-items mb-20">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
                                     <a href="#"><img src="{{ asset('bootstrap/img/icon/'.$jobsdata->image_logo)}}" alt=""></a>
@@ -161,12 +161,12 @@
                                <h4>Job Overview</h4>
                            </div>
                           <ul>
-                              <li>Posted date : <span>12 Aug 2019</span></li>
-                              <li>Location : <span>New York</span></li>
-                              <li>Vacancy : <span>02</span></li>
-                              <li>Job nature : <span>Full time</span></li>
-                              <li>Salary :  <span>$7,800 yearly</span></li>
-                              <li>Application date : <span>12 Sep 2020</span></li>
+                              <li>Posted date : <span>{{$jobsdata->created_at}}</span></li>
+                              <li>Location : <span>{{$jobsdata->location}}</span></li>
+                              <li>Vacancy : <span>{{$jobsdata->amount}}</span></li>
+                              <li>Job nature : <span>{{$jobsdata->job_type}}</span></li>
+                              <li>Salary :  <span>{{$jobsdata->salary_min}}-{{$jobsdata->salary_max}}{{$jobsdata->salary_unit}} yearly</span></li>
+                              <li>Application date : <span>{{$jobsdata->deadline_for_submission}}</span></li>
                           </ul>
                          <div class="apply-btn2">
                             <!-- Button trigger modal -->
@@ -185,46 +185,95 @@
                                     </button>
                                     </div>
                                     <div class="modal-body">
-                                        <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label><br>
-                                        <label>Trong lĩnh vực: <span style="font-weight: bold">{{$jobsdata->career_name}}</span> </label>
-                                        <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
-                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                         <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <label>Phone:</label>
-                                                <input name="phone" class="form-control" type="phone" value="">
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <label>Email:</label>
-                                                <input name="email" class="form-control" type="email" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 ">
-                                                <label>Introduction:</label>
-                                                <textarea name="candidate_introduction" id="candidate_introduction" placeholder="Tell us something about yourself"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <label>Resume:</label><br>
-                                                @foreach ($cvs as $cv )
-                                                <input type="radio" name="resume" value="{{$cv->id}}" required>{{$cv->position_apply}} <br>
-                                                @endforeach
-
-                                                {{-- <div class="form-group input-file-container">
-                                                    <input type="file" name="Resume" id="file" class="input-file">
-                                                      <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
-                                                      <p class="file-return"></p>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                            <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
-                                            </div>
-                                        </form>
+                                        @guest
+                                        @if (Route::has('login'))
+                                        <label>Tks for apply, Please Login </label>
+                                        @endif
+                                        @if (Route::has('register'))
+                                        <label>or Register before</label>
+                                        @endif                                 
+                                        @else
+                                        
+                                           @if (Auth::user()->role_id ==2)
+                                           <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label><br>
+                                           <label>Trong lĩnh vực: <span style="font-weight: bold">{{$jobsdata->career_name}}</span> </label>
+                                           <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">      
+                                            <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >
+                                            <input type="hidden" name="company_id" value="{{$jobsdata->company_id}}">
+                                                   
+                                           <div class="row">
+                                               <div class="col-lg-6 col-md-6">
+                                                   <label>Phone:</label>
+                                                   @foreach ($cvs as $cv )
+                                                   <input name="phone" class="form-control" type="phone" value="{{$cv->phone}}" readonly >
+                                                   @endforeach
+                                                   
+                                               </div>
+                                               <div class="col-lg-6 col-md-6">
+                                                   <label>Email:</label>
+                                                   @foreach ($cvs as $cv )
+                                                   <input name="email" class="form-control" type="email" value="{{$cv->email}}" readonly >
+                                                   @endforeach             
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-lg-12 col-md-12 ">
+                                                   <label>Introduction:</label>
+                                                   <textarea name="candidate_introduction" id="candidate_introduction" placeholder="Tell us something about yourself">
+                                                       <p>
+                                                           Dear Mr.<strong>{{$jobsdata->contact_name}}</strong><br>
+                                                           
+                                                           I was excited to see your listing for the position of <strong>{{$jobsdata->position}}</strong> at <strong>{{$jobsdata->name}}</strong>. I believe that my five years' experience in office administration and my passion for your products make me an ideal candidate for this role.
+                                                           
+                                                           You specify that you’re looking for an administrative assistant with experience scheduling appointments, maintaining records, ordering supplies, and greeting customers. I’m currently employed as an administrative assistant at XYZ company, where I have spent the past five years honing these skills.
+                                                           
+                                                           I’m adept at using all the usual administrative and collaboration software packages, from Microsoft Office and SharePoint to Google Docs and Drive. I’m a fast learner, and flexible, while always maintaining the good cheer that you’d want from the first person visitors see when they interact with the company.
+                                                           
+                                                           I have attached my resume and will call within the next week to see if we might arrange a time to speak.
+                                                           
+                                                           Thank you so much for your time and consideration.<br>
+                                                           
+                                                           Best,<br>
+                                                            @foreach ($cvs as $cv )
+                                                                <p>Email:</p><strong>{{$cv->email}}</strong>
+                                                                <p>Phone:</p><strong>{{$cv->phone}}</strong>
+                                                            @endforeach
+                                                        
+                                                       </p>
+                                                   </textarea>
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-12">
+                                                   <label>Resume:</label><br>
+                                                   @foreach ($cvs as $cv )
+                                                   <input type="radio" name="resume" value="{{$cv->id}}" required>{{$cv->position_apply}} <br>
+                                                   @endforeach
+                                                  
+                                                   {{-- <div class="form-group input-file-container">
+                                                       <input type="file" name="Resume" id="file" class="input-file">
+                                                         <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
+                                                         <p class="file-return"></p>
+                                                   </div> --}}
+                                               </div>                                      
+                                           </div>  
+                                           <div class="modal-footer">
+                                               {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                              @foreach ($cvs as $cv )
+                                                  @if ($cv->email !=null)
+                                                  <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
+                                                  @else
+                                                  <button type="submit" class="btn btn-primary mt-50" disabled>Submit Application</button>
+                                                  @endif
+                                              @endforeach
+                                               
+                                               </div>        
+                                           </form>
+                                           @elseif (Auth::user()->role_id==1)
+                                               <label>You can do this action because you are Admin.</label>
+                                           @endif
+                                        @endguest
                                     </div>
 
                                 </div>
@@ -237,12 +286,12 @@
                            <div class="small-section-tittle">
                                <h4>Company Information</h4>
                            </div>
-                              <span>Colorlib</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <span>{{$jobsdata->name}}</span>
+                              <p>{{$jobsdata->company_detail}}</p>
                             <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                                <li>Contact Name: <span>{{$jobsdata->contact_name}} </span></li>
+                                <li>Web : <span> {{$jobsdata->website}}</span></li>
+                                <li>Email: <span>{{$jobsdata->email_company}}</span></li>
                             </ul>
                        </div>
                     </div>

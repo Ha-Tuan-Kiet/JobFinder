@@ -132,7 +132,6 @@
                     <div class="row" style="background-color: #b8daff;border:2px solid powderblue;border-radius: 15px ">
                         <div class="card" > <h2>Edit Profile</h2></div>
                         <div class="col-lg-8 mb-4"></div>
-
                     </div>
 
                             <div class="row  justify-content-center ">

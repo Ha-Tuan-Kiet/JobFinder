@@ -89,7 +89,7 @@
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2">
                                 <span>What we are doing</span>
-                                <h2>24k Talented people are getting Jobs</h2>
+                                <h2>Talented people are getting Jobs</h2>
                             </div>
                             <div class="support-caption">
                                 <p class="pera-top">A company that does a lot of the work for you in regards to finding a job.

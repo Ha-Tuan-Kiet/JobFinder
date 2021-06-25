@@ -22,6 +22,9 @@
     pointer-events: none;
     width: 100%;
     }
+    .application_apply button{
+      cursor: pointer;
+    }
 </style>
 </head>
 <body>
@@ -43,7 +46,7 @@
               </tr>
             </thead>
             @foreach ($candidates as $candidate )     
-            <tbody class="{{$candidate->is_applying==1 ?'':'application_cancel'}}">
+            <tbody class="{{$candidate->is_applying==1 ?'application_apply button':'application_cancel'}}">
               <tr>
                 <td>{{$candidate->position}}</td>
                 <td>{{$candidate->company_name}}</td>
@@ -61,7 +64,22 @@
                     data-toggle="modal" data-target="#dynamic-modal">
                     <i class="fas fa-file"></i>
                  </button>
-    
+                <!--Email-->
+                @if ($candidate->is_active ==1)
+                <button data-path="{{ route('/Cv/showEmail_response/', ['id' => $candidate->id]) }}" 
+                  class="btn-warning load-ajax-modal" 
+                  role="button" 
+                  data-toggle="modal" data-target="#dynamic-modal" style="color:white">
+                  <i class="fas fa-envelope-open"></i>
+               </button>
+                @else
+                <button data-path="{{ route('/Cv/showEmail_response/', ['id' => $candidate->id]) }}" 
+                  class="btn-warning load-ajax-modal" 
+                  role="button" 
+                  data-toggle="modal" data-target="#dynamic-modal" disabled style="pointer-events: none" >
+                  <i class="fas fa-envelope"></i>
+               </button>
+                @endif
                     <div class="modal fade" id="dynamic-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                       <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content" style="width:1000px">
@@ -80,12 +98,16 @@
                         </div>
                       </div>
                     </div>
+                    
+                  
                     <button onclick="location.href='/Cv/job_applied_cancel/{{$candidate->id}}'" type="button" class="btn-danger" style="border-radius:.2rem;"><i class="fas fa-times"></i></button>
+                    
                 </td>
               </tr>
             </tbody>        
             @endforeach           
           </table>
+          <div style="display:flex;justify-content:center">  {!! $candidates->links() !!}</div>   
     </div>
 
 </body>
