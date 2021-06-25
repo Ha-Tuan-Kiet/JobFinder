@@ -55,7 +55,7 @@ class ProfileController extends Controller
             $profile->user_id = auth()->id();
             $profile->save();
             // $filepath='uploads/'+$fileName --> $profile->avatar = 'storage/uploads/tenfile --> đường dẫn hình trong thư mục public
-            return redirect()->route('profiles.create');
+            return redirect('/');
         }
 
     /**

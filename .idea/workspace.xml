@@ -26,16 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/img/duy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/kiet.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/resume.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/about.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,13 +182,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
-      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads\avatar" />
+      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
     </key>
   </component>
@@ -237,7 +238,10 @@
       <workItem from="1624178341771" duration="2456000" />
       <workItem from="1624257524791" duration="9529000" />
       <workItem from="1624340033534" duration="3520000" />
-      <workItem from="1624344489279" duration="1216000" />
+      <workItem from="1624344489279" duration="12086000" />
+      <workItem from="1624363984189" duration="11194000" />
+      <workItem from="1624536909017" duration="8369000" />
+      <workItem from="1624594602119" duration="27000" />
     </task>
     <servers />
   </component>

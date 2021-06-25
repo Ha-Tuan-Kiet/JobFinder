@@ -252,7 +252,8 @@
         <div class="resume">
             <div class="resume_left">
                 <div class="resume_profile">
-                    <img src="{{ asset('storage/uploads/moutain.jpg')}}" alt="profile_pic">
+                    <img src="{{ $cv->avatar }}" alt="profile_pic" >
+
                 </div>
                 <div class="resume_content">
                     <div class="resume_item resume_info">
@@ -295,58 +296,58 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="resume_item resume_skills">
-                        <div class="title">
-                            <p class="bold">skill's</p>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="skill_name">
-                                    HTML
-                                </div>
-                                <div class="skill_progress">
-                                    <span style="width: 80%;"></span>
-                                </div>
-                                <div class="skill_per">80%</div>
-                            </li>
-                            <li>
-                                <div class="skill_name">
-                                    CSS
-                                </div>
-                                <div class="skill_progress">
-                                    <span style="width: 70%;"></span>
-                                </div>
-                                <div class="skill_per">70%</div>
-                            </li>
-                            <li>
-                                <div class="skill_name">
-                                    SASS
-                                </div>
-                                <div class="skill_progress">
-                                    <span style="width: 90%;"></span>
-                                </div>
-                                <div class="skill_per">90%</div>
-                            </li>
-                            <li>
-                                <div class="skill_name">
-                                    JS
-                                </div>
-                                <div class="skill_progress">
-                                    <span style="width: 60%;"></span>
-                                </div>
-                                <div class="skill_per">60%</div>
-                            </li>
-                            <li>
-                                <div class="skill_name">
-                                    JQUERY
-                                </div>
-                                <div class="skill_progress">
-                                    <span style="width: 88%;"></span>
-                                </div>
-                                <div class="skill_per">88%</div>
-                            </li>
-                        </ul>
-                    </div>
+{{--                    <div class="resume_item resume_skills">--}}
+{{--                        <div class="title">--}}
+{{--                            <p class="bold">skill's</p>--}}
+{{--                        </div>--}}
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <div class="skill_name">--}}
+{{--                                    HTML--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_progress">--}}
+{{--                                    <span style="width: 80%;"></span>--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_per">80%</div>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <div class="skill_name">--}}
+{{--                                    CSS--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_progress">--}}
+{{--                                    <span style="width: 70%;"></span>--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_per">70%</div>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <div class="skill_name">--}}
+{{--                                    SASS--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_progress">--}}
+{{--                                    <span style="width: 90%;"></span>--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_per">90%</div>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <div class="skill_name">--}}
+{{--                                    JS--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_progress">--}}
+{{--                                    <span style="width: 60%;"></span>--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_per">60%</div>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <div class="skill_name">--}}
+{{--                                    JQUERY--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_progress">--}}
+{{--                                    <span style="width: 88%;"></span>--}}
+{{--                                </div>--}}
+{{--                                <div class="skill_per">88%</div>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
 {{--                    <div class="resume_item resume_social">--}}
 {{--                        <div class="title">--}}
 {{--                            <p class="bold">Social</p>--}}

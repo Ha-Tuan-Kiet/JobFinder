@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-    
+
     <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -23,7 +23,7 @@
                             <!-- Logo -->
                             <div class="logo">
                                 <a href="index.html"><img src="{{asset('bootstrap/img/logo/logo.png')}}" alt=""></a>
-                            </div>  
+                            </div>
                         </div>
                         <div class="col-lg-9 col-md-9">
                             <div class="menu-wrapper">
@@ -45,7 +45,7 @@
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
-                                </div>          
+                                </div>
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <a href="#" class="btn head-btn1">Register</a>
@@ -92,9 +92,12 @@
                                 <h2>24k Talented people are getting Jobs</h2>
                             </div>
                             <div class="support-caption">
-                                <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
-                                <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                                <a href="about.html" class="btn post-btn">Post a job</a>
+                                <p class="pera-top">A company that does a lot of the work for you in regards to finding a job.
+                                    The content is all about how to find, and find the perfect job for you.
+                                    You can also use it in regards to advice with resumes and interviews, as well as many other related topics.
+                                    The articles are easy to understand, and provide helpful information because they are written from experience.<br>
+                                    Do you want an easier way to find a job? If so too bad because if it were that easy life would be really boring.</p>
+{{--                                <a href="about.html" class="btn post-btn">Post a job</a>--}}
                             </div>
                         </div>
                     </div>
@@ -103,7 +106,7 @@
                             <img src="{{asset('bootstrap/img/service/support-img.jpg')}}" alt="">
                             <div class="support-img-cap text-center">
                                 <p>Since</p>
-                                <span>1994</span>
+                                <span>2021</span>
                             </div>
                         </div>
                     </div>
@@ -176,8 +179,8 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img src="{{asset('bootstrap/img/testmonial/testimonial-founder.png')}}" alt="">
-                                            <span>Margaret Lawson</span>
+                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/132570663_1845225318966645_422959135729604986_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=u1nI4mMOeeIAX-mD1sY&_nc_ht=scontent-hkg4-1.xx&oh=492e300176cdf495cd6be45cd4a55f8f&oe=60D88370" alt="">
+                                            <span>Nguyen Bao Anh Duy</span>
                                             <p>Creative Director</p>
                                         </div>
                                     </div>
@@ -193,8 +196,8 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img src="{{asset('bootstrap/img/testmonial/testimonial-founder.png')}}" alt="">
-                                            <span>Margaret Lawson</span>
+                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/175443103_1687063071496015_6728007488575508737_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=bgGYh0TzxpwAX9Ru-IE&_nc_ht=scontent-hkg4-1.xx&oh=bc5c712d4f4de9bf8336371df42eab39&oe=60D8B9AC" alt="">
+                                            <span>Le Gia Huy</span>
                                             <p>Creative Director</p>
                                         </div>
                                     </div>
@@ -210,8 +213,8 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img src="{{asset('bootstrap/img/testmonial/testimonial-founder.png')}}" alt="">
-                                            <span>Margaret Lawson</span>
+                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/51600640_2340642532848931_8797303318222209024_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=skOcETViZqMAX8YVoFr&_nc_oc=AQnXHhy5yPdB_Old31hDyRWlU_ypCeitRqopMO9Mpcmtgx1fLOJ75dIPcPm_PnoxuSs&_nc_ht=scontent-hkg4-1.xx&oh=24a04cafea517be8b840d588975d9c0b&oe=60DA0917" alt="">
+                                            <span>Ha Tuan Kiet</span>
                                             <p>Creative Director</p>
                                         </div>
                                     </div>
@@ -234,14 +237,14 @@
                         <div class="cv-caption text-center">
                             <p class="pera1">FEATURED TOURS Packages</p>
                             <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                            <a href="#" class="border-btn2 border-btn4">Upload your cv</a>
+                            <a href="http://127.0.0.1:8000/Cv" class="border-btn2 border-btn4">Create your resume</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Online CV Area End-->
-    
+
         <!-- Blog Area Start -->
         <div class="home-blog-area blog-h-padding">
             <div class="container">

@@ -89,7 +89,7 @@ class CvController extends Controller
         $cvs=DB::table('cvs')
         ->join('profiles','cvs.user_id','=','profiles.user_id')
         ->where('cvs.user_id','=',auth()->id())
-        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
+        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday','profiles.avatar')
         ->get();
         return view('Cv.index',compact('cvs'));
     }
@@ -98,7 +98,7 @@ class CvController extends Controller
         $cv=DB::table('cvs')
         ->join('profiles','cvs.user_id','=','profiles.user_id')
         ->where('cvs.id',$id)
-        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
+        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday','profiles.avatar')
         ->first();
         return view('Cv.Resume',compact('cv'));
     }
@@ -106,7 +106,7 @@ class CvController extends Controller
         $cv=DB::table('cvs')
         ->join('profiles','cvs.user_id','=','profiles.user_id')
         ->where('cvs.id',$id)
-        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday')
+        ->select('cvs.*','profiles.full_name','profiles.address','profiles.birthday','profiles.avatar')
         ->first();
         $html=view('Cv.Resume',compact('cv'));
         // $pdf = PDF::loadView('Cv.Resume',compact('cv'));
