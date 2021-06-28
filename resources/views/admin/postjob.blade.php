@@ -12,8 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Jobz-post-job</title>
-
-<script src="js/4n2NXumNjtg5LPp6VXLlDicTUfA.js"></script><link rel="apple-touch-icon" href="{{asset('adminform/images/apple-touch-icon.html')}}">
+<link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
  label{
     font-weight: bold;
@@ -187,6 +187,7 @@
                                                 </div>
                                                         <button type="submit" class="btn Post-Job-Offer">Post Job Offer</button>
                                                 </form>
+                                                
                                                 </div>
                                         
                                                 </section>
@@ -200,17 +201,19 @@
 </html>
 @endsection
 @push('scripts')
-    
-<script data-cfasync="false" src="{{asset('adminform/js/email-decode.min.js')}}"></script><script src="{{asset('adminform/js/jquery.min.js')}}"></script>
-<script src="{{asset('adminform/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('adminform/owlcarousel/owl.carousel.min.js')}}"></script>
-<script src="{{asset('adminform/js/jquery-ui.min.js')}}"></script>
-
-<script src="js/custom.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+</script>
 <script>
-        (function(e, t, n) {
-            var r = e.querySelectorAll("html")[0];
-            r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2");
-        })(document, window, 0);
-    </script>
+       @if(Session::has('success'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('success'),'Success'}}");
+    @endif
+
+</script> 
 @endpush
