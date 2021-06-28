@@ -79,11 +79,11 @@
                     <!-- Left Content -->
                     <div class="col-xl-8 col-lg-8">
                         <!-- job single -->
-                        
+
                         <div class="single-job-items mb-20">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img src="{{ asset('bootstrap/img/icon/'.$jobsdata->image_logo)}}" alt=""></a>
+                                    <a href="#"><img style="height: 100px; width: 100px;" src="{{ asset('bootstrap/img/icon/'.$jobsdata->image_logo)}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
@@ -191,30 +191,30 @@
                                         @endif
                                         @if (Route::has('register'))
                                         <label>or Register before</label>
-                                        @endif                                 
+                                        @endif
                                         @else
-                                        
+
                                            @if (Auth::user()->role_id ==2)
                                            <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label><br>
                                            <label>Trong lĩnh vực: <span style="font-weight: bold">{{$jobsdata->career_name}}</span> </label>
                                            <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">      
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >
                                             <input type="hidden" name="company_id" value="{{$jobsdata->company_id}}">
-                                                   
+
                                            <div class="row">
                                                <div class="col-lg-6 col-md-6">
                                                    <label>Phone:</label>
                                                    @foreach ($cvs as $cv )
                                                    <input name="phone" class="form-control" type="phone" value="{{$cv->phone}}" readonly >
                                                    @endforeach
-                                                   
+
                                                </div>
                                                <div class="col-lg-6 col-md-6">
                                                    <label>Email:</label>
                                                    @foreach ($cvs as $cv )
                                                    <input name="email" class="form-control" type="email" value="{{$cv->email}}" readonly >
-                                                   @endforeach             
+                                                   @endforeach
                                                </div>
                                            </div>
                                            <div class="row">
@@ -223,23 +223,23 @@
                                                    <textarea name="candidate_introduction" id="candidate_introduction" placeholder="Tell us something about yourself">
                                                        <p>
                                                            Dear Mr.<strong>{{$jobsdata->contact_name}}</strong><br>
-                                                           
+
                                                            I was excited to see your listing for the position of <strong>{{$jobsdata->position}}</strong> at <strong>{{$jobsdata->name}}</strong>. I believe that my five years' experience in office administration and my passion for your products make me an ideal candidate for this role.
-                                                           
+
                                                            You specify that you’re looking for an administrative assistant with experience scheduling appointments, maintaining records, ordering supplies, and greeting customers. I’m currently employed as an administrative assistant at XYZ company, where I have spent the past five years honing these skills.
-                                                           
+
                                                            I’m adept at using all the usual administrative and collaboration software packages, from Microsoft Office and SharePoint to Google Docs and Drive. I’m a fast learner, and flexible, while always maintaining the good cheer that you’d want from the first person visitors see when they interact with the company.
-                                                           
+
                                                            I have attached my resume and will call within the next week to see if we might arrange a time to speak.
-                                                           
+
                                                            Thank you so much for your time and consideration.<br>
-                                                           
+
                                                            Best,<br>
                                                             @foreach ($cvs as $cv )
                                                                 <p>Email:</p><strong>{{$cv->email}}</strong>
                                                                 <p>Phone:</p><strong>{{$cv->phone}}</strong>
                                                             @endforeach
-                                                        
+
                                                        </p>
                                                    </textarea>
                                                </div>
@@ -250,14 +250,14 @@
                                                    @foreach ($cvs as $cv )
                                                    <input type="radio" name="resume" value="{{$cv->id}}" required>{{$cv->position_apply}} <br>
                                                    @endforeach
-                                                  
+
                                                    {{-- <div class="form-group input-file-container">
                                                        <input type="file" name="Resume" id="file" class="input-file">
                                                          <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
                                                          <p class="file-return"></p>
                                                    </div> --}}
-                                               </div>                                      
-                                           </div>  
+                                               </div>
+                                           </div>
                                            <div class="modal-footer">
                                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
                                               @foreach ($cvs as $cv )
@@ -267,8 +267,8 @@
                                                   <button type="submit" class="btn btn-primary mt-50" disabled>Submit Application</button>
                                                   @endif
                                               @endforeach
-                                               
-                                               </div>        
+
+                                               </div>
                                            </form>
                                            @elseif (Auth::user()->role_id==1)
                                                <label>You can do this action because you are Admin.</label>

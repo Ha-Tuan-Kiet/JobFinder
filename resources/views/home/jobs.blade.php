@@ -1,8 +1,10 @@
+
+
               <!-- Count of Job list Start -->
               <div class="row">
                 <div class="col-lg-12">
                     <div class="count-job mb-35">
-                      <strong style="font-size:20px"><span>{{$jobsdata->total()}} Job exist</span></strong> 
+                      <strong style="font-size:20px"><span>{{$jobsdata->total()}} Job exist</span></strong>
                         <!-- Select job items start -->
                         {{-- <div class="select-job-items">
                             <span>Sort by</span>
@@ -23,7 +25,7 @@
   <div class="single-job-items mb-30">
     <div class="job-items">
         <div class="company-img">
-            <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
+            <a href="job_details.html"><img style="width:100px;height:100px;"  src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
         </div>
         <div class="job-tittle">
             <a href="{{route('jobdetails',['id'=>$job->id,'eventid'=>$job->career_id])}}"><h4>{{$job->position}}</h4></a>
@@ -39,8 +41,7 @@
         <a href="job_details.html">{{$job->job_type}}</a>
         <span>{{$job->work_time}} hours ago</span>
     </div>
-</div>                          
-@endforeach                                                     
-<div style="display:flex;justify-content:center">  {!! $jobsdata->links() !!}</div>           
+</div>
+@endforeach
+<div style="display:flex;justify-content:center">  {!! $jobsdata->links() !!}</div>
 
- 

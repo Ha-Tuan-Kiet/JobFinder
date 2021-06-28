@@ -19,19 +19,19 @@ class SearchController extends Controller
      */
     public function search(Request $request)
     {
-      
+
         $search_company =$_GET['company'];
         $search_province =$request->input('provinces');
         // $jobs=Job::where('position','LIKE','%'.$search_company.'%')->with(['careers','province'=>function($query)use($search_province){
         //     $query->where('name','LIKE','%'.$search_province.'%')
         //         ->orWhere('name','=','');
         // },'user','usercompany'])->get();
-        
+
         $jobsdata=Job::with('careers','province','user','usercompany')
         ->where('position','LIKE','%'.$search_company.'%')
         ->where('province_id','=',$search_province)
         ->paginate(5)
-        ->appends(request()->query());        
+        ->appends(request()->query());
         // $companies=UserCompany::where('name','LIKE','%'.$search_province.'%');
         // $job=$companies->Job::where('position','LIKE','%'.$search_company.'%')->with(['careers','province','user','usercompany'])->get()->dd();
 

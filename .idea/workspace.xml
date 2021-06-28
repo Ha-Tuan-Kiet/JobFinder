@@ -27,7 +27,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/mainpage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/jobdetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/jobdetails.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/jobs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/jobs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/search.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,13 +176,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
-      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads\avatar" />
-      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
+      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\bootstrap\img\icon" />
+      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
+      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads\avatar" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
     </key>
   </component>
@@ -232,7 +236,7 @@
       <workItem from="1624344489279" duration="12086000" />
       <workItem from="1624363984189" duration="11194000" />
       <workItem from="1624536909017" duration="8369000" />
-      <workItem from="1624594602119" duration="7847000" />
+      <workItem from="1624594602119" duration="11975000" />
     </task>
     <servers />
   </component>
@@ -288,9 +292,13 @@
       <screen x="-1920" y="0" width="1536" height="834" />
     </state>
     <state x="-1495" y="189" key="run.anything.popup/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1622139257647" />
-    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1621005358064">
+    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1624608536620">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1621005358064" />
+    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1624608536620" />
+    <state x="491" y="329" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1624607571033">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="491" y="329" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.834@0.0.1536.834" timestamp="1624607571033" />
   </component>
 </project>

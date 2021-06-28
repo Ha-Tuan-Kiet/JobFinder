@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-    
+
 <!-- Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="col-12">
                                 <div class="small-section-tittle2 mb-45">
-                                <div class="ion"> <svg 
+                                <div class="ion"> <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="20px" height="12px">
@@ -226,7 +226,7 @@
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
-                                            <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
+                                            <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->usercompany->image_logo)}}" alt=""></a>
                                         </div>
                                         <div class="job-tittle">
                                             <a href="jobdetails/{{$job->id}}/career/{{$job->career_id}}"><h4>{{$job->position}}</h4></a>
@@ -242,12 +242,12 @@
                                         <a href="job_details.html">{{$job->job_type}}</a>
                                         <span>{{$job->work_time}} hours ago</span>
                                     </div>
-                                </div>                          
-                                @endforeach                                                     
-                                <div style="display:flex;justify-content:center">  {{ $jobsdata->appends(request()->input())->links() }}</div>  
+                                </div>
+                                @endforeach
+                                <div style="display:flex;justify-content:center">  {{ $jobsdata->appends(request()->input())->links() }}</div>
                             </div>
-                    
-                       
+
+
                             <!-- single-job-content -->
                             {{-- <div class="single-job-items mb-30">
                                 <div class="job-items">
@@ -388,7 +388,7 @@
         </div>
     </div>
     <!-- Job List Area End -->
-    
+
 </main>
 
 <!-- JS here -->
@@ -415,18 +415,18 @@
     <script src="{{asset('bootstrap/js/jquery.scrollUp.min.js')}}')}}"></script>
     <script src="{{asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/jquery.sticky.js')}}"></script>
-    
+
     <!-- contact js -->
     <script src="{{asset('bootstrap/js/contact.js')}}"></script>
     <script src="{{asset('bootstrap/js/jquery.form.js')}}"></script>
     <script src="{{asset('bootstrap/js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/mail-script.js')}}"></script>
     <script src="{{asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
+
+    <!-- Jquery Plugins, main Jquery -->
     <script src="{{asset('bootstrap/js/plugins.js')}}"></script>
     <script src="{{asset('bootstrap/js/main.js')}}"></script>
-    
+
 </body>
 @endsection
 @push('scripts')
