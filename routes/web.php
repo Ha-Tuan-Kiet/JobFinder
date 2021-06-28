@@ -83,6 +83,8 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/admin/application_details/{id}',[AdminController::class,'show_application_details']);
     Route::post('/admin/response_job_application',[AdminController::class,'response_job_application'])->name('/admin/response_job_application');
     Route::get('/admin/profile',[AdminController::class,'showProfile']);
+    Route::get('/admit/edit_profile/{id}',[AdminController::class,'editProfile'])->name('/admin/edit_profile');
+    Route::post('/admin/profile/update_profile/{id}',[AdminController::class,'updateProfile'])->name('/admin/update_profile');
     Route::match(['get', 'post'],'/postjob',[AdminController::class, 'postjob'])->name('postjob');
 });
 

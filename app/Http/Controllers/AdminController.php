@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Career;
 use App\Models\MessagesFromEmployers;
 use App\Models\CandidateApply;
+use App\Models\EmployerProfile;
 use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
@@ -59,6 +60,7 @@ class AdminController extends Controller
             $jobsdata->company_id=$request->get('company');
             $jobsdata->career_id=$request->get('career');
             $jobsdata->save();
+            return redirect()->back()->with('success','You success to post a job');
         }
         return view('admin.postjob',compact('province','companies','careers'));
     }
@@ -89,6 +91,7 @@ class AdminController extends Controller
                 $jobsdata->company_id=$request->get('company');
                 $jobsdata->career_id=$request->get('career');
                 $jobsdata->save();
+                return redirect()->back()->with('success','You update this job successfully');
         }
         return view('admin.editjob',compact('jobsdata','province','companies','careers'));
     }
@@ -167,10 +170,37 @@ class AdminController extends Controller
     }
     //Profile 
     public function showProfile(){
-        $profile=DB::table('employer_profile')
-        ->join('users','users.id','=','employer_profile.user_id')
-        ->where('employer_profile.user_id',auth()->id())
+        $profile=DB::table('employer_profiles')
+        ->join('users','users.id','=','employer_profiles.user_id')
+        ->where('employer_profiles.user_id',auth()->id())
+        ->select('employer_profiles.id','employer_profiles.*','users.name','users.email')
         ->first();
+        return view('admin.profile',compact('profile'));
+    }
+    public function editProfile($id){
+        $profile=DB::table('employer_profiles')
+        ->join('users','users.id','=','employer_profiles.user_id')
+        ->where('employer_profiles.id',$id)
+        ->select('employer_profiles.id','employer_profiles.*','users.name','users.email')
+        ->first();
+        return view('admin.editprofile',compact('profile'));
+    }
+    public function updateProfile($id, Request $request){
+        $profile=DB::table('employer_profiles')
+        ->join('users','users.id','=','employer_profiles.user_id')
+        ->where('employer_profiles.user_id',auth()->id())
+        ->select('employer_profiles.id','employer_profiles.*','users.name','users.email')
+        ->first();
+        if($request->isMethod("post")){
+            $update_profile=EmployerProfile::find($id);
+            $update_profile->first_name= $request->input('first_name');
+            $update_profile->last_name=$request->input('last_name');
+            $update_profile->full_name=$request->input('full_name');
+            $update_profile->date_of_birth=$request->input('birth_day');
+            $update_profile->address=$request->input('address');
+            $update_profile->save();
+            return redirect()->back();
+        }
         return view('admin.profile',compact('profile'));
     }
 }

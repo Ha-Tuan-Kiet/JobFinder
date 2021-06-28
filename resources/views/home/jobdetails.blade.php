@@ -205,16 +205,11 @@
                                            <div class="row">
                                                <div class="col-lg-6 col-md-6">
                                                    <label>Phone:</label>
-                                                   @foreach ($cvs as $cv )
-                                                   <input name="phone" class="form-control" type="phone" value="{{$cv->phone}}" readonly >
-                                                   @endforeach
-                                                   
+                                                   <input name="phone" class="form-control" type="phone" value="">                                                  
                                                </div>
                                                <div class="col-lg-6 col-md-6">
                                                    <label>Email:</label>
-                                                   @foreach ($cvs as $cv )
-                                                   <input name="email" class="form-control" type="email" value="{{$cv->email}}" readonly >
-                                                   @endforeach             
+                                                   <input name="email" class="form-control" type="email" value="">               
                                                </div>
                                            </div>
                                            <div class="row">
@@ -234,12 +229,7 @@
                                                            
                                                            Thank you so much for your time and consideration.<br>
                                                            
-                                                           Best,<br>
-                                                            @foreach ($cvs as $cv )
-                                                                <p>Email:</p><strong>{{$cv->email}}</strong>
-                                                                <p>Phone:</p><strong>{{$cv->phone}}</strong>
-                                                            @endforeach
-                                                        
+                                                           Best, Thank you<br>                                        
                                                        </p>
                                                    </textarea>
                                                </div>
@@ -260,14 +250,7 @@
                                            </div>  
                                            <div class="modal-footer">
                                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                              @foreach ($cvs as $cv )
-                                                  @if ($cv->email !=null)
-                                                  <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
-                                                  @else
-                                                  <button type="submit" class="btn btn-primary mt-50" disabled>Submit Application</button>
-                                                  @endif
-                                              @endforeach
-                                               
+                                              <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
                                                </div>        
                                            </form>
                                            @elseif (Auth::user()->role_id==1)
