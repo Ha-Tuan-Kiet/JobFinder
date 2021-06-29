@@ -27,6 +27,7 @@ class ProfileController extends Controller
     public function PFcreate()
     {
         return View('profiles.create');
+
     }
 
     /**
@@ -43,8 +44,8 @@ class ProfileController extends Controller
             'full_name'=>'required',
             'address'=>'required'
         ]);
-
             $profile = new Profile();
+            $profile->user_id = auth()->id();
             $profile->full_name = $request->input('full_name');
             $profile->address = $request->input('address');
             $profile->birthday = $request->input('birthday');
@@ -52,10 +53,9 @@ class ProfileController extends Controller
             $filePath = $request->file('avatar')->storeAs('uploads', $fileName, 'public');
             //tham số thứ 3 là chỉ lưu trên disk 'public', tham số thứ 1:  lưu trong thư mục 'uploads' của disk 'public'
             $profile->avatar = '/storage/app/public/uploads/avatar' . $filePath;
-            $profile->user_id = auth()->id();
             $profile->save();
             // $filepath='uploads/'+$fileName --> $profile->avatar = 'storage/uploads/tenfile --> đường dẫn hình trong thư mục public
-            return redirect('/');
+            return redirect()->back()->with('success','You success to create a profile');
         }
 
     /**
@@ -113,9 +113,11 @@ class ProfileController extends Controller
             $profile->avatar = '/storage/' . $filePath;
             // $filepath='uploads/'+$fileName --> $profile->avatar = 'storage/uploads/tenfile --> đường dẫn hình trong thư mục public
             $profile->save(); //lưu
-            return back()//trả về trang trước đó
-            ->with('success', 'Profile has updated.')//lưu thông báo kèm theo để hiển thị trên view
-            ->with('file', $fileName);
+//            return back()//trả về trang trước đó
+//            ->with('success', 'Profile has updated.')//lưu thông báo kèm theo để hiển thị trên view
+//            ->with('file', $fileName);
+            return redirect()->back()->with('success', 'Update success');
+            Toastr::success('Post added successfully :)','Success');
         }
 
     }

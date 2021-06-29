@@ -1,5 +1,22 @@
 @extends('layouts.app')
-@section('js')
+
+@push('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+    </script>
+    <script>
+    @if(Session::has('success'))
+        toastr.options =
+        {
+        "closeButton" : true,
+        "progressBar" : true
+        }
+        toastr.success("{{ session('success'),'Success'}}");
+        @endif
+
+    </script>
+
     <script>
         $('#avatar').on('change',function(){
             //get the file name
@@ -8,18 +25,12 @@
             $(this).next('.custom-file-label').html(fileName);
         })
     </script>
-@endsection('js')
+@endpush
+
 @section('content')
-{{--    @if (count($errors) > 0)--}}
-{{--        <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->--}}
-{{--            <li>{{ $message }}  </li>--}}
-{{--            <ul>--}}
-{{--                @foreach ($errors->all() as $error)--}}
-{{--                    <li>{{ $error }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    @endif--}}
+
+        <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 <style>
 
     @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
@@ -117,8 +128,6 @@
 
 </style>
 
-
-
     <div class="col-lg-12 mb-4">
         <div class="card mb-4">
             <div class="card-body">
@@ -138,20 +147,20 @@
                             <div class="col-md-10">
                                 <div class="card py-4">
                                     <div class="inputs px-4"> <span class="text-uppercase">Full Name</span>
-                                        <input type="text" style="background-color: #fb246a" name="full_name" class="form-control form-control-user" id="full_name" placeholder="Full Name" value="{{ $profile->full_name }}"> </div>
+                                        <input type="text" style="background-color: #fb246a" name="full_name" class="form-control form-control-user" id="full_name" placeholder="Full Name" required value="{{ $profile->full_name }}"> </div>
                                     <div class="row mt-3 g-2">
                                         <div class="col-md-6">
                                             <div class="inputs px-4"> <span class="text-uppercase">Address</span>
-                                                <input type="text" style="background-color: #fb246a" name="address" class="form-control form-control-user" id="address" placeholder="Address" value="{{ $profile->address }}"></div>
+                                                <input type="text" style="background-color: #fb246a" name="address" class="form-control form-control-user" id="address" placeholder="Address" required value="{{ $profile->address }}"></div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="inputs px-4"> <span class="text-uppercase">Birthday</span> <input type="date" style="background-color: #fb246a" class="form-control form-control-user" name="birthday"
-                                                                                                                          id="birthday" placeholder="Birthday" value="{{ $profile->birthday }}"> </div>
+                                                                                                                          id="birthday" placeholder="Birthday" required value="{{ $profile->birthday }}"> </div>
                                         </div>
                                     </div>
 
                                     <div class="mt-3 px-4"> <span class="text-uppercase name">Profile Picture</span>
-                                        <div class="d-flex flex-row align-items-center mt-2"> <img src="{{URL::to($profile->avatar)}}" width="200" class="rounded">
+                                        <div class="d-flex flex-row align-items-center mt-2"> <img src="{{URL::to($profile->avatar)}}"  width="200" class="rounded">
                                         </div>
 
                                         <br>
@@ -173,7 +182,6 @@
         </div>
     </div>
 
-
-
-
 @endsection
+
+

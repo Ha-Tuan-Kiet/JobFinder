@@ -1,14 +1,30 @@
 @extends('layouts.app')
-@section('js')
+@push('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+    </script>
+    <script>
+        @if(Session::has('success'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.success("{{ session('success'),'Success'}}");
+        @endif
+
+    </script>
     <script>
         $("#avatar").on('change', function() {
             var filename = $(this).val();
             $(this).next('.custom-file-label').html(filename);
         })
     </script>
-@endsection('js')
 
+@endpush
 @section('content')
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <style>
         * {
             margin: 0;
@@ -77,7 +93,8 @@
             font-weight: 500;
             color: #cdcdc4;
             border: none;
-            font-size: 15px
+            font-size: 15px;
+            border-radius: 16px;
         }
 
         .text1 .forget {
@@ -97,35 +114,9 @@
 
     </style>
 
-{{--    <div class="container">--}}
-{{--        <h1>Tell us something about you</h1>--}}
-{{--        <div class=" alert-danger" role="alert">--}}
-{{--            @if(session()->has('errors'))--}}
-{{--                @foreach($errors ->all() as $errors)--}}
-{{--                    <p>{{$errors}}</p>--}}
-{{--                @endforeach()--}}
-{{--            @endif--}}
-{{--        </div>--}}
-
     <form class="profile" action="{{ route('profiles.create') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
-        <div class="form-group" >
-            <input type="text" name="full_name" class="form-control form-control-user" id="full_name" placeholder="Full Name" required>
-        </div>
-        <div class="form-group">
-            <input type="text" name="address" class="form-control form-control-user" id="address" placeholder="Address" required>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="date" class="form-control form-control-user" name="birthday" id="birthday" placeholder="Birthday" required>
-            </div>
-        </div>
-        <div class="form-group">
-
-
-
-
     <div class="container mt-5 mb-5">
         <div class="d-flex flex row g-0">
             <div class="col-md-6 mt-3">
@@ -133,11 +124,11 @@
                     <div class="d-flex flex-column">  <span class="login mt-3" style="color: #28395a; font-weight: bold">Tell us something about you</span> </div>
                     <div class="input-field d-flex flex-column mt-3">
                         <span >Fullname:</span>
-                        <input type="text" name="full_name" class="form-control form-control-user" style="background-color: #fb246a ;" id="full_name" placeholder="Full Name" >
+                        <input type="text" name="full_name" class="form-control form-control-user" style="background-color: #fb246a ;" id="full_name" placeholder="Full Name" required>
                         <span class="mt-3">Address:</span>
-                        <input type="text" name="address" class="form-control form-control-user" style="background-color: #fb246a ;" id="address" placeholder="Address" >
+                        <input type="text" name="address" class="form-control form-control-user" style="background-color: #fb246a ;" id="address" placeholder="Address" required>
                         <span class="mt-3">Birthday:</span>
-                        <input type="date" class="form-control form-control-user" name="birthday" style="background-color: #fb246a ;" id="birthday" placeholder="Birthday" >
+                        <input type="date" class="form-control form-control-user" name="birthday" style="background-color: #fb246a ;" id="birthday" placeholder="Birthday" required>
                         <span class="mt-3">Profile picture:</span>
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <div class="custom-file" >
@@ -166,7 +157,6 @@
 
 
 @endsection
-
 
 
 
