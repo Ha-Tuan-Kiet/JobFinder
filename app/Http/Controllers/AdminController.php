@@ -64,7 +64,7 @@ class AdminController extends Controller
         }
         return view('admin.postjob',compact('province','companies','careers'));
     }
-  
+
     public function updateJob(Request $request,$id){
         $province=Province::all();
         $companies=UserCompany::all();
@@ -168,7 +168,7 @@ class AdminController extends Controller
         }
         return view('admin.job_application',compact('candidates'));
     }
-    //Profile 
+    //Profile
     public function showProfile(){
         $profile=DB::table('employer_profiles')
         ->join('users','users.id','=','employer_profiles.user_id')
@@ -198,6 +198,10 @@ class AdminController extends Controller
             $update_profile->full_name=$request->input('full_name');
             $update_profile->date_of_birth=$request->input('birth_day');
             $update_profile->address=$request->input('address');
+            $fileName = $request->file('avatar')->getClientOriginalName();
+            $filePath = $request->file('avatar')->storeAs('uploads', $fileName, 'public');
+            //tham số thứ 3 là chỉ lưu trên disk 'public', tham số thứ 1:  lưu trong thư mục 'uploads' của disk 'public'
+            $update_profile->url_avatar = '/storage/' . $filePath;
             $update_profile->save();
             return redirect()->back();
         }

@@ -13,17 +13,17 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 mb-5 mb-lg-0">
-                    @include('admin.adminnav') 
+                    @include('admin.adminnav')
                 </div>
                 <div class="col-lg-8">
                     <div class="blog_right_sidebar">
                         <div style="margin-top:20px;height:500px;border:1px solid;border-radius:.3rem;border-style:none;background-color:white; padding:10px">
                             <div style="text-align:center">
-                                <img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
+                                <img style="width:100px;height:100px;" src="{{URL::to($profile->url_avatar)}}" width="200" class="rounded" alt="">
                                 <p>{{$profile->name}} <a href="{{route('/admin/edit_profile',['id'=>$profile->id])}}"><i class="fas fa-edit"></i></a></p>
                                 <p>{{$profile->email}}</p>
                             </div>
-                       
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="sel1">First Name</label>
@@ -47,16 +47,16 @@
                                     <label for="sel1">Gender</label>
                                     <input class="form-control" type="text" value="Female" id="example-number-input" disabled>
                                     @endif
-                                    
+
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="sel1">Address</label>
                                     <input class="form-control" type="text" value="{{$profile->address}}" id="example-number-input" disabled>
                                 </div>
                             </div>
-                       
+
                         </div>
-                   
+
                     </div>
                 </div>
             </div>

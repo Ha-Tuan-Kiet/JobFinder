@@ -97,7 +97,7 @@
                         <div class="row">
                             <div class="col-xl-5 col-lg-9 col-md-10">
                                 <div class="hero__caption">
-                                    <h1>Find the most exciting startup jobs</h1>
+                                    <h2><b>Find the most exciting startup jobs</b></h2>
                                 </div>
                             </div>
                         </div>
