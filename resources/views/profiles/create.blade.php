@@ -19,18 +19,18 @@
             @endif
         </div>
 
-    <form class="profile" action="{{ route('profiles.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="profile" action="{{ route('profiles.create') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div class="form-group" >
-            <input type="text" name="full_name" class="form-control form-control-user" id="full_name" placeholder="Full Name" >
+            <input type="text" name="full_name" class="form-control form-control-user" id="full_name" placeholder="Full Name" required>
         </div>
         <div class="form-group">
-            <input type="text" name="address" class="form-control form-control-user" id="address" placeholder="Address" >
+            <input type="text" name="address" class="form-control form-control-user" id="address" placeholder="Address" required>
         </div>
         <div class="form-group">
             <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="date" class="form-control form-control-user" name="birthday" id="birthday" placeholder="Birthday" >
+                <input type="date" class="form-control form-control-user" name="birthday" id="birthday" placeholder="Birthday" required>
             </div>
         </div>
         <div class="form-group">

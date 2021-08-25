@@ -19,7 +19,7 @@ class EmployerProfile extends Migration
             $table->char('first_name')->nullable();
             $table->char('last_name')->nullable();
             $table->char('full_name')->nullable();
-            $table->dateTime('date_of_birth');
+            $table->date('date_of_birth');
             $table->boolean('gender');
             $table->char('address');
             $table->char('url_avatar');

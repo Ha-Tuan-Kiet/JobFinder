@@ -205,7 +205,7 @@
                                     <div class="count-job mb-35">
                                         <span>{{$jobsdata->total()}} Jobs found</span>
                                         <!-- Select job items start -->
-                                        <div class="select-job-items">
+                                        {{-- <div class="select-job-items">
                                             <span>Sort by</span>
                                             <select name="select">
                                                 <option value="">None</option>
@@ -213,7 +213,7 @@
                                                 <option value="">job list</option>
                                                 <option value="">job list</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <!--  Select job items End-->
                                     </div>
                                 </div>
@@ -229,7 +229,7 @@
                                             <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
                                         </div>
                                         <div class="job-tittle">
-                                            <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+                                            <a href="jobdetails/{{$job->id}}/career/{{$job->career_id}}"><h4>{{$job->position}}</h4></a>
 
                                             <ul>
                                                 <li>{{$job->usercompany->name}}</li>
@@ -388,26 +388,6 @@
         </div>
     </div>
     <!-- Job List Area End -->
-    <!--Pagination Start  -->
-    <div class="pagination-area pb-115 text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="single-wrap d-flex justify-content-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-start">
-                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Pagination End  -->
     
 </main>
 

@@ -82,7 +82,7 @@
                                 <!-- form -->
                                 <form class="search-box" type="get" action="{{route('search')}}">
                                     <div class="input-form">
-                                        <input name="company" type="search" placeholder="Job Tittle or keyword">
+                                        <input name="company" type="search" placeholder="Job Tittle or keyword" required>
                                     </div>
                                     <div class="select-form">
                                         <div class="select-itms">
@@ -252,30 +252,8 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         <!-- single-job-content -->
-                        <div id="table_data">
-                            @foreach($jobsdata as $job)
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle">
-                                        <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
-    
-                                        <ul>
-                                            <li>{{$job->name}}</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>{{$job->location}}</li>
-                                            <li>{{$job->salary_min}} - {{$job->salary_max}} {{$job->salary_unit}} </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link f-right">
-                                    <a href="job_details.html">Full Time</a>
-                                    <span>{{$job->work_time}} hours ago</span>
-                                </div>
-                            </div>
-                            @endforeach
-                            <div style="display:flex;justify-content:center">  {!! $jobsdata->links() !!}</div>   
+                        <div id="table_data">                            
+                            @include('home.jobs') 
                         </div>                   
                  </div>
                  
@@ -430,7 +408,7 @@
         </div>
         <!-- Support Company End-->
         <!-- Blog Area Start -->
-        <div class="home-blog-area blog-h-padding">
+        {{-- <div class="home-blog-area blog-h-padding">
             <div class="container">
                 <!-- Section Tittle -->
                 <div class="row">
@@ -482,7 +460,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Blog Area End -->
 
   </main>
@@ -500,7 +478,7 @@
     function index(page){
         $.ajax({
             type: "GET",
-            url:"pagination?page="+page,
+            url:"/pagination?page="+page,
             success: function(data){
                 console.log(data);
                 $('#table_data').html(data)

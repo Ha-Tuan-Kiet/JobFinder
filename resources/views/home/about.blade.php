@@ -89,12 +89,12 @@
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2">
                                 <span>What we are doing</span>
-                                <h2>24k Talented people are getting Jobs</h2>
+                                <h2>Talented people are getting Jobs</h2>
                             </div>
                             <div class="support-caption">
                                 <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
                                 <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                                <a href="about.html" class="btn post-btn">Post a job</a>
+                                <a href="about.html" class="btn post-btn">Find a job</a>
                             </div>
                         </div>
                     </div>

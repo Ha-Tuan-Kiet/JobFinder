@@ -43,13 +43,12 @@
                 </div>
                 <div class="card-body">
                     <form action="/profiles" method="post" enctype="multipart/form-data">
-                        {{--                            {{ csrf_field() }}--}}
+                                                   {{-- {{ csrf_field() }} --}}
                         <div class="row">
                             <div class="col-lg-4 mb-4">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Avatar</label>
                                     <div class="card">
-
                                         <embed src="{!!URL::to($profiles->avatar)!!}"style="width:350px; height:300px;" frameborder="0">
 {{--                                        --}}{{-- <div style="background-image: url({{$profile->avatar}}), style="width: 450px;height: 350px""></div> --}}
 {{--                                        --}}{{-- <img class="card-img-top"--}}

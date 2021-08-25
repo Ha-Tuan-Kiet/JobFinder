@@ -1,8 +1,9 @@
 @extends('layouts.home')
 @section('content')
-
+<link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
-    .input-file{
+     .input-file{
     position: absolute;
     top: 0;
     left: 0;
@@ -37,11 +38,13 @@
     font-size: .9em;
     font-weight: bold;
     }
-   .js .file-return:not(:empty):before { content: "Selected file: "; font-style: normal; font-weight: normal; } /* Useless styles, just for demo styles */ 
+   .js .file-return:not(:empty):before { content: "Selected file: "; font-style: normal; font-weight: normal; } /* Useless styles, just for demo styles */  
 </style>
 
    <body>
     <!-- Preloader Start -->
+   
+
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -74,10 +77,10 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <!-- Left Content -->
-                    <div class="col-xl-7 col-lg-8">
+                    <div class="col-xl-8 col-lg-8">
                         <!-- job single -->
                         
-                        <div class="single-job-items mb-50">
+                        <div class="single-job-items mb-20">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
                                     <a href="#"><img src="{{ asset('bootstrap/img/icon/'.$jobsdata->image_logo)}}" alt=""></a>
@@ -85,19 +88,43 @@
                                 <div class="job-tittle">
                                     <a href="#">
                                         <h4>{{$jobsdata->position}}</h4>
+                                        
                                     </a>
+                                   
                                     <ul>
                                         <li>{{$jobsdata->name}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{$jobsdata->location}}</li>
                                         <li>{{$jobsdata->salary_min}} - {{$jobsdata->salary_max}} {{$jobsdata->salary_unit}}</li>
+                                        
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="items-link f-right">
+                                @guest
+                                <a href="#" style="border-style: none;" onclick="toastr.info('If you want to add it to favourtie job please login first','Info',{closeButton:true,progressBar:true})"><i class="far fa-heart" style="font-size:25px" ></i></a>
+                                @elseif (Auth::user()->role_id ==2)
+                                <a href="#" style="border-style: none;" onclick="document.getElementById('favorite_job_{{$jobsdata->id}}').submit();">
+                                    @if ($user_save_data ==0)                                            
+                                    <i class="far fa-heart" style="font-size:25px" ></i>
+                                    @else
+                                    <i class="fas fa-heart" style="font-size:25px" ></i>    
+                                    @endif
+                                    
+                                </a>
+                                <form id="favorite_job_{{$jobsdata->id}}" method="post" action="{{route('/Cv/add_favorite_job/',['id'=>$jobsdata->id])}}" enctype="multipart/form-data" style="display:none">
+                                    @csrf
+                                
+                                </form>
+                                @endguest
+                                
+                                <a href="#">{{$jobsdata->job_type}}</a>
                             </div>
                         </div>
                        
                           <!-- job single End -->
                        
                         <div class="job-post-details">
+                            
                             <div class="post-details1 mb-50">
                                 <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
@@ -134,12 +161,12 @@
                                <h4>Job Overview</h4>
                            </div>
                           <ul>
-                              <li>Posted date : <span>12 Aug 2019</span></li>
-                              <li>Location : <span>New York</span></li>
-                              <li>Vacancy : <span>02</span></li>
-                              <li>Job nature : <span>Full time</span></li>
-                              <li>Salary :  <span>$7,800 yearly</span></li>
-                              <li>Application date : <span>12 Sep 2020</span></li>
+                              <li>Posted date : <span>{{$jobsdata->created_at}}</span></li>
+                              <li>Location : <span>{{$jobsdata->location}}</span></li>
+                              <li>Vacancy : <span>{{$jobsdata->amount}}</span></li>
+                              <li>Job nature : <span>{{$jobsdata->job_type}}</span></li>
+                              <li>Salary :  <span>{{$jobsdata->salary_min}}-{{$jobsdata->salary_max}}{{$jobsdata->salary_unit}} yearly</span></li>
+                              <li>Application date : <span>{{$jobsdata->deadline_for_submission}}</span></li>
                           </ul>
                          <div class="apply-btn2">
                             <!-- Button trigger modal -->
@@ -158,45 +185,78 @@
                                     </button>
                                     </div>
                                     <div class="modal-body">
-                                        <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label>
-                                        <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
-                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">      
-                                         <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >           
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <label>Phone:</label>
-                                                <input name="phone" class="form-control" type="phone" value="">
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <label>Email:</label>
-                                                <input name="email" class="form-control" type="email" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 ">
-                                                <label>Introduction:</label>
-                                                <textarea name="candidate_introduction" id="candidate_introduction" placeholder="Tell us something about yourself"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <label>Resume:</label><br>
-                                                @foreach ($cvs as $cv )
-                                                <input type="radio" name="resume" value="{{$cv->id}}">{{$cv->position_apply}} <br>
-                                                @endforeach
-                                               
-                                                {{-- <div class="form-group input-file-container">
-                                                    <input type="file" name="Resume" id="file" class="input-file">
-                                                      <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
-                                                      <p class="file-return"></p>
-                                                </div> --}}
-                                            </div>                                      
-                                        </div>  
-                                        <div class="modal-footer">
-                                            {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                            <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
-                                            </div>        
-                                        </form>
+                                        @guest
+                                        @if (Route::has('login'))
+                                        <label>Tks for apply, Please Login </label>
+                                        @endif
+                                        @if (Route::has('register'))
+                                        <label>or Register before</label>
+                                        @endif                                 
+                                        @else
+                                        
+                                           @if (Auth::user()->role_id ==2)
+                                           <label>Bạn đang nộp đơn ứng tuyển vào vị trí: <span style="font-weight: bold">{{$jobsdata->position}}</span> </label><br>
+                                           <label>Trong lĩnh vực: <span style="font-weight: bold">{{$jobsdata->career_name}}</span> </label>
+                                           <form method="post" action="{{route('/Cv/ApplyJob')}}" enctype="multipart/form-data">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">      
+                                            <input type="hidden" name="job_id" value="{{$jobsdata->id}}"  >
+                                            <input type="hidden" name="company_id" value="{{$jobsdata->company_id}}">
+                                                   
+                                           <div class="row">
+                                               <div class="col-lg-6 col-md-6">
+                                                   <label>Phone:</label>
+                                                   <input name="phone" class="form-control" type="phone" value="">                                                  
+                                               </div>
+                                               <div class="col-lg-6 col-md-6">
+                                                   <label>Email:</label>
+                                                   <input name="email" class="form-control" type="email" value="">               
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-lg-12 col-md-12 ">
+                                                   <label>Introduction:</label>
+                                                   <textarea name="candidate_introduction" id="candidate_introduction" placeholder="Tell us something about yourself">
+                                                       <p>
+                                                           Dear Mr.<strong>{{$jobsdata->contact_name}}</strong><br>
+                                                           
+                                                           I was excited to see your listing for the position of <strong>{{$jobsdata->position}}</strong> at <strong>{{$jobsdata->name}}</strong>. I believe that my five years' experience in office administration and my passion for your products make me an ideal candidate for this role.
+                                                           
+                                                           You specify that you’re looking for an administrative assistant with experience scheduling appointments, maintaining records, ordering supplies, and greeting customers. I’m currently employed as an administrative assistant at XYZ company, where I have spent the past five years honing these skills.
+                                                           
+                                                           I’m adept at using all the usual administrative and collaboration software packages, from Microsoft Office and SharePoint to Google Docs and Drive. I’m a fast learner, and flexible, while always maintaining the good cheer that you’d want from the first person visitors see when they interact with the company.
+                                                           
+                                                           I have attached my resume and will call within the next week to see if we might arrange a time to speak.
+                                                           
+                                                           Thank you so much for your time and consideration.<br>
+                                                           
+                                                           Best, Thank you<br>                                        
+                                                       </p>
+                                                   </textarea>
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-12">
+                                                   <label>Resume:</label><br>
+                                                   @foreach ($cvs as $cv )
+                                                   <input type="radio" name="resume" value="{{$cv->id}}" required>{{$cv->position_apply}} <br>
+                                                   @endforeach
+                                                  
+                                                   {{-- <div class="form-group input-file-container">
+                                                       <input type="file" name="Resume" id="file" class="input-file">
+                                                         <label tabindex="0" for="my-file" class="input-file-trigger ">Please Choose Your Resume ...</label>
+                                                         <p class="file-return"></p>
+                                                   </div> --}}
+                                               </div>                                      
+                                           </div>  
+                                           <div class="modal-footer">
+                                               {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                              <button type="submit" class="btn btn-primary mt-50">Submit Application</button>
+                                               </div>        
+                                           </form>
+                                           @elseif (Auth::user()->role_id==1)
+                                               <label>You can do this action because you are Admin.</label>
+                                           @endif
+                                        @endguest
                                     </div>
                                    
                                 </div>
@@ -209,12 +269,12 @@
                            <div class="small-section-tittle">
                                <h4>Company Information</h4>
                            </div>
-                              <span>Colorlib</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <span>{{$jobsdata->name}}</span>
+                              <p>{{$jobsdata->company_detail}}</p>
                             <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                                <li>Contact Name: <span>{{$jobsdata->contact_name}} </span></li>
+                                <li>Web : <span> {{$jobsdata->website}}</span></li>
+                                <li>Email: <span>{{$jobsdata->email_company}}</span></li>
                             </ul>
                        </div>
                     </div>
@@ -226,41 +286,7 @@
     </main>
 
 	
-<!-- JS here -->
-
-    <!-- All JS Custom Plugins Link Here here -->
-    <script src="{{asset('bootstrap/js/vendor/modernizr-3.5.0.min.js')}}"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="{{asset('bootstrap/js/vendor/jquery-1.12.4.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    <!-- Jquery Mobile Menu -->
-    <script src="{{asset('bootstrap/js/jquery.slicknav.min.js')}}"></script>
-
-    <!-- Jquery Slick , Owl-Carousel Range -->
-    <script src="{{asset('bootstrap/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/slick.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/price_rangs.js')}}"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script src="{{asset('bootstrap/js/wow.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/animated.headline.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.magnific-popup.js')}}"></script>
-
-    <!-- Scrollup, nice-select, sticky -->
-    <script src="{{asset('bootstrap/js/jquery.scrollUp.min.js')}}')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.sticky.js')}}"></script>
-    
-    <!-- contact js -->
-    <script src="{{asset('bootstrap/js/contact.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.form.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/mail-script.js')}}"></script>
-    <script src="{{asset('bootstrap/js/jquery.ajaxchimp.min.js')}}"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
-    <script src="{{asset('bootstrap/js/plugins.js')}}"></script>
-    <script src="{{asset('bootstrap/js/main.js')}}"></script>
+<!-- JS here -->  
     <script>
         document.querySelector("html").classList.add('js');
 
@@ -281,5 +307,49 @@ var fileInput  = document.querySelector( ".input-file" ),
         the_return.innerHTML = this.value;  
     });  
     </script>
+  
     </body>
 @endsection
+@push('scripts')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+</script>
+<script>
+    @if(Session::has('message'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.warning("{{ session('message'),'Warning' }}");
+    @endif
+    @if(Session::has('success'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('success'),'Success'}}");
+    @endif
+
+    @if(Session::has('add'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('add') }}",'Success');
+    @endif
+
+    @if(Session::has('remove'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('remove') }}",'Remove success');
+    @endif
+</script>
+ 
+@endpush

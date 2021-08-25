@@ -2,7 +2,7 @@
               <div class="row">
                 <div class="col-lg-12">
                     <div class="count-job mb-35">
-                        <span>{{$jobsdata->total()}} Jobs found</span>
+                      <strong style="font-size:20px"><span>{{$jobsdata->total()}} Job exist</span></strong> 
                         <!-- Select job items start -->
                         {{-- <div class="select-job-items">
                             <span>Sort by</span>
@@ -26,7 +26,7 @@
             <a href="job_details.html"><img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/'.$job->image_logo)}}" alt=""></a>
         </div>
         <div class="job-tittle">
-            <a href="jobdetails/{{$job->id}}"><h4>{{$job->position}}</h4></a>
+            <a href="{{route('jobdetails',['id'=>$job->id,'eventid'=>$job->career_id])}}"><h4>{{$job->position}}</h4></a>
 
             <ul>
                 <li>{{$job->name}}</li>

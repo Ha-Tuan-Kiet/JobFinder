@@ -24,21 +24,18 @@
             <link rel="stylesheet" href="{{ asset('bootstrap/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
-
             <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-      
-{{-- 
-            	<!--     Fonts and icons     -->
+
+
+{{--            	<!--     Fonts and icons     -->--}}
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
-	<!-- CSS Files -->
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
-	<link href="{{ asset('bootstrap/css/gsdk-bootstrap-wizard.css')}}" rel="stylesheet" />
+{{--	<!-- CSS Files -->--}}
+{{--	<link href="{{ asset('bootstrap/css/gsdk-bootstrap-wizard.css')}}" rel="stylesheet" />--}}
 	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link href="{{ asset('bootstrap/css/demo.css')}}" rel="stylesheet" />
-             --}}
+{{--	<link href="{{ asset('bootstrap/css/demo.css')}}" rel="stylesheet" />--}}
+
 
    </head>
 
@@ -246,7 +243,7 @@
         <!--  Plugin for the Wizard -->
         <script src="assets/js/gsdk-bootstrap-wizard.js"></script>
 
-        <!--CV-->
+        <!--Add to Favorite Job-->
 
         @stack('scripts')
 
