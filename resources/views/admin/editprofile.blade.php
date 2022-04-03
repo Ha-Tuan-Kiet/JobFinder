@@ -14,19 +14,24 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 mb-5 mb-lg-0">
-                    @include('admin.adminnav') 
+                    @include('admin.adminnav')
                 </div>
                 <div class="col-lg-8">
                     <div class="blog_right_sidebar">
                         <div style="margin-top:20px;height:500px;border:1px solid;border-radius:.3rem;border-style:none;background-color:white; padding:10px">
-                            <form method="post" action="/admin/profile/update_profile/{{$profile->id}}">
+                            <form method="post" action="/admin/profile/update_profile/{{$profile->id}}" enctype="multipart/form-data">
+                                {{  csrf_field()  }}
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div style="text-align:center">
-                                <img style="width:100px;height:100px;" src="{{ asset('bootstrap/img/icon/job-list1.png')}}" alt=""></a>
+                                <img style="width:100px;height:100px;" src="{{URL::to($profile->url_avatar)}}" width="200" class="rounded" alt="">
                                 <p >{{$profile->name}}</p>
                                 <p >{{$profile->email}}</p>
+                                <div class="custom-file" >
+                                    <input type="file" class="custom-file-input " id="avatar" name="avatar" readonly >
+                                    <label for="avatar" class="custom-file-label">{{$profile->url_avatar}}</label>
+                                </div>
                             </div>
-                       
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="sel1">First Name</label>
@@ -50,7 +55,7 @@
                                     <label for="sel1">Gender</label>
                                     <input class="form-control" type="text" value="Female" id="example-number-input" disabled>
                                     @endif
-                                    
+
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="sel1">Address</label>
@@ -59,9 +64,9 @@
                             </div>
                             <button type="submit" class="btn btn-primary"> Update Profile</button>
                             </form>
-                            
+
                         </div>
-                   
+
                     </div>
                 </div>
             </div>
@@ -70,3 +75,14 @@
 </body>
 </html>
 @endsection
+
+@push('scripts')
+    <script>
+        $('#avatar').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+    </script>
+    @endpush

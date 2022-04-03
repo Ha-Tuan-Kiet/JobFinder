@@ -528,11 +528,11 @@
                                 <fieldset id="filed1">
                                     <div class="form-card" >
                                         <label for="text"><b>Title For Your CV</b></label>
-                                        <input type="text" id="title" name="title" placeholder="Title CV" />
+                                        <input type="text" id="title" name="title" placeholder="Title CV" required />
                                         <label><b>Contact Information</b></label>
-                                        <input type="text" id="position_apply" name="position_apply" placeholder="Position Apply" />
-                                        <input type="number" id="phone" name="phone" placeholder="Phone"  maxlength="10"/>
-                                        <input type="email" id="email" name="email" placeholder="Email"/>
+                                        <input type="text" id="position_apply" name="position_apply" placeholder="Position Apply" required/>
+                                        <input type="number" id="phone" name="phone" placeholder="Phone"  maxlength="10" required/>
+                                        <input type="email" id="email" name="email" placeholder="Email" required/>
                                         <div class="row">
                                             <label>Gender:</label>
                                             <div >
@@ -640,7 +640,6 @@
 
                         <div class="resume">
                             <div class="resume_left">
-
                                 <div class="resume_content">
                                     <div class="resume_item resume_info">
 

@@ -24,9 +24,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function PFcreate()
     {
         return View('profiles.create');
+
     }
 
     /**
@@ -35,7 +36,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'avatar' => 'required|mimes:jpg,jpeg,png,xlx,xls,pdf|max:2048',
@@ -43,9 +44,8 @@ class ProfileController extends Controller
             'full_name'=>'required',
             'address'=>'required'
         ]);
-
             $profile = new Profile();
-
+            $profile->user_id = auth()->id();
             $profile->full_name = $request->input('full_name');
             $profile->address = $request->input('address');
             $profile->birthday = $request->input('birthday');
@@ -53,10 +53,9 @@ class ProfileController extends Controller
             $filePath = $request->file('avatar')->storeAs('uploads', $fileName, 'public');
             //tham số thứ 3 là chỉ lưu trên disk 'public', tham số thứ 1:  lưu trong thư mục 'uploads' của disk 'public'
             $profile->avatar = '/storage/app/public/uploads/avatar' . $filePath;
-            $profile->user_id = auth()->id();
             $profile->save();
             // $filepath='uploads/'+$fileName --> $profile->avatar = 'storage/uploads/tenfile --> đường dẫn hình trong thư mục public
-            return redirect()->route('profiles.create');
+            return redirect()->back()->with('success','You success to create a profile');
         }
 
     /**
@@ -69,7 +68,6 @@ class ProfileController extends Controller
     {
         $user =  DB::table('users')->where('id', $id)->first();
         if ($profiles = DB::table('profiles')->where('user_id', '=',$id)->first()) {
-
             return view('profiles.show', ['profiles' => $profiles],['user' => $user]);
         } else if ($profiles = DB::table('profiles')) {
             return View('profiles.create',['id'=>$id])->with('messages','Done');
@@ -84,7 +82,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profile =Profile::find($id);
+        $profile = Profile::find($id);
         return View('profiles.edit',compact('profile'));
     }
 
@@ -115,9 +113,11 @@ class ProfileController extends Controller
             $profile->avatar = '/storage/' . $filePath;
             // $filepath='uploads/'+$fileName --> $profile->avatar = 'storage/uploads/tenfile --> đường dẫn hình trong thư mục public
             $profile->save(); //lưu
-            return back()//trả về trang trước đó
-            ->with('success', 'Profile has updated.')//lưu thông báo kèm theo để hiển thị trên view
-            ->with('file', $fileName);
+//            return back()//trả về trang trước đó
+//            ->with('success', 'Profile has updated.')//lưu thông báo kèm theo để hiển thị trên view
+//            ->with('file', $fileName);
+            return redirect()->back();
+            Toastr::success('Post added successfully :)','Success');
         }
 
     }
@@ -134,10 +134,5 @@ class ProfileController extends Controller
         $profile->delete();
     }
 
-//    public function profile_detail($id)
-//    {
-//        $profile =  DB::table('profiles')->where('id','=',$id)->get()->dd();
-//        return view('profiles.edit',compact('profile'));
-//    }
 
 }

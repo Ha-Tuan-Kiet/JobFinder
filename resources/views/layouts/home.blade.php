@@ -26,10 +26,11 @@
             <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css')}}">
             <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
 
-{{--            	<!--     Fonts and icons     -->--}}
+        {{--            	<!--     Fonts and icons     -->--}}
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 {{--	<!-- CSS Files -->--}}
 {{--	<link href="{{ asset('bootstrap/css/gsdk-bootstrap-wizard.css')}}" rel="stylesheet" />--}}
@@ -68,11 +69,11 @@
                                 <h4>Contact Info</h4>
                                 <ul>
                                     <li>
-                                    <p>Address :Your address goes
-                                        here, your demo address.</p>
+                                    <p>Address :218 Phan Dinh Phung, Ho Chi Minh, Viet Nam
+                                        </p>
                                     </li>
-                                    <li><a href="#">Phone : +8880 44338899</a></li>
-                                    <li><a href="#">Email : info@colorlib.com</a></li>
+                                    <li><a href="#">Phone : +84 389652154</a></li>
+                                    <li><a href="#">Email : JobFinder@gmail.com</a></li>
                                 </ul>
                             </div>
 
@@ -157,7 +158,7 @@
                          <div class="col-xl-10 col-lg-10 ">
                              <div class="footer-copy-right">
                                  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  <i class="fa fa-heart" aria-hidden="true"></i>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                              </div>
                          </div>

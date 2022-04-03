@@ -27,10 +27,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a9af9acf-483a-4bb1-9832-f9b00481d01e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CvController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_24_081031_cvs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cv/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/about.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +161,10 @@
       <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-snappy" />
+      <path value="$PROJECT_DIR$/vendor/brian2694/laravel-toastr" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sK9Lypf0WDei8KtFnn47RKoI5r" />
@@ -176,13 +180,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
-      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\bootstrap\img\icon" />
       <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads\avatar" />
+      <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\JobFinder\public\assets\img" />
       <recent name="C:\wamp64\www\JobFinder\public\storage\uploads" />
     </key>
   </component>
@@ -226,7 +231,23 @@
       <workItem from="1623296122626" duration="3617000" />
       <workItem from="1623313339502" duration="7518000" />
       <workItem from="1623334266621" duration="749000" />
-      <workItem from="1623390188090" duration="3694000" />
+      <workItem from="1623390188090" duration="5176000" />
+      <workItem from="1623398140185" duration="705000" />
+      <workItem from="1623739522433" duration="3921000" />
+      <workItem from="1624178341771" duration="2456000" />
+      <workItem from="1624257524791" duration="9529000" />
+      <workItem from="1624340033534" duration="3520000" />
+      <workItem from="1624344489279" duration="12086000" />
+      <workItem from="1624363984189" duration="11194000" />
+      <workItem from="1624536909017" duration="8369000" />
+      <workItem from="1624594602119" duration="11975000" />
+      <workItem from="1624882167918" duration="5683000" />
+      <workItem from="1624888369487" duration="11908000" />
+      <workItem from="1625051365191" duration="8891000" />
+      <workItem from="1625109606571" duration="632000" />
+      <workItem from="1626593439499" duration="657000" />
+      <workItem from="1626698412443" duration="5479000" />
+      <workItem from="1626741034352" duration="737000" />
     </task>
     <servers />
   </component>
@@ -246,10 +267,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1389" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1621326110453">
-      <screen x="-1920" y="0" width="1536" height="834" />
+    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1624887226552">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="-1389" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1621326110453" />
+    <state x="531" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1624887226552" />
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620997949502">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -264,12 +286,12 @@
     </state>
     <state x="-1371" y="172" key="FileChooserDialogImpl/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1620827250713" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1621931178273" />
-    <state x="-1316" y="341" key="NewPhpFileDialog" timestamp="1621329526344">
-      <screen x="-1920" y="0" width="1536" height="834" />
+    <state x="604" y="341" key="NewPhpFileDialog" timestamp="1623741274809">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="-1316" y="341" key="NewPhpFileDialog/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1621329526344" />
     <state x="-1316" y="343" key="NewPhpFileDialog/0.0.1536.834/-1920.2.1536.834@-1920.2.1536.834" timestamp="1620721945523" />
-    <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1620998821862" />
+    <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1623741274809" />
     <state x="-1559" y="152" key="Vcs.Push.Dialog.v2" timestamp="1620808511928">
       <screen x="-1920" y="2" width="1536" height="834" />
     </state>
@@ -282,9 +304,13 @@
       <screen x="-1920" y="0" width="1536" height="834" />
     </state>
     <state x="-1495" y="189" key="run.anything.popup/0.0.1536.834/-1920.0.1536.834@-1920.0.1536.834" timestamp="1622139257647" />
-    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1621005358064">
+    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1624608536620">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1621005358064" />
+    <state x="47" y="154" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1624608536620" />
+    <state x="491" y="329" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1624607571033">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="491" y="329" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.834@0.0.1536.834" timestamp="1624607571033" />
   </component>
 </project>

@@ -64,7 +64,7 @@ class AdminController extends Controller
         }
         return view('admin.postjob',compact('province','companies','careers'));
     }
-  
+
     public function updateJob(Request $request,$id){
         $province=Province::all();
         $companies=UserCompany::all();
@@ -139,7 +139,7 @@ class AdminController extends Controller
         ->join('cvs','cvs.id','=','candidate_applies.cv_id')
         ->join('user_companies','user_companies.id','=','candidate_applies.company_id')
         ->where('candidate_applies.id',"=",$id)
-        ->where('jobs.created_by','=',auth()->id())
+//        ->where('jobs.created_by','=',auth()->id())
         ->select('candidate_applies.*','jobs.position','users.name','profiles.full_name','user_companies.name as company_name','user_companies.email_company','user_companies.contact_name')
         ->first();
         return view('admin.job_application_details',compact('candidate'));
@@ -159,6 +159,7 @@ class AdminController extends Controller
             $message_from_employer->company_id=$request->input('company_id');
             $message_from_employer->user_id=$request->input('user_id');
             $message_from_employer->title=$request->input('title');
+            $message_from_employer->candidate_id=$request ->input('candidate_id');
             $message_from_employer->content=$request->input('content_response');
             $message_from_employer->save();
             $candidate=CandidateApply::find($request->input('id_for_update_status'));
@@ -168,7 +169,7 @@ class AdminController extends Controller
         }
         return view('admin.job_application',compact('candidates'));
     }
-    //Profile 
+    //Profile
     public function showProfile(){
         $profile=DB::table('employer_profiles')
         ->join('users','users.id','=','employer_profiles.user_id')
@@ -198,6 +199,10 @@ class AdminController extends Controller
             $update_profile->full_name=$request->input('full_name');
             $update_profile->date_of_birth=$request->input('birth_day');
             $update_profile->address=$request->input('address');
+            $fileName = $request->file('avatar')->getClientOriginalName();
+            $filePath = $request->file('avatar')->storeAs('uploads', $fileName, 'public');
+            //tham số thứ 3 là chỉ lưu trên disk 'public', tham số thứ 1:  lưu trong thư mục 'uploads' của disk 'public'
+            $update_profile->url_avatar = '/storage/' . $filePath;
             $update_profile->save();
             return redirect()->back();
         }
