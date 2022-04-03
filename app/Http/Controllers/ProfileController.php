@@ -116,7 +116,7 @@ class ProfileController extends Controller
 //            return back()//trả về trang trước đó
 //            ->with('success', 'Profile has updated.')//lưu thông báo kèm theo để hiển thị trên view
 //            ->with('file', $fileName);
-            return redirect()->back()->with('success', 'Update success');
+            return redirect()->back();
             Toastr::success('Post added successfully :)','Success');
         }
 

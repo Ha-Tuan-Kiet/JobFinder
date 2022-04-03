@@ -5,17 +5,6 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
     </script>
     <script>
-        @if(Session::has('success'))
-            toastr.options =
-            {
-                "closeButton" : true,
-                "progressBar" : true
-            }
-        toastr.success("{{ session('success'),'Success'}}");
-        @endif
-
-    </script>
-    <script>
         $("#avatar").on('change', function() {
             var filename = $(this).val();
             $(this).next('.custom-file-label').html(filename);

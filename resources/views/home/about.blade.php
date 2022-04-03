@@ -179,7 +179,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/132570663_1845225318966645_422959135729604986_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=u1nI4mMOeeIAX-mD1sY&_nc_ht=scontent-hkg4-1.xx&oh=492e300176cdf495cd6be45cd4a55f8f&oe=60D88370" alt="">
+                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.6435-1/p320x320/132570663_1845225318966645_422959135729604986_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=e6AxXnyWLAcAX-8OUqy&_nc_ht=scontent-sin6-2.xx&oh=f3370d4dbdfaa86b8c11c1f7731f1307&oe=60FA2973" alt="">
                                             <span>Nguyen Bao Anh Duy</span>
                                             <p>Creative Director</p>
                                         </div>
@@ -196,7 +196,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/175443103_1687063071496015_6728007488575508737_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=bgGYh0TzxpwAX9Ru-IE&_nc_ht=scontent-hkg4-1.xx&oh=bc5c712d4f4de9bf8336371df42eab39&oe=60D8B9AC" alt="">
+                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t1.6435-1/p240x240/175443103_1687063071496015_6728007488575508737_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=7206a8&_nc_ohc=3tDEot_I1PkAX8j6Xpf&_nc_ht=scontent-xsp1-2.xx&oh=d1a7fac326d45c7c6cae16c90dcdd1eb&oe=60FA1EB0" alt="">
                                             <span>Le Gia Huy</span>
                                             <p>Creative Director</p>
                                         </div>
@@ -213,7 +213,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/51600640_2340642532848931_8797303318222209024_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=skOcETViZqMAX8YVoFr&_nc_oc=AQnXHhy5yPdB_Old31hDyRWlU_ypCeitRqopMO9Mpcmtgx1fLOJ75dIPcPm_PnoxuSs&_nc_ht=scontent-hkg4-1.xx&oh=24a04cafea517be8b840d588975d9c0b&oe=60DA0917" alt="">
+                                            <img  class="rounded-circle" style="height: 130px; width: 132px" src="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.6435-9/51600640_2340642532848931_8797303318222209024_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=fA9iBCmaFkQAX9bLQ-b&_nc_oc=AQkxJwGOhQhmY0vQej_zM38hgGuISr7B2a21c1FKPwKN7F0M0CK07uvWYgLo00JF-QuXtlq3OkTLalP8g1cL5ec9&_nc_ht=scontent-xsp1-1.xx&oh=c204274f290856aee68cc9efe8e27622&oe=60F9AD17" alt="">
                                             <span>Ha Tuan Kiet</span>
                                             <p>Creative Director</p>
                                         </div>
